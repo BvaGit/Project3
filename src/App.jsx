@@ -1,11 +1,10 @@
 import React from 'react';
-import './App.scss';
+import Hello from './components/Hello/Hello.jsx';
+
 
 const App = () => {
     return (
-        <div className="b">
-            Hello REact
-        </div>
+        <Hello />
     )
 }
 
