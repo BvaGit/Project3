@@ -3,6 +3,8 @@ import Users from "./Users";
 import { getUsersFromApi } from "../../store/usersReducer/actions";
 import { getUsersFromStore } from "../../store/usersReducer/selectors";
 
+// заглушка
+
 const mapStateToProps = (state) => ({
   users: getUsersFromStore(state),
 });

@@ -1,10 +1,10 @@
-import { SET_USERS } from "./actions";
+import { SET_USERS } from "./constants";
 
 const initialState = {
   users: [],
 };
 
-const usersReducer = (state = initialState, action) => {
+export const usersReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_USERS:
       return {
@@ -15,5 +15,3 @@ const usersReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-export default usersReducer;
