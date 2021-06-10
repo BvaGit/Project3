@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "compilerOptions": {
+    "baseUrl": "src"
+  },
+  "include": ["src"],
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack --mode development",

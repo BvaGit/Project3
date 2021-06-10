@@ -1,5 +1,5 @@
 import React from 'react';
-import Hello from './components/Hello/Hello.jsx';
+import Hello from '../Hello';
 
 
 const App = () => {

@@ -5,7 +5,7 @@ const Hello = () => {
     return (
         <div className="hello">
             Hello REact
-            <img src="/src/img/react.png" />
+            <img src="/src/public/img/react.png" />
         </div>
     )
 }

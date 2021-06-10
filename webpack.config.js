@@ -11,11 +11,13 @@ module.exports = {
         filename: "[name].[hash].js"
     },
     devServer: {
-        port: 8080
+        port: 8080,
+        historyApiFallback: true,
     },
     resolve: {
         extensions: ['.js', '.jsx']
     },
+    
     module: {
         rules: [
             {
