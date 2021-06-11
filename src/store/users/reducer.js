@@ -1,4 +1,4 @@
-import { SET_USERS } from "./actionTypes";
+import { SET_USERS } from "/src/store/users/actionTypes.js";
 
 const initialState = {
   users: [],

@@ -1,6 +1,7 @@
 import React from "react";
-import "./App.scss";
 import Users from "../Users";
+
+import "./App.scss";
 
 const App = () => {
   return <Users />;

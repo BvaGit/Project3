@@ -4,8 +4,8 @@ import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 
-import rootReducer from "./store/rootReducer";
-import App from "./components/App";
+import rootReducer from "/src/store/rootReducer.js";
+import App from "/src/components/App";
 
 let devTools = (f) => f;
 if (window.__REDUX_DEVTOOLS_EXTENSION__) {

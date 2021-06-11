@@ -4,7 +4,7 @@ import {
   MESSAGE_RECEIVED,
   ADD_USER,
   USERS_LIST,
-} from "./constants";
+} from "./actionTypes";
 
 const initialState = {
   users: [],
@@ -35,9 +35,7 @@ export const roomsReducer = (state = initialState, action) => {
         id: action.payload
       };
     case USERS_LIST:
-      return {
-        action.payload
-      };
+      return state;
     default:
       return state;
   }
