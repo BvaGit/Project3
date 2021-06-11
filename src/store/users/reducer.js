@@ -1,4 +1,4 @@
-import { SET_USERS } from "./constants";
+import { SET_USERS } from "./actionTypes";
 
 const initialState = {
   users: [],

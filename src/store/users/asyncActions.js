@@ -1,9 +1,4 @@
-import { SET_USERS } from "./constants";
-
-export const setUsers = (payload) => ({
-  type: SET_USERS,
-  payload,
-});
+import { setUsers } from "./actions";
 
 export const getUsersFromApi = () => {
   return (dispatch, state) => {

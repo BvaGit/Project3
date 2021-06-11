@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import Users from "./Users";
-import { getUsersFromApi } from "../../store/usersReducer/actions";
-import { getUsersFromStore } from "../../store/usersReducer/selectors";
+import { getUsersFromApi } from "../../store/users/asyncActions";
+import { getUsersFromStore } from "../../store/users/selectors";
 
 // заглушка
 
