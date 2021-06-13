@@ -17,11 +17,12 @@ class Auth extends Component {
                     </div>
                     <div className="auth__main">
                         <div className="auth__container">
-                            <Input label="Login" type="text" placeholder="Enter your login..."/>
-                            <Input label="Password" type="password" placeholder="Enter your password..."/>
+                            <Input label="Login" type="text" placeholder="Enter your login"/>
+                            <Input label="Password" type="password" placeholder="Enter your password"/>
                             <div className="auth__buttons">
                                 <Button type="button" text="SIGN IN"/>
                             </div>
+                            <p className="auth__link">Create new account</p>
                             <NavLink to='/registration' className="auth__link">
                                 Sign up
                             </NavLink>
