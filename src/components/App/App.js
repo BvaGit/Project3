@@ -10,7 +10,6 @@ function App () {
       <Route exact path='/auth' component={Auth}/>
       <Route exact path='/registration' component={Registration}/>
       <Route exact path='/' component={Auth}/>
-      {/* <Route path='/main' component={Main}/> */}
     </Router>
   )
 }
