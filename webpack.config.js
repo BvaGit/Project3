@@ -68,7 +68,10 @@ module.exports = {
     ],
   },
   plugins: [
-    ...pages.map((config) => new HTMLWebpackPlugin(config)),
+    ...pages.map((config) => new HTMLWebpackPlugin({
+      config, 
+      favicon: '/public/assets/images/logo.png'
+    })),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [
