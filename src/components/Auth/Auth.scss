@@ -1,28 +1,30 @@
+@import '../../utils/variables.scss';
+
 .auth {
     height: 100vh;
-    &__header {
-        height: 20%;
-        background-color: navy;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    &__container {
+        width: 80%;
+        margin: 0 auto;
     }
-    &__footer {
-        height: 80%;
-        background-color: #ccc;
+    &__holder {
+        margin: 0 auto;
+        width: 800px;
+        height: 100%;
+    }
+    &__info {
+        width: 600px;
+        height: fit-content;
     }
     &__main {
-        position: absolute;
-        top: 160px;
-        left: 50%;
-        transform: translateX(-50%);
         width: 600px;
-        height: 500px;
-        background: #fff;
+        height: fit-content;
+        background: $background;
         border-radius: 12px;
-    }
-    &__h {
-        margin: 20px;
-        height: 10%;
-        text-align: center;
-        cursor: default;
     }
     &__buttons {
         display: flex;
@@ -30,6 +32,12 @@
         justify-content: space-around;
         align-items: center;
         height: 20%;
+    }
+    &__link {
+        display: block;
+        width: 100%;
+        text-align: right;
+        color: $link-color;
     }
 }
 .container {
