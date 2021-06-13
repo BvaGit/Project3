@@ -1,0 +1,37 @@
+.auth {
+    height: 100vh;
+    &__header {
+        height: 20%;
+        background-color: navy;
+    }
+    &__footer {
+        height: 80%;
+        background-color: #ccc;
+    }
+    &__main {
+        position: absolute;
+        top: 160px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 600px;
+        height: 500px;
+        background: #fff;
+        border-radius: 12px;
+    }
+    &__h {
+        margin: 20px;
+        height: 10%;
+        text-align: center;
+        cursor: default;
+    }
+    &__buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        height: 20%;
+    }
+}
+.container {
+    padding: 0 20px;
+}
