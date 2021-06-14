@@ -20,7 +20,7 @@ class UserController {
         }
     }
 
-    async getUserByLoginAndPassword(req, res){
+    async login(req, res){
         const { login, password } = req.body;
         try{
             const getUser = await connectPg.query(`SELECT * FROM users WHERE login='${login}' AND password='${password}'`);
@@ -37,9 +37,14 @@ class UserController {
         }
     }
 
-    async getUser(req, res){
-        const get = await connectPg.query(`SELECT * from users`);
-        res.json(get.rows);
+    async getUsers(req, res){
+        try {
+            const get = await connectPg.query(`SELECT * from users`);
+            res.json(get.rows);
+        } catch (e) {
+            console.log(e);
+        }
+
     }
 }
 
