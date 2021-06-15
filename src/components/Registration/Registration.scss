@@ -2,10 +2,7 @@
 
 .req {
     height: 100vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    @include flex(row, center, center);
     &__container {
         width: 80%;
         margin: 0 auto;
@@ -26,10 +23,7 @@
         border-radius: 12px;
     }
     &__buttons {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
+        @include flex(row, space-around, center);
         height: 20%;
     }
     &__link {

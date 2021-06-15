@@ -2,9 +2,7 @@
 
 .inputs {
     &__label {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        @include flex(column, center, flex-start);
         width: 100%;
         height: 30%;
         font-size: 18px;

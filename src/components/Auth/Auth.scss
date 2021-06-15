@@ -1,12 +1,10 @@
 @import '../../utils/variables.scss';
+
 $width: 600px;
 
 .auth {
+    @include flex(row, center, center);
     height: 100vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
 
     &__container {
         width: 80%;
@@ -28,10 +26,7 @@ $width: 600px;
         border-radius: 12px;
     }
     &__buttons {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
+        @include flex(row, space-around, center);
         height: 20%;
     }
     &__link {
