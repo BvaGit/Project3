@@ -1,10 +1,13 @@
 import React from "react";
-import "./App.scss";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import Auth from '../Auth';
 import Registration from '../Registration';
 
+import "./App.scss";
+
 const App = () => {
+  
   return (
     <Router>
       <Route exact path='/auth' component={Auth}/>
