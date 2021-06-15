@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Title.scss';
 
-class Title extends Component {
-    render () {
-        const { textBig, textSmall} = this.props;
+const Title = (props) => {
+    const { textBig, textSmall} = props;
         return (
             <div className="title">
                 <h1 className="title__big">{textBig}</h1>
@@ -11,7 +10,6 @@ class Title extends Component {
                 <h2 className="title__small">{textSmall}</h2>
             </div>
         )
-    }
 }
 
 export default Title;

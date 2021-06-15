@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Logo.scss';
 
-class Logo extends Component {
-    render () {
-        const { src, alt} = this.props;
+const Logo = (props) => {
+    const { src, alt} = props;
         return (
             <img src={src} alt={alt} className="logo"/>
         )
-    }
 }
 
 export default Logo;

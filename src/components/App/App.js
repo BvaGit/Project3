@@ -4,12 +4,12 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Auth from '../Auth';
 import Registration from '../Registration';
 
-function App () {
+const App = () => {
   return (
     <Router>
       <Route exact path='/auth' component={Auth}/>
       <Route exact path='/registration' component={Registration}/>
-      <Route exact path='/' component={Auth}/>
+      <Route path='/' component={Auth}/>
     </Router>
   )
 }

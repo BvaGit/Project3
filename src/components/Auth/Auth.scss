@@ -1,4 +1,5 @@
 @import '../../utils/variables.scss';
+$width: 600px;
 
 .auth {
     height: 100vh;
@@ -17,11 +18,11 @@
         height: 100%;
     }
     &__info {
-        width: 600px;
+        width: $width;
         height: fit-content;
     }
     &__main {
-        width: 600px;
+        width: $width;
         height: fit-content;
         background: $background;
         border-radius: 12px;

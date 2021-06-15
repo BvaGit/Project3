@@ -7,6 +7,7 @@ const pages = [
   {
     template: path.resolve(__dirname, "src/index.html"),
     filename: "index.html",
+    favicon: path.resolve(__dirname, "public/assets/images/logo.png")
   },
 ];
 const getFileLoader = (regExp) => ({
@@ -68,10 +69,7 @@ module.exports = {
     ],
   },
   plugins: [
-    ...pages.map((config) => new HTMLWebpackPlugin({
-      config, 
-      favicon: '/public/assets/images/logo.png'
-    })),
+    ...pages.map((config) => new HTMLWebpackPlugin(config)),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [

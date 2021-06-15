@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Input.scss';
 
-class Input extends Component {
-    render () {
-        const { label, type, placeholder } = this.props;
+const Input = (props) => {
+    const { label, type, placeholder } = props;
         return (
             <label className="inputs__label">{label}
                 <input 
@@ -13,6 +12,6 @@ class Input extends Component {
                 />
             </label>
         )
-    }
 }
+
 export default Input;
