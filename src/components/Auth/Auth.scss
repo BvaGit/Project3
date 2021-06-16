@@ -1,11 +1,8 @@
 @import '../../utils/variables.scss';
-
 $width: 600px;
-
-.auth {
-    @include flex(row, center, center);
+.gen {
     height: 100vh;
-
+    @include flex(row, center, center);
     &__container {
         width: 80%;
         margin: 0 auto;

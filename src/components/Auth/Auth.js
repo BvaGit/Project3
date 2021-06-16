@@ -11,21 +11,21 @@ import './Auth.scss';
 const Auth = () => {
 
     return(
-        <div className="auth__holder">
-            <div className="auth">
-                <div className="auth__info">
+        <div className="gen__holder">
+            <div className="gen">
+                <div className="gen__info">
                     <Logo src="../../public/assets/images/logo.png" alt="logo"/>
                     <Title textBig="SIGN IN" textSmall="YOUR ACCOUNT"/>
                 </div>
-                <div className="auth__main">
-                    <div className="auth__container">
+                <div className="gen__main">
+                    <div className="gen__container">
                         <Input label="Login" type="text" placeholder="Enter your login"/>
                         <Input label="Password" type="password" placeholder="Enter your password"/>
-                        <div className="auth__buttons">
+                        <div className="gen__buttons">
                             <Button type="button" text="SIGN IN"/>
                         </div>
-                        <p className="auth__link">Create new account</p>
-                        <NavLink to='/registration' className="auth__link">
+                        <p className="gen__link">Create new account</p>
+                        <NavLink to='/registration' className="gen__link">
                             Sign up
                         </NavLink>
                     </div>
