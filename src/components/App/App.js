@@ -1,10 +1,12 @@
 import React from "react";
-import Users from "../Users";
+import MainPage from "../MainPage";
+// import Users from "../Users";
 
 import "./App.scss";
 
 const App = () => {
-  return <Users />;
+  return <MainPage />
+  // <Users />;
 };
 
 export default App;

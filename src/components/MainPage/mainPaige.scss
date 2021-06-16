@@ -1,0 +1,21 @@
+@import '../../utils/variables.scss';
+
+.header{
+    background: $button-color;
+    color: $button-text;
+    padding: $padding_lg;
+    @include flex(row, center,_);
+    &__appName{
+        margin: auto 0 auto 10px;
+    }
+    &__logo{
+        width: 60px;
+        text-align: center;
+    }
+}
+.rooms__box{
+    width: 30%;
+    min-height: 90%;
+    position: absolute;
+    border: $border solid 1px;
+}
