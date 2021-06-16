@@ -6,7 +6,7 @@ import Button from '../Button';
 import Logo from '../Logo';
 import Title from '../Title';
 
-import '../Auth/Auth.scss';
+import './Registration.scss';
 
 const Registration = () => {
     
