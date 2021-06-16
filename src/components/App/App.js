@@ -10,7 +10,6 @@ const App = () => {
   
   return (
     <Router>
-      <Route exact path='/auth' component={Auth}/>
       <Route exact path='/registration' component={Registration}/>
       <Route path='/' component={Auth}/>
     </Router>
