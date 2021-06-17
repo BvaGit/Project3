@@ -3,7 +3,7 @@
 .singleroom{
     background:rgb(214, 214, 214);
     margin: 3px;
-    padding: 10px;
+    padding: $padding_md;
     @include flex(_, space-between,_);
     &__info{
         @include flex(_,_,_);
@@ -15,7 +15,7 @@
     }
     &__roomName{
         align-self: center;
-        margin: 0 0 0 5px;
+        margin-left: $margin_sm
     }
     &__messages{
         @include flex(_,_,_);

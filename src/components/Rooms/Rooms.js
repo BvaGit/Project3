@@ -1,5 +1,7 @@
 import React from 'react';
+
 import SingleRoom from '../SingleRoom';
+
 import './rooms.scss';
 
 

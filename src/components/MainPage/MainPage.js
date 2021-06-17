@@ -1,7 +1,9 @@
 import React from 'react';
+
 import RoomsHeader from '../RoomsHeader'
 import Rooms from '../Rooms'
 import AddRoom from '../AddRoom';
+
 import './mainPaige.scss'
 
 const MainPage = () => (

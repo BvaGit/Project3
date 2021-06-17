@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './roomsHeader.scss'
 
 const RoomsHeader = () => (

@@ -6,7 +6,9 @@
     padding: $padding_lg;
     @include flex(row, center,_);
     &__appName{
-        margin: auto 0 auto 10px;
+        margin-right: $margin_md;
+        margin-top: auto;
+        margin-bottom: auto;
     }
     &__logo{
         width: 60px;
