@@ -1,1 +1,18 @@
 @import '../Auth/Auth.scss';
+
+.inputError {
+    background: $error;
+    border: 1px solid $error-border;
+    &:focus {
+        outline: none;
+        border: 1.5px solid $error-border;
+    }
+}
+
+.inputErr {
+    position: absolute;
+    text-align: right;
+    color: red;
+    width: 22%;
+    font-size: 15px;
+}

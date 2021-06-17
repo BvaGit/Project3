@@ -11,4 +11,7 @@
     &:hover {
         background: $button-hover;
     }
+    &:disabled {
+        background: $disabled;
+    }
 }
