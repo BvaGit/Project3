@@ -2,6 +2,7 @@ const express = require("express");
 const userRouter = require("./routers/user.router");
 const chatRouter = require("./routers/chat.router");
 const messageRouter = require("./routers/message.router");
+const messageStatusRouter = require("./routers/message-status.router");
 
 const PORT = 3000;
 
@@ -22,5 +23,6 @@ app.use(express.json());
 app.use("/api/user", userRouter);
 app.use("/api", chatRouter);
 app.use("/api", messageRouter);
+app.use("/api", messageStatusRouter);
 
 app.listen(PORT, () => console.log(`server started ${PORT}`));

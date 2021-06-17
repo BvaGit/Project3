@@ -1,5 +1,4 @@
 const connectPg = require("../connectPostgreSQL/connectPg");
-
 class MessageController {
   async getMessagesByChat(req, res) {
     try {
@@ -14,28 +13,14 @@ class MessageController {
   }
 
   async createMessage(req, res) {
-    // try {
-    //   const { message_id, chat_id, content, date_create } = req.body;
-    //   const queryAll = `SELECT * FROM messages WHERE id = ${req.params.id}`;
-    //   const queryCreate = await connectPg.query(
-    //     `INSERT INTO messages (id, message_id, chat_id, content, date_create) VALUES (${id}, ${message_id}, ${chat_id}, '${content}', '${date_create}')`
-    //   );
-    //   const result = await connectPg.query(queryAll);
-    //   res.json(queryCreate.rows);
-    //   console.log(queryCreate.rows);
-    // } catch (e) {
-    //   console.log(e);
-    // }
-
     try {
-      const { id, message_id, chat_id, content, date_create } = req.body;
-      // const id = req.params.id;
-      const queryAll = `SELECT * FROM messages`;
-      const queryCreate = `INSERT INTO messages (id, message_id, chat_id, content, date_create) VALUES (${id}, ${message_id}, ${chat_id}, '${content}', '${date_create}')`;
-      await connectPg.query(queryCreate);
-      const result = await connectPg.query(queryAll);
-      res.json(result.rows);
-      console.log(result.rows);
+      const { content, date_create } = req.body;
+      const id = req.params.id;
+      const chat_id = req.params.chat_id;
+      const create = await connectPg.query(
+        `INSERT INTO messages (id, chat_id, content, date_create) VALUES (${id}, ${chat_id}, '${content}', '${date_create}') RETURNING *`
+      );
+      res.json(create.rows);
     } catch (e) {
       console.log(e);
     }

@@ -20,6 +20,19 @@ class ChatController {
       console.log(e);
     }
   }
+
+  async createChat(req, res) {
+    try {
+      const { name } = req.body;
+      const id = req.params.id;
+      const create = await connectPg.query(
+        `INSERT INTO chat (id, name) VALUES (${id}, '${name}') RETURNING *`
+      );
+      res.json(create.rows);
+    } catch (e) {
+      console.log("Something went wrong (:");
+    }
+  }
 }
 
 module.exports = new ChatController();

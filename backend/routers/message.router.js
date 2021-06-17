@@ -8,6 +8,6 @@ routerMessage.get(
   authUserMiddle,
   messageController.getMessagesByChat
 );
-routerMessage.post("/messages", messageController.createMessage);
+routerMessage.post("/messages/:chat_id/:id", messageController.createMessage);
 
 module.exports = routerMessage;

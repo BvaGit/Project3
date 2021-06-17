@@ -22,7 +22,7 @@ CREATE TABLE participants
 CREATE TABLE messages
 (
   id INTEGER REFERENCES users,
-"message_id" INTEGER PRIMARY KEY NOT NULL,
+"message_id" BIGSERIAL PRIMARY KEY NOT NULL,
 "chat_id" INTEGER REFERENCES chat,
   content CHARACTER VARYING (200),
   "date_create" date NOT NULL
@@ -34,3 +34,5 @@ CREATE TABLE message_status
 "message_id" INTEGER REFERENCES messages,
 "date_last_read" date NOT NULL
 );
+
+UPDATE message_status SET date_last_read ='${date_last_read}' WHERE id = ${id} AND message_id = ${message_id}
