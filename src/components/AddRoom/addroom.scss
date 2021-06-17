@@ -1,0 +1,23 @@
+@import '../../utils/variables.scss';
+
+$button-size: 30px;
+
+.add-room{
+    padding: 2px;
+    font-size: $button-size;
+    font-weight: bold;
+    width: $button-size;
+    height: $button-size;
+    color:$background;
+    border-radius: 50%;
+    line-height: $button-size;
+    text-align: center; 
+    background: $button-color;
+    margin-right: $margin_md;
+    margin-left: auto;
+}
+.add-room:hover{
+    background: $border;
+    box-shadow: 0 14px 28px $button-color, 0 10px 10px $button-color;
+    transition-duration: 0.3s;
+}

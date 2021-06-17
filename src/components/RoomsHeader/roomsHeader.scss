@@ -1,0 +1,54 @@
+@import '../../utils/variables.scss';
+
+.rooms-header{
+    @include flex(column,_,_);
+    padding: $padding_md;
+    &__userinfo{
+        @include flex(_,_,_);
+    }
+    &__userName{
+        align-self: center;
+        margin-left: $margin_sm;
+    }
+    &__avatar{
+        width: 40px;
+        border: $border solid 1px;
+        border-radius: 50%;
+    }
+    &__usermenu{
+        @include flex(_,space-between,_);
+    }
+    &__settings{
+        cursor: pointer;
+        -webkit-transition: -webkit-transform 0.8s ease-in-out;
+        transition: transform 0.8s ease-in-out;
+    }
+    &__settings:hover{
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+    &__logout{
+        cursor: pointer;
+        transition: transform 0.8s ease-in-out;
+        margin: 0 0 0 5px;
+    }
+    &__logout:hover{
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+    }
+    &__search{
+        margin: 0 auto;
+        padding: $padding_md;
+        width: 100%;
+    }
+    &__input{
+        border: none;
+        padding: $padding_md;
+        background:rgb(226, 245, 253);
+        width: 85%;
+    }
+    &__input::placeholder{
+        color: $title-color;
+        font-style: italic;
+    }
+}
