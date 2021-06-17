@@ -1,10 +1,20 @@
 const connectPg = require("../connectPostgreSQL/connectPg");
 const { message } = require("../support/constants");
-class MessageController {
-  async getMessagesByChat(req, res) {
+
+class ParticipantsController {
+  async getParticipants(req, res) {
+    try {
+      const get = await connectPg.query(`SELECT * FROM participants`);
+      res.status(200).json(get.rows);
+    } catch (e) {
+      res.status(400).json(message.abstractErr);
+    }
+  }
+
+  async getParticipantsById(req, res) {
     try {
       const get = await connectPg.query(
-        `SELECT * FROM messages WHERE (chat_id = ${req.params.chat_id})`
+        `SELECT * FROM participants WHERE (id = ${req.params.id})`
       );
       res.status(200).json(get.rows);
     } catch (e) {
@@ -12,13 +22,12 @@ class MessageController {
     }
   }
 
-  async createMessage(req, res) {
+  async addParticipant(req, res) {
     try {
-      const { content, date_create } = req.body;
       const id = req.params.id;
       const chat_id = req.params.chat_id;
       const create = await connectPg.query(
-        `INSERT INTO messages (id, chat_id, content, date_create) VALUES (${id}, ${chat_id}, '${content}', '${date_create}') RETURNING *`
+        `INSERT INTO participants (id, chat_id) VALUES (${id}, '${chat_id}') RETURNING *`
       );
       res.status(200).json(create.rows);
     } catch (e) {
@@ -27,4 +36,4 @@ class MessageController {
   }
 }
 
-module.exports = new MessageController();
+module.exports = new ParticipantsController();

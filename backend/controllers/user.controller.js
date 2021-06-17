@@ -9,7 +9,6 @@ class UserController {
       );
       res.status(201).json("user created successfully");
     } catch (e) {
-      console.log(e);
       res.status(400).json("user creation failed");
     }
   }
@@ -30,7 +29,6 @@ class UserController {
       }
     } catch (e) {
       res.json("No");
-      console.log(e);
     }
   }
 

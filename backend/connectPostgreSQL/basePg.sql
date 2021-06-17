@@ -34,5 +34,3 @@ CREATE TABLE message_status
 "message_id" INTEGER REFERENCES messages,
 "date_last_read" date NOT NULL
 );
-
-UPDATE message_status SET date_last_read ='${date_last_read}' WHERE id = ${id} AND message_id = ${message_id}

@@ -1,4 +1,3 @@
- module.exports = {
-     secret: "TOP_SECRET_KEY"
- }
-
+module.exports = {
+  secret: "TOP_SECRET_KEY",
+};
