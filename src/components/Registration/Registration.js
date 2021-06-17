@@ -129,7 +129,7 @@ const Registration = () => {
                             />
                         </div>
                         <p className="gen__link">Already have an account?</p>
-                        <NavLink to='/auth' className="gen__link">
+                        <NavLink to='/' className="gen__link">
                             Sign in
                         </NavLink>
                     </div>

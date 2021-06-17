@@ -1,10 +1,5 @@
-const Pool = require('pg').Pool;
-const connectPg = new Pool({
-    user: "postgres",
-    password: "1111",
-    host: "localhost",
-    port: 5432,
-    database: "blabber"
-}) 
+const Pool = require("pg").Pool;
+const { marina } = require("./constants");
+const connectPg = new Pool(marina);
 
 module.exports = connectPg;
