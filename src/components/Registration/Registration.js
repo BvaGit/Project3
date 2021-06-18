@@ -95,7 +95,7 @@ const Registration = () => {
                             minLength="1" 
                             maxLength="30" 
                             onBlur={handleBlur}
-                            onChange={handlePassword}
+                            onChange={handleLogin}
                         />
                         {(loginDirty && loginError) && <div className="inputErr">{loginError}</div>}
                         <Input 
@@ -120,7 +120,7 @@ const Registration = () => {
                             minLength="1" 
                             maxLength="30" 
                             onBlur={handleBlur}
-                            onChange={handlePassword}
+                            onChange={handleRepeatPassword}
                         />
                         {(repeatPasswordDirty && repeatPasswordError) && <div className="inputErr">{repeatPasswordError}</div>}
                         <div className="gen__buttons">

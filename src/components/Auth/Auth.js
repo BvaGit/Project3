@@ -95,7 +95,7 @@ const Auth = () => {
                             minLength="1" 
                             maxLength="30"
                             onBlur={handleBlur}
-                            onChange={handleLogin}
+                            onChange={handlePassword}
                         />
                         {(passwordDirty && passwordError) && <div className="inputErr">{passwordError}</div>}
                         <div className="gen__buttons">
