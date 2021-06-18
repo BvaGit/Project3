@@ -5,6 +5,7 @@ import Input from '../Input';
 import Button from '../Button';
 import Logo from '../Logo';
 import Title from '../Title';
+import validation from '../constants/validation'
 
 import './Registration.scss';
 
@@ -14,10 +15,11 @@ const Registration = () => {
     const [loginDirty, setLoginDirty] = useState(false);
     const [passwordDirty, setPasswordDirty] = useState(false);
     const [repeatPasswordDirty, setRepeatPasswordDirty] = useState(false);
-    const [loginError, setLoginError] = useState('login cant be empty');
-    const [passwordError, setPasswordError] = useState('password cant be empty');
+    const [loginError, setLoginError] = useState('Login can\'t be empty');
+    const [passwordError, setPasswordError] = useState('Password can\'t be empty');
     const [repeatPasswordError, setRepeatPasswordError] = useState('password cant be empty');
     const [formValid, setFormValid] = useState(false);
+    const {loginValidation, passwordValidation} = validation;
 
     useEffect(() => {
 
@@ -40,24 +42,24 @@ const Registration = () => {
             case 'repeatPassword': 
                 setRepeatPasswordDirty(true);
                 break;
+            default:
+                console.error('error');
         }
     }
     const handleLogin = (e) => {
         setLogin(e.target.value);
-        const log = /^[a-zA-z]{1}[a-zA-Z]{3,7}$/;
 
-        if (!log.test(String(e.target.value).toLowerCase())) {
-            setLoginError('от 3х символов до 8, запрещен ввод спец. символов, не пустая строка, без пробелов');
+        if (!loginValidation.test(String(e.target.value).toLowerCase())) {
+            setLoginError('min 3 max 8, no spases, no empties');
         } else {
             setLoginError('');
         }
     }
     const handlePassword = (e) => {
         setPassword(e.target.value);
-        const pass = /^(?=.*[a-z])(?=.*\d)[a-z\d]{6,12}$/;
 
-        if (!pass.test(String(e.target.value).toLowerCase())) {
-            setPasswordError('от 6 символов до 12, не пустая строка, без пробелов, обязательно с буквой и цифрой');
+        if (!passwordValidation.test(String(e.target.value).toLowerCase())) {
+            setPasswordError('min 6 max 12, not empty, no spases, include digital');
             if (!e.target.value) {
                 setPasswordError('password cant be empty')
             }
@@ -92,8 +94,8 @@ const Registration = () => {
                             placeholder="Enter your login" 
                             minLength="1" 
                             maxLength="30" 
-                            onBlur={e => handleBlur(e)}
-                            onChange={e => handleLogin(e)}
+                            onBlur={handleBlur}
+                            onChange={handlePassword}
                         />
                         {(loginDirty && loginError) && <div className="inputErr">{loginError}</div>}
                         <Input 
@@ -105,8 +107,8 @@ const Registration = () => {
                             placeholder="Enter your password" 
                             minLength="1" 
                             maxLength="30" 
-                            onBlur={e => handleBlur(e)}
-                            onChange={e => handlePassword(e)}
+                            onBlur={handleBlur}
+                            onChange={handlePassword}
                         />
                         {(passwordDirty && passwordError) && <div className="inputErr">{passwordError}</div>}
                         <Input 
@@ -117,8 +119,8 @@ const Registration = () => {
                             placeholder="Confirm your password" 
                             minLength="1" 
                             maxLength="30" 
-                            onBlur={e => handleBlur(e)}
-                            onChange={e => handleRepeatPassword(e)}
+                            onBlur={handleBlur}
+                            onChange={handlePassword}
                         />
                         {(repeatPasswordDirty && repeatPasswordError) && <div className="inputErr">{repeatPasswordError}</div>}
                         <div className="gen__buttons">

@@ -2,8 +2,7 @@ import React from 'react';
 
 import './Button.scss';
 
-const Button = (props) => {
-    const { type, text, disabled } = props;
+const Button = ({ type, text, disabled }) => {
     
     return (
         <button 
