@@ -8,14 +8,14 @@ import MainPage from "../MainPage";
 import "./App.scss";
 
 const App = () => {
+
   return (
     <Router>
+      <Route exact path='/main' component={MainPage}/>
       <Route exact path='/registration' component={Registration}/>
-      <Route path='/' component={Auth}/>
-      <MainPage />
+      <Route exact path='/' component={Auth}/>
     </Router>
   )
 }
-
 
 export default App;

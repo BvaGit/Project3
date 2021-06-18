@@ -2,11 +2,14 @@ import React from 'react';
 
 import './Button.scss';
 
-const Button = (props) => {
-    const {type, text} = props;
+const Button = ({ type, text, disabled }) => {
     
     return (
-        <button type={type} className="button">
+        <button 
+            type={type} 
+            className="button"
+            disabled={disabled}
+        >
             {text}
         </button>
     )
