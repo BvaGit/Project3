@@ -27,12 +27,11 @@ const RoomsHeader = () => {
                     </IntlProvider>
                 </div>
                 <div>
-                    <select onChange={handleChange} defaultValue={locale}>
                         {['en', 'ru'].map((x) => (
-                            <option key={x}>{x}</option>
+                    <label key={x} onChange={handleChange} defaultValue={locale}>{x}
+                            <input type="radio" id={x} key={x} value={x} name="local"/>
+                    </label>
                         ))}
-                    </select>
-                    
                 </div>
                 <div>
                     <img className="rooms-header__settings" src="../../../public/assets/images/seting_2.png"/>
@@ -40,10 +39,19 @@ const RoomsHeader = () => {
                 </div>
             </div>
             <div className="rooms-header__search">
-                <input 
-                className="rooms-header__input" 
-                
-                placeholder="&#128269; search ..."/>
+                <IntlProvider locale={locale} messages={message[locale]}>
+                    <FormattedMessage 
+                        id="search" 
+                        defaultMessage="Welcome" 
+                        value={{ locale }}>
+                            {placeholder=>  
+                                <input 
+                                className="rooms-header__input" 
+                                placeholder={placeholder}/>
+                            }
+                    </FormattedMessage>
+                        
+                </IntlProvider>
             </div>
         </div>
     )
