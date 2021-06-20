@@ -1,0 +1,52 @@
+@import '../../utils/variables.scss';
+
+.content{
+    @include flex(column,_,_);
+    font-size: 15px;
+    &__input{
+        border: none;
+        padding: $padding_md;
+        background:rgb(226, 245, 253);
+        width: 100%;
+    }
+    &__input::placeholder{
+        color: $title-color;
+        font-style: italic;
+    }
+    &__item-header{
+        font-weight: bold;
+        margin-right: $margin_md;
+    }
+}
+.content >div{
+    margin: $margin_sm 0;
+}
+.content-language{
+    display: flex;
+    &__child{
+        margin: auto 10px auto 3px
+    }
+}
+.content-theme{
+    @include flex(_,_,_);
+    &__child{
+        margin: auto $margin_md auto 3px
+    }
+}
+.content-reset__header{
+    margin-right: $margin_md;
+}
+.button-box{
+    @include flex(_,space-between,_);
+}
+.button {
+    width: 45%;
+    height: 35px;
+    margin: $margin_md 0;
+    cursor: pointer;
+    background: $button-color;
+    color: $button-text;
+    &:hover {
+        background: $button-hover;
+    }
+}

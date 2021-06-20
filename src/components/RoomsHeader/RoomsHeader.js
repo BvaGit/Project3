@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Settings from '../Settings'
+
 import './roomsHeader.scss'
 
 const RoomsHeader = () => (
@@ -9,8 +11,8 @@ const RoomsHeader = () => (
                 <img className="rooms-header__avatar" src="../../../public/assets/images/1-36-1024x1024.jpg"/>
                 <div className="rooms-header__userName">Valera</div>
             </div>
-            <div>
-                <img className="rooms-header__settings" src="../../../public/assets/images/seting_2.png"/>
+            <div className="rooms-header__settingsmenu">
+                <Settings className="rooms-header__settings"/>
                 <img className="rooms-header__logout" src="../../../public/assets/images/logout.png"/>
             </div>
         </div>
