@@ -1,41 +1,52 @@
 import {
-  LOGIN,
-  ADD_MESSAGE,
-  MESSAGE_RECEIVED,
-  ADD_USER,
-  USERS_LIST,
+  CONNECTED,
+  SEND_MESSAGE,
+  RECEIVED_MESSAGE,
+  ON_ERROR,
 } from "./actionTypes";
 
 const initialState = {
-  users: [],
+  items: [],
+  // isLoading: false,
 };
 
 export const roomsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOGIN:
+    case CONNECTED:
       return {
         ...state,
-        login: action.payload,
+        items: action.payload,
       };
-    case ADD_MESSAGE:
+    case SEND_MESSAGE:
       return {
         ...state,
-        login: action.payload,
+        message: action.payload,
+        author: action.payload,
+        id: action.payload,
+        time: action.payload,
       };
-    case MESSAGE_RECEIVED:
+    case RECEIVED_MESSAGE:
       return {
         message: action.payload,
         author: action.payload,
         id: action.payload,
-        time: action.payload
+        time: action.payload,
       };
-    case ADD_USER:
+    case "DATE_LAST_READ":
+      return {
+        ...state,
+        items: state.items.map((message) => {
+          if (message.message_id === payload.messageId) {
+            message.date_last_read = true;
+          }
+          return message;
+        }),
+      };
+    case ON_ERROR:
       return {
         name: action.payload,
-        id: action.payload
+        id: action.payload,
       };
-    case USERS_LIST:
-      return state;
     default:
       return state;
   }
