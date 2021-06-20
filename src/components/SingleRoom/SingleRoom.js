@@ -7,8 +7,8 @@ import "./singleroom.scss";
 
 const SingleRoom = (props) => {
   const { roomId } = props.match.params;
-  const { messages, sendMessage } = useChat(roomId);
-  const [newMessage, setNewMessage] = React.useState("");
+  //   const { messages, sendMessage } = useChat(roomId);
+  //   const [newMessage, setNewMessage] = React.useState("");
 
   return (
     <div className="singleroom">
