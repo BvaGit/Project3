@@ -7,7 +7,6 @@ import {
 
 const initialState = {
   items: [],
-  // isLoading: false,
 };
 
 export const roomsReducer = (state = initialState, action) => {

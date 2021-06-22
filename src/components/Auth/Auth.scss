@@ -25,6 +25,7 @@ $width: 600px;
     &__buttons {
         @include flex(row, space-around, center);
         height: 20%;
+        margin-top: $margin_lg;
     }
     &__link {
         display: block;

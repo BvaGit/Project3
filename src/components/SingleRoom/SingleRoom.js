@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import MessageCounter from "../MessageCounter";
 import MentionPin from "../MentionPin";
@@ -6,10 +6,6 @@ import MentionPin from "../MentionPin";
 import "./singleroom.scss";
 
 const SingleRoom = (props) => {
-  const { roomId } = props.match.params;
-  //   const { messages, sendMessage } = useChat(roomId);
-  //   const [newMessage, setNewMessage] = React.useState("");
-
   return (
     <div className="singleroom">
       <div className="singleroom__info">
