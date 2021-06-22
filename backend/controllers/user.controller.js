@@ -63,8 +63,7 @@ class UserController {
       const getMyAccount = await connectPg.query(
         `SELECT * FROM myaccount WHERE user_id='${id}'`
       );
-      console.log(getMyAccount.rows);
-      if (getMyAccount.rows.length === 0) {
+      if (!getMyAccount.rows.length) {
         myAccount = await connectPg.query(
           `INSERT INTO myaccount (firstname, lastname, age, city, company, hobbi, avatar, user_id) VALUES ('${firstname}', '${lastname}', '${age}', '${city}', '${company}', '${hobbi}', '${avatar}', '${id}')`
         );
