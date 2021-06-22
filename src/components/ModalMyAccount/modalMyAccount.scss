@@ -1,0 +1,16 @@
+@import '../../utils/variables.scss';
+
+.my-account{
+    @include flex(column,_,_);
+    &__avatar{
+        text-align: center;
+        margin-bottom: 35px;
+    }
+    &__info{
+        @include flex(_,space-between,_);
+        margin-bottom: $margin_md;
+    }
+    &__info1{
+        width: 48%;
+    }
+}
