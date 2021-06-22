@@ -9,6 +9,7 @@
     &__userName{
         align-self: center;
         margin-left: $margin_sm;
+        cursor: pointer;
     }
     &__avatar{
         width: 40px;
@@ -18,10 +19,14 @@
     &__usermenu{
         @include flex(_,space-between,_);
     }
+    &__settingsmenu{
+        @include flex(_,_,_);
+    }
     &__settings{
         cursor: pointer;
         -webkit-transition: -webkit-transform 0.8s ease-in-out;
         transition: transform 0.8s ease-in-out;
+        display: flex;
     }
     &__settings:hover{
         -webkit-transform: rotate(360deg);
@@ -30,7 +35,8 @@
     &__logout{
         cursor: pointer;
         transition: transform 0.8s ease-in-out;
-        margin: 0 0 0 5px;
+        margin-left: $margin_sm;
+        height: 50%
     }
     &__logout:hover{
         -webkit-transform: scaleX(-1);
@@ -44,11 +50,14 @@
     &__input{
         border: none;
         padding: $padding_md;
-        background:rgb(226, 245, 253);
+        background:$input-color;
         width: 85%;
+        outline-color: $link-color;
     }
     &__input::placeholder{
         color: $title-color;
         font-style: italic;
+        font-size: 10px;
+
     }
 }
