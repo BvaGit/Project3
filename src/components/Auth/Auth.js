@@ -7,7 +7,7 @@ import Logo from '../Logo';
 import Title from '../Title';
 import validation from '../constants/validation'
 
-import './Auth.scss';
+import "./Auth.scss";
 
 const Auth = () => {
     const [login, setLogin] = useState('');
@@ -112,8 +112,15 @@ const Auth = () => {
                     </div>
                 </div>
             </div>
+            <p className="gen__link">Create new account</p>
+            <NavLink to="/registration" className="gen__link">
+              Sign up
+            </NavLink>
+          </div>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
 export default Auth;

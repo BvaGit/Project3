@@ -1,5 +1,5 @@
-export const LOGIN = "LOGIN";
-export const ADD_MESSAGE = "ADD_MESSAGE";
-export const MESSAGE_RECEIVED = "MESSAGE_RECEIVED";
-export const ADD_USER = "ADD_USER";
-export const USERS_LIST = "USERS_LIST";
+export const CONNECTED = "CONNECTED";
+export const SEND_MESSAGE = "SEND_MESSAGE";
+export const RECEIVED_MESSAGE = "RECEIVED_MESSAGE";
+export const DATE_LAST_READ = "DATE_LAST_READ";
+export const ON_ERROR = "ON_ERROR";

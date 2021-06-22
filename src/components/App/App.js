@@ -1,8 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { connect } from "react-redux";
+import { func } from "prop-types";
 
-import Auth from '../Auth';
-import Registration from '../Registration';
+import Auth from "../Auth";
+import Registration from "../Registration";
 import MainPage from "../MainPage";
 
 import "./App.scss";
