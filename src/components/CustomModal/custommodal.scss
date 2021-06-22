@@ -8,7 +8,7 @@
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba($title-color, 0.8);
 }
 .modal-content{
     background-color: $background;
@@ -18,7 +18,7 @@
     align-items: center;
 }
 .close{
-    color: #aaa;
+    color: $button-color;
     float: right;
     font-size: 20px;
     font-weight: bold;

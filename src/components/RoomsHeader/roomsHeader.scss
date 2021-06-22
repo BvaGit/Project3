@@ -50,7 +50,7 @@
     &__input{
         border: none;
         padding: $padding_md;
-        background:rgb(226, 245, 253);
+        background:$input-color;
         width: 85%;
         outline-color: $link-color;
     }

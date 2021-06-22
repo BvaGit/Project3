@@ -2,22 +2,10 @@
 
 .content{
     @include flex(column,_,_);
-    font-size: 15px;
-    &__input{
-        border: none;
-        padding: $padding_md;
-        background:rgb(226, 245, 253);
-        width: 100%;
-        outline-color: $link-color;
-    }
-    &__input::placeholder{
-        color: $title-color;
-        font-style: italic;
-        font-size: 10px;
-    }
+    font-size: 18px;
     &__item-header{
-        font-weight: bold;
         margin-right: $margin_md;
+        margin-bottom: $margin_md;
     }
 }
 .content >div{
@@ -26,7 +14,7 @@
 .content-language{
     display: flex;
     &__child{
-        margin: auto 10px auto 3px
+        margin: auto $margin_md auto 3px
     }
 }
 .content-theme{

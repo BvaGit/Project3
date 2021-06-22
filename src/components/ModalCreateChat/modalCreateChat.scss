@@ -10,26 +10,18 @@
     &__name{
         margin-bottom: $margin_md;
     }
-    &__input{
-        width: 100%;
-        border: none;
-        padding: $padding_md;
-        background:rgb(226, 245, 253);
-        outline-color: $link-color;
-    }
-    &__input::placeholder{
-        color: $title-color;
-        font-style: italic;
-        font-size: $margin_md;
-    }
     &__users{
+        margin-bottom: $margin_md;
+    }
+    &__usersLabel{
+        font-size: 18px;
         margin-bottom: $margin_md;
     }
     &__select{
         width: 100%;
         border: none;
         padding: $padding_md;
-        background:rgb(226, 245, 253);
+        background:$input-color;
         outline-color: $link-color;
     }
 }

@@ -8,15 +8,17 @@ import ModalCreateChat from '../ModalCreateChat';
 import './addroom.scss';
 
 function AddRoom() {
-    const [show, setShowModal] = useState(false);
-    const handleClick = () => {setShowModal(show == false ? true : false)}
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleClick = () => setIsOpen(prev => !prev);
     
 return(
     <div>
         <div className="add-room" onClick={handleClick}>
             +
         </div>
-        {show==true ? <CustomModal header="Create Chat" content={<ModalCreateChat handlecloseModal={handleClick}/>} handlecloseModal={handleClick}/> : null}
+        {isOpen && <CustomModal header="Create Chat" content={<ModalCreateChat handlecloseModal={handleClick}/>} handlecloseModal={handleClick}/>}
     </div>
     )
 }

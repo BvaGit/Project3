@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Input from '../Input';
+
 import "./modalsettings.scss";
 
 function ModalSettings(props){
@@ -20,23 +22,22 @@ function ModalSettings(props){
                     <input id="light" name="theme" type="radio" className="content-theme__child"/>
                     <label thmlFor="dark">dark</label>
                     <input id="dark" name="theme" type="radio" className="content-theme__child"/> 
-                   
             </div>
             <div className="content-reset">
-                <span className="content__item-header content-reset__header">Reset settings:</span>
+                <span className="content__item-header content-reset__header">Notifications:</span>
                 <input type="checkbox"/>
             </div>
             <div>
-                <div className="content__item-header">New login</div>
-                <input className="content__input" placeholder="Enter your new login..."/>
+                <button className="button">Reset all settings</button>
             </div>
             <div>
-                <div className="content__item-header">New password</div>
-                <input className="content__input" placeholder="Enter your new password..."/>
+                <Input label="New login" type="text" placeholder="Enter your new login..."/>
             </div>
             <div>
-                <div className="content__item-header">Confirm password</div>
-                <input className="content__input" placeholder="Repeat your new password..."/>
+                <Input label="New password" type="text" placeholder="Enter your new password..."/>
+            </div>
+            <div>
+                <Input label="Confirm password" type="text" placeholder="Repeat your new password..."/>
             </div>
             <div className="button-box">
                 <button className="button">CONFIRM</button>

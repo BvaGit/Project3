@@ -1,8 +1,9 @@
 import React from 'react';
 
+import Input from '../Input'
+
 import './modalMyAccount.scss';
 import '../RoomsHeader/roomsHeader.scss'
-import '../ModalSettings/modalsettings.scss'
 
 function ModalMyAccount(props){
     return (
@@ -11,33 +12,27 @@ function ModalMyAccount(props){
                 <img className="rooms-header__avatar" src="../../../public/assets/images/1-36-1024x1024.jpg"/>
             </div>
             <div className="my-account__info">
-                <div className="my-account__infochild">
-                    <div>First name</div>
-                    <input className="my-account__input" placeholder="Enter your first name..."/>
+                <div className="my-account__info1">
+                    <Input label="First name" type="text" placeholder="Enter your first name..."/> 
                 </div>
-                <div className="my-account__infochild">
-                    <div>Last name</div>
-                    <input className="my-account__input" placeholder="Enter your last name..."/>
+                <div className="my-account__info1">
+                    <Input label="Last name" type="text" placeholder="Enter your last name..."/>
                 </div>
             </div>
             <div className="my-account__info">
-                <div className="my-account__infochild">
-                    <div>Age</div>
-                    <input className="my-account__input" placeholder="Enter your age..."/>
+                <div className="my-account__info1">
+                    <Input label="Age" type="number" placeholder="Enter your age..."/>
                 </div>
-                <div className="my-account__infochild">
-                    <div>City</div>
-                    <input className="my-account__input" placeholder="Enter your city..."/>
+                <div className="my-account__info1">
+                    <Input label="City" type="text" placeholder="Enter your city..."/>
                 </div>
             </div>
             <div className="my-account__info">
-                <div className="my-account__infochild">
-                    <div>Company name</div>
-                    <input className="my-account__input" placeholder="Enter your company name..."/>
+                <div className="my-account__info1">
+                    <Input label="Company name" type="number" placeholder="Enter your company name..."/>
                 </div>
-                <div className="my-account__infochild">
-                    <div>Hobby</div>
-                    <input className="my-account__input" placeholder="Enter your hobby..."/>
+                <div className="my-account__info1">
+                    <Input label="Hobby" type="text" placeholder="Enter your hobby..."/>
                 </div>
             </div>
             <div className="button-box">

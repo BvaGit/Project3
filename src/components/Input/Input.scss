@@ -20,5 +20,10 @@
             outline: none;
             border: 1.5px solid $border;
         }
+        &::placeholder{
+            color: $title-color;
+            font-style: italic;
+            font-size: $margin_md;
+        }
     }
 }
