@@ -20,7 +20,7 @@ const io = require("socket.io")(httpServer, {
 });
 
 io.on("connection", (socket) => {
-  console.log("User connected", socket.id);
+  console.log("User connected, socket.id:", socket.id);
   socket.emit("connection", null);
 
   const { roomId } = socket.handshake.query;
