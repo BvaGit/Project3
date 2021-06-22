@@ -1,5 +1,12 @@
 import { setUsers, authUsers } from "./actions";
 
+function readCookie(name) {
+  var matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
 export const getUsersFromApi = () => {
   return (dispatch) => {
     return fetch("https://jsonplaceholder.typicode.com/users")
@@ -28,7 +35,7 @@ export const authUserRequest = (body) => {
     }).then((json) => {
       if(json){
         dispatch(authUsers(json))
-        localStorage.setItem('token', json.token);
+        document.cookie = `token=${json.token}`
       }
     })
     
@@ -36,15 +43,15 @@ export const authUserRequest = (body) => {
 }
 
 export const addToken = () => {
+ const token =  readCookie("token");
  return (dispatch) => {
   return fetch('http://localhost:3000/api/user/addtoken/', {
     headers: {
-      "Authorization": `Bearer ${localStorage.getItem('token')}`
+      "Authorization": `Bearer ${token}`
     }
   })
   .then(data => data.json())
   .then(json => {
-    console.log("json");
     dispatch(authUsers(json))
   })
  }

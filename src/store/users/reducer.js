@@ -18,7 +18,6 @@ export const usersReducer = (state = initialState, action) => {
         isAuth: true
       }
     case LOGOUT_USER:
-      localStorage.removeItem('token')
       return {...state,
         users: [],
         isAuth: false

@@ -85,7 +85,6 @@ const Registration = () => {
             login: login,
             password: password
         }
-        console.log(user)
         postRequest('http://localhost:3000/api/user/reg', user)
         .then(() => setRedirectAuth(true));
     }
