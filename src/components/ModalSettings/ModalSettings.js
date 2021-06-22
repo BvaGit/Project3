@@ -2,7 +2,7 @@ import React from 'react';
 
 import "./modalsettings.scss";
 
-function ModalSettings(){
+function ModalSettings(props){
     return(
         <div className="content">
             <div  className="content-language">
@@ -40,7 +40,7 @@ function ModalSettings(){
             </div>
             <div className="button-box">
                 <button className="button">CONFIRM</button>
-                <button className="button">Cancel</button>
+                <button className="button" onClick={props.closeModal}>Cancel</button>
             </div>
         </div>
         

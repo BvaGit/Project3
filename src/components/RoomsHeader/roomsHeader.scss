@@ -9,6 +9,7 @@
     &__userName{
         align-self: center;
         margin-left: $margin_sm;
+        cursor: pointer;
     }
     &__avatar{
         width: 40px;
@@ -51,9 +52,12 @@
         padding: $padding_md;
         background:rgb(226, 245, 253);
         width: 85%;
+        outline-color: $link-color;
     }
     &__input::placeholder{
         color: $title-color;
         font-style: italic;
+        font-size: 10px;
+
     }
 }

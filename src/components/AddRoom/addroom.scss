@@ -15,6 +15,7 @@ $button-size: 30px;
     background: $button-color;
     margin-right: $margin_md;
     margin-left: auto;
+    cursor: pointer;
 }
 .add-room:hover{
     background: $border;

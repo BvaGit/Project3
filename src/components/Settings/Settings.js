@@ -17,13 +17,12 @@ class Settings extends React.Component{
         this.setState ({
             show: this.state.show == false ? true : false
         })
-        console.log(this.state.show)
     }
 
     render(){
         return <div>
                     <img onClick={this.showModal} className="rooms-header__settings" src="../../../public/assets/images/seting_2.png"/>
-                    {this.state.show ? <CustomModal header="Settings" handlecloseModal={this.showModal} content={<ModalSettings/>}/> : null}
+                    {this.state.show ? <CustomModal header="Settings" handlecloseModal={this.showModal} content={<ModalSettings closeModal={this.showModal}/>}/> : null}
                 </div>
     }
 }
