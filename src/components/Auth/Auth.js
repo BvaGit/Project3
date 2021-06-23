@@ -80,7 +80,7 @@ const Auth = () => {
 
     return(
         <div className="gen__holder">
-            {isAuth ? <Redirect to="/main" /> : null}
+            {isAuth && <Redirect to="/main"/>}
             <div className="gen">
                 <div className="gen__info">
                     <Logo src="../../public/assets/images/logo.png" alt="logo"/>

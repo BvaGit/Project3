@@ -5,7 +5,6 @@ import RoomsHeader from '../RoomsHeader'
 import Rooms from '../Rooms'
 import AddRoom from '../AddRoom';
 import { Redirect } from 'react-router-dom';
-
 import { addToken } from '../../store/users/asyncActions'
 
 import './mainPaige.scss'

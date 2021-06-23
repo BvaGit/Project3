@@ -91,7 +91,7 @@ const Registration = () => {
 
     return(
         <div className="gen__holder">
-            {redirectAuth ? <Redirect to="/" /> : null}
+            {redirectAuth && <Redirect to="/" />}
             <div className="gen">
                 <div className="gen__info">
                     <Logo src="../../public/assets/images/logo.png" alt="logo"/>
