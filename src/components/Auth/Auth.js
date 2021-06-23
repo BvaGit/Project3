@@ -12,6 +12,7 @@ import { authUserRequest } from '../../store/users/asyncActions';
 
 import './Auth.scss';
 
+
 const Auth = () => {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
@@ -21,7 +22,6 @@ const Auth = () => {
     const [passwordError, setPasswordError] = useState('Password can\'t be empty');
     const [formValid, setFormValid] = useState(false);
     const {loginValidation, passwordValidation} = validation;
-    const [redirectMain, setRedirectMain] = useState(false);
 
     const dispatch = useDispatch();
     const isAuth = useSelector(state => state.usersReducer.isAuth);
@@ -128,8 +128,12 @@ const Auth = () => {
                     </div>
                 </div>
             </div>
-        </div>
-    )
-}
+            <p className="gen__link">Create new account</p>
+            <NavLink to="/registration" className="gen__link">
+              Sign up
+            </NavLink>
+          </div>
+  );
+};
 
 export default Auth;

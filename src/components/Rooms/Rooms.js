@@ -1,16 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import SingleRoom from '../SingleRoom';
+import SingleRoom from "../SingleRoom";
 
-import './rooms.scss';
-
+import "./rooms.scss";
 
 const Rooms = () => (
-    <div className="rooms">
-        <SingleRoom/>
-        <SingleRoom/>
-        <SingleRoom/>
-    </div>
-)
+  <div className="rooms">
+    <SingleRoom />
+    <SingleRoom />
+    <SingleRoom />
+  </div>
+);
 
 export default Rooms;
