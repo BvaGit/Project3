@@ -5,7 +5,6 @@ class UserController {
 
   async createUser(req, res){
     const { login, password } = req.body;
-    console.log(login, password)
       try{
         const newUser = await connectPg.query(`INSERT INTO users (login, password) VALUES ('${login}', '${password}')`);
         res.status(201).json("user created successfully");
@@ -54,7 +53,6 @@ class UserController {
         }
 
     }
-
 
     async postOrUpdateMyAccount(req, res){
         try{

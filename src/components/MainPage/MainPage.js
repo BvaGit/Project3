@@ -15,7 +15,7 @@ const MainPage = () => {
 
     useEffect(() => {
         dispatch(addToken())
-    })
+    }, []);
 
     return (
         <div>

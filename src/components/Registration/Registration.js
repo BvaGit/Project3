@@ -6,7 +6,7 @@ import Button from '../Button';
 import Logo from '../Logo';
 import Title from '../Title';
 import validation from '../constants/validation'
-import { postRequest } from '../../store/users/asyncActions';
+import { regAuthRequest } from '../../store/users/asyncActions';
 
 import './Registration.scss';
 
@@ -85,8 +85,8 @@ const Registration = () => {
             login: login,
             password: password
         }
-        postRequest('http://localhost:3000/api/user/reg', user)
-        .then(() => setRedirectAuth(true));
+        const redirect = regAuthRequest(user)
+        setRedirectAuth(redirect);
     }
 
     return(

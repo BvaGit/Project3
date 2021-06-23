@@ -1,11 +1,5 @@
 import { setUsers, authUsers } from "./actions";
-
-function readCookie(name) {
-  var matches = document.cookie.match(new RegExp(
-    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-  ));
-  return matches ? decodeURIComponent(matches[1]) : undefined;
-}
+import cookie from 'js-cookie';
 
 export const getUsersFromApi = () => {
   return (dispatch) => {
@@ -16,6 +10,19 @@ export const getUsersFromApi = () => {
       });
   };
 };
+
+export const regAuthRequest = (body) => {
+  return (fetch("http://localhost:3000/api/user/reg",{
+    method: "POST",
+    headers: {
+      "Content-type": "application/json; charset=utf-8",
+    },
+    body: JSON.stringify(body)
+  })
+  .then(() => {
+    return true
+  }))
+}
 
 export const authUserRequest = (body) => {
   return (dispatch) => {
@@ -35,7 +42,7 @@ export const authUserRequest = (body) => {
     }).then((json) => {
       if(json){
         dispatch(authUsers(json))
-        document.cookie = `token=${json.token}`
+        cookie.set('token', json.token);
       }
     })
     
@@ -43,7 +50,7 @@ export const authUserRequest = (body) => {
 }
 
 export const addToken = () => {
- const token =  readCookie("token");
+ const token = cookie.get('token');
  return (dispatch) => {
   return fetch('http://localhost:3000/api/user/addtoken/', {
     headers: {
