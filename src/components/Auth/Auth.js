@@ -12,6 +12,7 @@ import { authUserRequest } from '../../store/users/asyncActions';
 
 import './Auth.scss';
 
+
 const Auth = () => {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
@@ -128,8 +129,15 @@ const Auth = () => {
                     </div>
                 </div>
             </div>
+            <p className="gen__link">Create new account</p>
+            <NavLink to="/registration" className="gen__link">
+              Sign up
+            </NavLink>
+          </div>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
 export default Auth;
