@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import RoomsHeader from '../RoomsHeader'
 import Rooms from '../Rooms'
 import AddRoom from '../AddRoom';
-import { Redirect } from 'react-router-dom';
 import { addToken } from '../../store/users/asyncActions'
 
 import './mainPaige.scss'
