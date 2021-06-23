@@ -2,11 +2,13 @@ import {
   CONNECTED,
   SEND_MESSAGE,
   RECEIVED_MESSAGE,
-  ON_ERROR,
 } from "./actionTypes";
 
 const initialState = {
-  items: [],
+  connected: false,
+  sendingMessage: false,
+  messages: [],
+  socket: null
 };
 
 export const roomsReducer = (state = initialState, action) => {
@@ -14,37 +16,22 @@ export const roomsReducer = (state = initialState, action) => {
     case CONNECTED:
       return {
         ...state,
-        items: action.payload,
+        connected: true, socket: action.payload
       };
     case SEND_MESSAGE:
       return {
         ...state,
-        message: action.payload,
-        author: action.payload,
-        id: action.payload,
-        time: action.payload,
+        sendingMessage: true
       };
     case RECEIVED_MESSAGE:
-      return {
-        message: action.payload,
-        author: action.payload,
-        id: action.payload,
-        time: action.payload,
-      };
+      if (state.messages.length > 0) {
+        return { ...state, messages: [...state.messages, action.payload] };
+      } else {
+        return { ...state, messages: action.payload };
+      }
     case "DATE_LAST_READ":
       return {
         ...state,
-        items: state.items.map((message) => {
-          if (message.message_id === payload.messageId) {
-            message.date_last_read = true;
-          }
-          return message;
-        }),
-      };
-    case ON_ERROR:
-      return {
-        name: action.payload,
-        id: action.payload,
       };
     default:
       return state;

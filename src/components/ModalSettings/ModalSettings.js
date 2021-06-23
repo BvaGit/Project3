@@ -20,7 +20,7 @@ function ModalSettings(props){
                 <div id="theme" className="content__item-header">Theme:</div>
                     <label htmlFor="light">light</label>
                     <input id="light" name="theme" type="radio" className="content-theme__child"/>
-                    <label thmlFor="dark">dark</label>
+                    <label htmlFor="dark">dark</label>
                     <input id="dark" name="theme" type="radio" className="content-theme__child"/> 
             </div>
             <div className="content-reset">

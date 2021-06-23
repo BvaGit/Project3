@@ -91,15 +91,6 @@ class UserController {
       console.log("no");
     }
   }
-
-  async getUsers(req, res) {
-    try {
-      const get = await connectPg.query(`SELECT * from users`);
-      res.json(get.rows);
-    } catch (e) {
-      console.log(e);
-    }
-  }
 }
 
 module.exports = new UserController();

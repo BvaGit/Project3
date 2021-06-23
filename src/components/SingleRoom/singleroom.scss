@@ -15,7 +15,8 @@
     }
     &__roomName{
         align-self: center;
-        margin-left: $margin_sm
+        margin-left: $margin_sm;
+        font-family: 'Noto Sans KR', sans-serif;
     }
     &__messages{
         @include flex(_,_,_);

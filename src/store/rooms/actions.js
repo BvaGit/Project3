@@ -10,6 +10,8 @@ export function getTime() {
   return time;
 }
 
+let nextMessageId = 0;
+
 export const onConnect = (socket) => {
   return {
     type: actionTypes.CONNECTED,
@@ -17,24 +19,37 @@ export const onConnect = (socket) => {
   };
 };
 
-export const sendMessage = (message, author) => ({
-  type: types.ADD_MESSAGE,
+export const sendMessage = () => ({
+  type: actionTypes.SEND_MESSAGE,
   id: nextMessageId++,
   message,
   author,
   time: getTime(),
 });
+// export const sendMessage = (message) => {
+// return (dispatch, getState) => {
+//     const socket = getState().socket;
+
+//     socket.send(JSON.stringify(message));
+//     dispatch({ type: actionTypes.SEND_MESSAGE });
+//   };
+// };
+
+// export const addMessage = (message, author) => ({
+//   type: types.ADD_MESSAGE,
+//   id: nextMessageId++,
+//   message,
+//   author,
+//   time: getTime(),
+// });
 
 export const recievedMessage = (message) => ({
-  type: types.RECEIVED_MESSAGE,
-  id: nextMessageId++,
-  message,
-  author,
-  time: getTime(),
+  type: actionTypes.RECEIVED_MESSAGE,
+  payload: JSON.parse(message),
 });
 
 export const getStatusMessage = (message) => ({
-  type: types.DATE_LAST_READ,
+  type: actionTypes.DATE_LAST_READ,
   id: nextMessageId++,
   message,
   author,

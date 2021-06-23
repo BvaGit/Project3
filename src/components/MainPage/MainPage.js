@@ -4,6 +4,7 @@ import React from 'react';
 import RoomsHeader from '../RoomsHeader'
 import Rooms from '../Rooms'
 import AddRoom from '../AddRoom';
+import MessageList from "../MessageList"
 
 import './mainPaige.scss'
 
@@ -17,8 +18,9 @@ const MainPage = () => (
             <RoomsHeader />
             <Rooms />
             <AddRoom />
+            <MessageList />
         </div>
-    </div> 
+    </div>
 )
 
 export default MainPage

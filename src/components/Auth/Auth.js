@@ -7,7 +7,7 @@ import Logo from '../Logo';
 import Title from '../Title';
 import validation from '../constants/validation'
 
-import "./Auth.scss";
+import './Auth.scss';
 
 const Auth = () => {
     const [login, setLogin] = useState('');
@@ -34,7 +34,7 @@ const Auth = () => {
             case 'login':
                 setLoginDirty(true);
                 break;
-            case 'password': 
+            case 'password':
                 setPasswordDirty(true);
                 break;
             default:
@@ -52,7 +52,7 @@ const Auth = () => {
     }
     const handlePassword = (e) => {
         setPassword(e.target.value);
-        
+
         if (!passwordValidation.test(String(e.target.value).toLowerCase())) {
             setPasswordError('min 6 max 12, not empty, no spases, include digital');
             if (!e.target.value) {
@@ -72,36 +72,36 @@ const Auth = () => {
                 </div>
                 <div className="gen__main">
                     <div className="gen__container">
-                        <Input 
-                            id="authLogin" 
-                            label="Login" 
-                            type="text" 
+                        <Input
+                            id="authLogin"
+                            label="Login"
+                            type="text"
                             name="login"
                             value={login}
-                            placeholder="Enter your login" 
-                            minLength="1" 
+                            placeholder="Enter your login"
+                            minLength="1"
                             maxLength="30"
                             onBlur={handleBlur}
                             onChange={handleLogin}
-                        />   
+                        />
                         {(loginDirty && loginError) && <div className="inputErr">{loginError}</div>}
-                        <Input 
-                            id="authPassword" 
-                            label="Password" 
-                            type="password" 
+                        <Input
+                            id="authPassword"
+                            label="Password"
+                            type="password"
                             name="password"
                             value={password}
-                            placeholder="Enter your password" 
-                            minLength="1" 
+                            placeholder="Enter your password"
+                            minLength="1"
                             maxLength="30"
                             onBlur={handleBlur}
                             onChange={handlePassword}
                         />
                         {(passwordDirty && passwordError) && <div className="inputErr">{passwordError}</div>}
                         <div className="gen__buttons">
-                            <Button 
-                                type="button" 
-                                text="SIGN IN" 
+                            <Button
+                                type="button"
+                                text="SIGN IN"
                                 disabled={!formValid}
                             />
                         </div>
@@ -112,15 +112,8 @@ const Auth = () => {
                     </div>
                 </div>
             </div>
-            <p className="gen__link">Create new account</p>
-            <NavLink to="/registration" className="gen__link">
-              Sign up
-            </NavLink>
-          </div>
         </div>
-      </div>
-    </div>
-  );
-};
+    )
+}
 
 export default Auth;

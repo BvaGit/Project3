@@ -19,20 +19,34 @@ const io = require("socket.io")(httpServer, {
   },
 });
 
+// const broadcast = (data, socket) => {
+//   io.clients.forEach((client) => {
+//     // send for everyone except author
+//     if (client.readyState === io.OPEN && client !== socket) {
+//       client.send(JSON.stringify(data));
+//     }
+//   });
+// };
+
 io.on("connection", (socket) => {
   console.log("User connected, socket.id:", socket.id);
   socket.emit("connection", null);
 
-  const { roomId } = socket.handshake.query;
-  socket.join(roomId);
+  // const { roomId } = socket.handshake.query;
+  // socket.join(roomId);
 
-  socket.on("NEW_CHAT_MESSAGE_EVENT", (data) => {
-    io.in(roomId).emit("NEW_CHAT_MESSAGE_EVENT", data);
+  // socket.on("NEW_CHAT_MESSAGE_EVENT", (data) => {
+  //   io.in(roomId).emit("NEW_CHAT_MESSAGE_EVENT", data);
+  // });
+
+  socket.on("chat message", (msg) => {
+    console.log("message: " + msg);
+    io.emit("chat message", msg);
   });
 
   socket.on("disconnect", (socket) => {
     console.log("User disconnect", socket.id);
-    socket.leave(roomId);
+    // socket.leave(roomId);
   });
 });
 

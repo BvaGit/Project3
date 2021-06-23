@@ -9,5 +9,4 @@ routerUser.put('/myaccount/:id', userController.postOrUpdateMyAccount);
 routerUser.put('/updatelogpass/:id', userController.updateLoginOrPassword);
 routerUser.get('/users', authUserMiddle, userController.getUsers);
 
-
 module.exports =  routerUser;
