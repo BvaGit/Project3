@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink, Redirect } from 'react-router-dom';
 
 import Input from '../Input';
 import Button from '../Button';
@@ -7,7 +8,10 @@ import Logo from '../Logo';
 import Title from '../Title';
 import validation from '../constants/validation'
 
-import "./Auth.scss";
+import { authUserRequest } from '../../store/users/asyncActions';
+
+import './Auth.scss';
+
 
 const Auth = () => {
     const [login, setLogin] = useState('');
@@ -18,6 +22,9 @@ const Auth = () => {
     const [passwordError, setPasswordError] = useState('Password can\'t be empty');
     const [formValid, setFormValid] = useState(false);
     const {loginValidation, passwordValidation} = validation;
+
+    const dispatch = useDispatch();
+    const isAuth = useSelector(state => state.usersReducer.isAuth);
 
     useEffect(() => {
 
@@ -63,8 +70,17 @@ const Auth = () => {
         }
     }
 
+    const handleAuth = () => {
+        const user = {
+            login: login,
+            password: password
+        }
+        dispatch(authUserRequest(user))
+    }
+
     return(
         <div className="gen__holder">
+            {isAuth && <Redirect to="/main"/>}
             <div className="gen">
                 <div className="gen__info">
                     <Logo src="../../public/assets/images/logo.png" alt="logo"/>
@@ -98,7 +114,7 @@ const Auth = () => {
                             onChange={handlePassword}
                         />
                         {(passwordDirty && passwordError) && <div className="inputErr">{passwordError}</div>}
-                        <div className="gen__buttons">
+                        <div className="gen__buttons" onClick={handleAuth}>
                             <Button 
                                 type="button" 
                                 text="SIGN IN" 
@@ -117,9 +133,6 @@ const Auth = () => {
               Sign up
             </NavLink>
           </div>
-        </div>
-      </div>
-    </div>
   );
 };
 
