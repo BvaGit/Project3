@@ -78,7 +78,7 @@ const Registration = () => {
         } else {
             setRepeatPasswordError('');
         }
-    }
+    } 
 
     const regUser = () => {
         const user = {
