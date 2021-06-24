@@ -24,14 +24,15 @@ class ChatController {
 
   async createChat(req, res) {
     try {
-      const { name } = req.body;
-      const id = req.params.id;
+      const { id, name } = req.body;
       const create = await connectPg.query(
         `INSERT INTO chat (id, name) VALUES (${id}, '${name}') RETURNING *`
       );
       res.status(200).json(create.rows);
+      io.emit("invited_room", create.rows);
     } catch (e) {
-      res.status(400).json(message.abstractErr);
+      console.log("err", e);
+      // res.status(400).json(message.abstractErr);
     }
   }
 }

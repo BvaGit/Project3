@@ -5,6 +5,6 @@ const authUserMiddle = require("../middleware/authUserMiddle");
 
 routerChat.get("/", authUserMiddle, chatController.getChats);
 routerChat.get("/:chat_id", authUserMiddle, chatController.getChatById);
-routerChat.post("/:id", chatController.createChat);
+routerChat.post("/create_chat", chatController.createChat);
 
 module.exports = routerChat;

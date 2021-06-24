@@ -1,28 +1,30 @@
 import React, { useState } from "react";
 
-import socket from "../Socket";
-// import { sendMessage } from "../../store/rooms/actionTypes";
-
-const MessageList = () => {
+const MessageList = ({ socket }) => {
   const [valueInput, setValueInput] = useState("");
   const handleValueInput = (e) => setValueInput(e.target.value);
 
   const sendMessage = () => {
     if (valueInput) {
-      socket.emit("chat message", valueInput);
+      socket.emit(
+        "SEND_MESSAGE",
+        JSON.stringify({
+          id: 1,
+          chat_id: 1,
+          content: valueInput,
+          date_create: "23-06-2021",
+        })
+      );
     }
   };
 
-  socket.on("chat message", function (msg) {
-    console.log(msg);
-  });
+  // socket.on("result", function (msg) {
+  //   console.log(msg);
+  // });
   return (
     <>
       <label>
-        <input
-          value={valueInput}
-          onChange={handleValueInput}
-        />
+        <input value={valueInput} onChange={handleValueInput} />
       </label>
       <button onClick={sendMessage} type="submit">
         send

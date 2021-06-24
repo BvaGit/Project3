@@ -5,8 +5,8 @@ import { roomsReducer } from "/src/store/rooms/reducer.js";
 
 const rootReducer = combineReducers({
   usersReducer,
-  roomsReducer,
-    // settingsReducer,
+  rooms: roomsReducer,
+  // settingsReducer,
 });
 
 export default rootReducer;

@@ -1,3 +1,14 @@
-import socket from "./Socket";
+import ConnectSocket from "./Socket";
+import { connect } from "react-redux";
+import { setSocketEmit } from "../../store/rooms/actions";
 
-export default socket;
+const mapDispatchToProps = (dispatch) => ({
+  setSocketEmit: (payload) => dispatch(setSocketEmit(payload)),
+  // recived message
+  // create room
+  // online/ offline
+});
+
+
+
+export default connect(null, mapDispatchToProps)(ConnectSocket);

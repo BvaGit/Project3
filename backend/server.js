@@ -95,17 +95,16 @@ const PORT = 3000;
 
 const server = http.createServer(app);
 
-const io = require("socket.io")(server, {
+global.io = require("socket.io")(server, {
   cors: {
     origin: "*",
     methods: ["GET", "POST"],
   },
 });
 
-const emitMostRecentMessages = () => {
-  db.getSocketMessages()
-    .then((result) => io.emit("result", result))
-    .catch(console.log("error"));
+const emitMostRecentMessages = (data) => {
+  console.log(data);
+  io.emit("result", data);
 };
 
 io.on("connection", (socket) => {
@@ -115,10 +114,14 @@ io.on("connection", (socket) => {
   socket.on("SEND_MESSAGE", (msg) => {
     console.log("message: " + msg);
     db.createSocketMessage(JSON.parse(msg))
-      .then(() => {
-        emitMostRecentMessages();
+      .then((data) => {
+        console.log("fffff");
+        emitMostRecentMessages(data);
       })
-      .catch((err) => io.emit(err), console.log("ERRRROR???"));
+      .catch((err) => {
+        io.emit(err);
+        console.log("ERRRROR???");
+      });
   });
 
   socket.on("disconnect", (socket) => {
