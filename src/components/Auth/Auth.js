@@ -7,7 +7,7 @@ import Logo from '../Logo';
 import Title from '../Title';
 import validation from '../constants/validation'
 
-import './Auth.scss';
+import "./Auth.scss";
 
 const Auth = () => {
     const [login, setLogin] = useState('');
@@ -113,7 +113,7 @@ const Auth = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Auth;
