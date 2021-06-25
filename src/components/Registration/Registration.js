@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 
 import Input from '../Input';
 import Button from '../Button';
 import Logo from '../Logo';
 import Title from '../Title';
 import validation from '../constants/validation'
+import { regAuthRequest } from '../../store/users/asyncActions';
 
 import './Registration.scss';
 
 const Registration = () => {
+
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [loginDirty, setLoginDirty] = useState(false);
@@ -20,6 +22,8 @@ const Registration = () => {
     const [repeatPasswordError, setRepeatPasswordError] = useState('password cant be empty');
     const [formValid, setFormValid] = useState(false);
     const {loginValidation, passwordValidation} = validation;
+
+    const [redirectAuth, setRedirectAuth] = useState(false);
 
     useEffect(() => {
 
@@ -74,10 +78,20 @@ const Registration = () => {
         } else {
             setRepeatPasswordError('');
         }
+    } 
+
+    const regUser = () => {
+        const user = {
+            login: login,
+            password: password
+        }
+        const redirect = regAuthRequest(user)
+        setRedirectAuth(redirect);
     }
 
     return(
         <div className="gen__holder">
+            {redirectAuth && <Redirect to="/" />}
             <div className="gen">
                 <div className="gen__info">
                     <Logo src="../../public/assets/images/logo.png" alt="logo"/>
@@ -126,7 +140,7 @@ const Registration = () => {
                             />
                         </label>
                         {(repeatPasswordDirty && repeatPasswordError) && <div className="inputErr">{repeatPasswordError}</div>}
-                        <div className="gen__buttons">
+                        <div className="gen__buttons" onClick={regUser}>
                             <Button 
                                 type="button" 
                                 text="SIGN UP" 

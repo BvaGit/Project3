@@ -16,21 +16,20 @@ function ModalSettings({languageValue: langValue, handleLanguage, closeModal}){
             <IntlProvider locale={langValue} messages={message[langValue]}>
                 <div  className="content-language">
                     <div id="language" className="content__item-header">
-                                    <FormattedMessage 
-                                    id="language" 
-                                    defaultMessage="Language:" 
-                                    value={{ langValue }}>
-                                    Language:
-                                    </FormattedMessage>
-                        </div>
+                        <FormattedMessage 
+                        id="language" 
+                        defaultMessage="Language:" 
+                        value={{ langValue }}>
+                        Language:
+                        </FormattedMessage>
+                    </div>
                     {['en', 'ru'].map((x) => (
                         <label className="inputs__label" key={x} onChange={handleChange} defaultValue='en'>{x}
                                 <input type="radio" id={x} key={x} value={x} name="local" className="content-language__child"/>
                         </label>
-                            ))}
+                    ))}
                 </div>
-                <div className="content-theme">
-                                
+                <div className="content-theme">       
                     <div id="theme" className="content__item-header">
                     <FormattedMessage 
                         id="theme" 
@@ -87,10 +86,10 @@ function ModalSettings({languageValue: langValue, handleLanguage, closeModal}){
                         id="newLoginPlaceholder" 
                         defaultMessage="Enter your new login..." 
                         value={{ langValue }}>
-                            {placeholder=>
-                                <Input type="text" placeholder={placeholder}/>
-                            }
-                        </FormattedMessage>
+                        {placeholder=>
+                            <Input type="text" placeholder={placeholder}/>
+                        }
+                    </FormattedMessage>
                     </label>
                 </div>
                 <div>
@@ -105,9 +104,9 @@ function ModalSettings({languageValue: langValue, handleLanguage, closeModal}){
                     id="newPasswordPlaceholder" 
                     defaultMessage="Enter your new password..." 
                     value={{ langValue }}>
-                        {placeholder=>
-                            <Input type="text" placeholder={placeholder}/>
-                        }
+                    {placeholder=>
+                        <Input type="text" placeholder={placeholder}/>
+                    }
                     </FormattedMessage>
                     </label>
                 </div>
