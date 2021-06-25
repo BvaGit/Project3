@@ -23,5 +23,8 @@
         padding: $padding_md;
         background:$input-color;
         outline-color: $link-color;
+        .selected {
+            background-color: red;
+        }
     }
 }

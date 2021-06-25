@@ -20,7 +20,6 @@ export const createChat = (body) => {
       .then((response) => response.json())
       .then((json) => {
         // dispatch(sendMessage(json));
-        console.log("some");
       });
   };
 };

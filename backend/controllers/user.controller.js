@@ -32,6 +32,20 @@ class UserController {
     }
   }
 
+  async addToken(req, res) {
+    try {
+      const getUser = await connectPg.query(
+        `SELECT * FROM users WHERE id=${req.user}`
+      );
+      const user = getUser.rows;
+      const id = user[0].id;
+      const token = generateAcccessToken(id);
+      res.status(200).json({ id, token });
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   async updateLoginOrPassword(req, res) {
     const { login, password } = req.body;
     const id = req.params.id;
@@ -42,15 +56,6 @@ class UserController {
       res.status(200).json("update successfully");
     } catch {
       res.status(400).json("unsuccessful change of username or password");
-    }
-  }
-
-  async getUsers(req, res) {
-    try {
-      const get = await connectPg.query(`SELECT * from users`);
-      res.json(get.rows);
-    } catch (e) {
-      console.log(e);
     }
   }
 
@@ -86,9 +91,18 @@ class UserController {
       const get = await connectPg.query(
         `SELECT * FROM myaccount WHERE user_id='${id}'`
       );
+      res.status(200).json(get.rows);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  async getUsers(req, res) {
+    try {
+      const get = await connectPg.query(`SELECT * from users`);
       res.json(get.rows);
-    } catch {
-      console.log("no");
+    } catch (e) {
+      console.log(e);
     }
   }
 }

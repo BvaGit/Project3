@@ -5,22 +5,12 @@ import Input from "../Input";
 import "./modalCreateChat.scss";
 import "../RoomsHeader/roomsHeader.scss";
 
-function ModalCreateChat({ createChat, getUsersFromApi, handleloseModal }) {
-  const [state, setState] = useState({ name: "", id: [] });
+function ModalCreateChat({ createChat, getUsersFromApi, users, handleloseModal }) {
+  const [state, setState] = useState({ ids:[], name:""})
 
   useEffect(() => {
-    setState(getUsersFromApi());
+    getUsersFromApi();
   }, []);
-
-  console.log(useEffect);
-
-  const users = [
-    {
-      value: "all",
-      label: "ALL USERS",
-    },
-    { value: 1, label: "first name" },
-  ];
 
   const handleClick = () => {
     createChat(state);
@@ -31,7 +21,13 @@ function ModalCreateChat({ createChat, getUsersFromApi, handleloseModal }) {
   };
 
   const handleChangeSelect = (e) => {
-    setState({ ...state, id: +e.target.value });
+    console.log(e.target.value)
+    setState({
+      ...state,
+      ids: state.ids.includes(e.target.value)
+        ? state.ids.filter((id)=>id !== e.target.value)
+        : [...state.ids, e.target.value]
+    });
   };
 
   return (
@@ -44,7 +40,7 @@ function ModalCreateChat({ createChat, getUsersFromApi, handleloseModal }) {
       </div>
       <Input
         onChange={handleChangeInput}
-        value={state.name}
+        value={state.login}
         label="Room name"
         type="text"
         placeholder="Enter name your new room..."
@@ -53,12 +49,16 @@ function ModalCreateChat({ createChat, getUsersFromApi, handleloseModal }) {
         <div className="new-chat__usersLabel">Who do you want to add</div>
         <select
           className="new-chat__select"
-          onChange={handleChangeSelect}
           multiple
         >
           {users.map((user) => (
-            <option value={user.value} key={user.value}>
-              {user.label}
+            <option
+            value={user.id}
+            key={user.id}
+            onClick={handleChangeSelect}
+            className={state.ids.includes(user.id) ? "selected" : "non-selected"}
+            >
+              {user.login}
             </option>
           ))}
         </select>
