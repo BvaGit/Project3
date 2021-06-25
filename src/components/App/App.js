@@ -1,7 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { connect } from "react-redux";
-import { func } from "prop-types";
 import { IntlProvider } from "react-intl";
 
 import Auth from "../Auth";
@@ -12,9 +10,9 @@ import message from "../constants/localization";
 import "./App.scss";
 
 const App = ({languageValue: langValue}) => {
-
+  
   return (
-    <IntlProvider locale={langValue} messages={message[langValue]} defaultLocale='en'>
+    <IntlProvider locale={langValue} messages={message[langValue]} >
       <Router>
         <Route exact path='/main' component={MainPage}/>
         <Route exact path='/registration' component={Registration}/>

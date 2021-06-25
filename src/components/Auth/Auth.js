@@ -6,7 +6,8 @@ import Input from '../Input';
 import Button from '../Button';
 import Logo from '../Logo';
 import Title from '../Title';
-import validation from '../constants/validation'
+import validation from '../../constants/validation'
+
 import { authUserRequest } from '../../store/users/asyncActions';
 
 import './Auth.scss';

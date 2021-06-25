@@ -11,7 +11,8 @@ export const getUsersFromApi = () => {
   };
 };
 
-export const regAuthRequest = (body) => {
+export const regAuthRequest = () => {
+   // SELECT LOGIN AND PASSWORD FROM STORE BY SELECTOR!!!!
   return (fetch("http://localhost:3000/api/user/reg",{
     method: "POST",
     headers: {
