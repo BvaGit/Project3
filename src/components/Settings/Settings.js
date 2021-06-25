@@ -6,8 +6,8 @@ import ModalSettings from '../ModalSettings/ModalSettings';
 
 import './settings.scss'
 
-
 function Settings(props) {
+    // console.log(props)
     const [isOpen, setIsOpen] = useState(false);
 
     const handleClick = () => setIsOpen(prev => !prev);

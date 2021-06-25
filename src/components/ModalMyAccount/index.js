@@ -1,3 +1,9 @@
-import ModalMyAccount from "./ModalMyAccount"
+import { connect } from "react-redux";
+import ModalMyAccount from "./ModalMyAccount";
+import { languageValue } from "../../store/localization/selectors.js";
 
-export default ModalMyAccount
+const mapStateToProps = (state) => ({
+    languageValue: languageValue(state),
+})
+
+export default connect(mapStateToProps, null)(ModalMyAccount);

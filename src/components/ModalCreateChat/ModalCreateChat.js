@@ -7,8 +7,7 @@ import message from '../constants/localization';
 import './modalCreateChat.scss';
 import '../RoomsHeader/roomsHeader.scss'
 
-function ModalCreateChat(props){
-    let langValue = props.languageValue;
+function ModalCreateChat({languageValue: langValue, handlecloseModal}){
 
     return  <div className="new-chat">
         <IntlProvider locale={langValue} messages={message[langValue]}>
@@ -41,9 +40,7 @@ function ModalCreateChat(props){
                     </FormattedMessage>
                     </div>
                 <select className="new-chat__select">
-                    <option>
-                        all
-                    </option>
+                    <option>all</option>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -52,18 +49,18 @@ function ModalCreateChat(props){
             <div className="button-box">
                 <button className="button">
                     <FormattedMessage 
-                        id="confirmBTN" 
-                        defaultMessage="Confirm" 
-                        value={{ langValue }}>
-                        Confirm
-                    </FormattedMessage>
-                </button>
-                <button className="button" onClick={props.handlecloseModal}>
-                    <FormattedMessage 
                         id="createBTN" 
                         defaultMessage="Create" 
                         value={{ langValue }}>
                         Create
+                    </FormattedMessage>
+                </button>
+                <button className="button" onClick={handlecloseModal}>
+                    <FormattedMessage 
+                        id="cancelBTN" 
+                        defaultMessage="Cancel" 
+                        value={{ langValue }}>
+                        Cancel
                     </FormattedMessage>
                 </button>
             </div>
