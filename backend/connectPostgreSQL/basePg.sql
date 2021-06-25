@@ -1,12 +1,5 @@
 CREATE DATABASE blabber-chat;
 
-CREATE TABLE users (
-    id BIGSERIAL PRIMARY KEY,
-    login VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL
-);
-
-
 CREATE TABLE myaccount(
     id BIGSERIAL PRIMARY KEY,
     firstname VARCHAR(100),
@@ -20,19 +13,24 @@ CREATE TABLE myaccount(
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
-
+CREATE TABLE users (
+    id BIGSERIAL PRIMARY KEY,
+    login VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
 
 CREATE TABLE chat
 (
-  id INTEGER REFERENCES users,
-  "chat_id" SERIAL PRIMARY KEY NOT NULL,
+  id INTEGER [],
+  chat_id SERIAL PRIMARY KEY NOT NULL,
   name CHARACTER VARYING(30) NOT NULL
 );
 
 CREATE TABLE participants
 (
-  "id" INTEGER REFERENCES users,
-  "chat_id" INTEGER REFERENCES chat
+  id INTEGER [],
+  chat_id SERIAL PRIMARY KEY NOT NULL,
+  name CHARACTER VARYING(30) NOT NULL
 );
 
 CREATE TABLE messages

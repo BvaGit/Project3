@@ -18,13 +18,23 @@
         margin-bottom: $margin_md;
     }
     &__select{
+        font-size: 14px;
         width: 100%;
         border: none;
         padding: $padding_md;
         background:$input-color;
         outline-color: $link-color;
         .selected {
-            background-color: red;
+            background-color: #aaa;
+        }
+
+        .non-selected {
+            &:focus, &:hover {
+                outline-color: $link-color;
+            }
         }
     }
 }
+
+
+

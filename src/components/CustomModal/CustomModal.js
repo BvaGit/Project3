@@ -8,9 +8,8 @@ function CustomModal(props) {
     <Portal>
       <div className="modal">
         <div className="modal-content">
-          <span className="close" onClick={props.handlecloseModal}>
-            &times;
-          </span>
+          <button className="modal-close" onClick={props.handlecloseModal}>
+          </button>
           <div className="modal-header">{props.header}</div>
           {props.content}
         </div>

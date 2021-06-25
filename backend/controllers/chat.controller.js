@@ -28,14 +28,8 @@ class ChatController {
       const create = await connectPg.query(
         `INSERT INTO chat (id, name) VALUES ('{${ids}}', '${name}') RETURNING *`
       );
-      await connectPg.query(
-        `INSERT INTO participants (id, chat_id) SELECT chat.id from chat where id='{${ids}}' AND chat_id=${create.chat_id})`);
-      // await connectPg.query(
-      //   `INSERT INTO participants (id, chat_id) VALUES ('{${ids}}', ${create.chat_id})
-      //   WHERE (chat_id = ${create.chat_id})`
-      // );
       res.status(200).json(create.rows);
-      console.log("create.rows", create.rows);
+      console.log("createChat", create.rows);
       io.emit("invited_room", create.rows);
     } catch (e) {
       console.log("err", e);

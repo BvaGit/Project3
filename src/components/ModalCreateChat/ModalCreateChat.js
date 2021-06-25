@@ -5,8 +5,8 @@ import Input from "../Input";
 import "./modalCreateChat.scss";
 import "../RoomsHeader/roomsHeader.scss";
 
-function ModalCreateChat({ createChat, getUsersFromApi, users, handleloseModal }) {
-  const [state, setState] = useState({ ids:[], name:""})
+function ModalCreateChat({ createChat, sendParticipants, getUsersFromApi, users, handlecloseModal }) {
+  const [state, setState] = useState({ ids: [], name: "" });
 
   useEffect(() => {
     getUsersFromApi();
@@ -14,6 +14,7 @@ function ModalCreateChat({ createChat, getUsersFromApi, users, handleloseModal }
 
   const handleClick = () => {
     createChat(state);
+    sendParticipants(state);
   };
 
   const handleChangeInput = (e) => {
@@ -40,7 +41,6 @@ function ModalCreateChat({ createChat, getUsersFromApi, users, handleloseModal }
       </div>
       <Input
         onChange={handleChangeInput}
-        value={state.login}
         label="Room name"
         type="text"
         placeholder="Enter name your new room..."
@@ -65,9 +65,9 @@ function ModalCreateChat({ createChat, getUsersFromApi, users, handleloseModal }
       </div>
       <div className="button-box">
         <button className="button" onClick={handleClick}>
-          CONFIRM
+          Confirm
         </button>
-        <button className="button" onClick={handleloseModal}>
+        <button className="button" onClick={handlecloseModal}>
           Cancel
         </button>
       </div>
