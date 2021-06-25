@@ -34,6 +34,9 @@ const message = {
         'cityPlaceholder': 'Enter your city...',
         'companyNamePlaceholder': 'Enter your company name...',
         'hobbyPlaceholder': 'Enter your hobby...',
+        'Settings': 'Settings',
+        'My Account': 'My Account',
+        'Create Chat': 'Create Chat',
     },
     'ru': {
         'header': 'Добро пожаловать',
@@ -70,6 +73,9 @@ const message = {
         'cityPlaceholder': 'Введите ваш город...',
         'companyNamePlaceholder': 'Введите ваше место работы...',
         'hobbyPlaceholder': 'Введите ваши увлечения...',
+        'Settings': 'Настройки',
+        'My Account': 'Личный кабинет',
+        'Create Chat': 'Создать чат',
     },
     'ar': {
         'header': 'أهلا بك',

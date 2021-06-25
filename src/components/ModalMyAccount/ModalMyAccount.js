@@ -16,7 +16,7 @@ function ModalMyAccount({languageValue: langValue, handlecloseModal}){
                 </div>
                 <div className="my-account__info">
                     <div className="my-account__info1">
-                        <label>
+                        <label className="inputs__label">
                         <FormattedMessage 
                             id="firstName" 
                             defaultMessage="First name" 
@@ -34,7 +34,7 @@ function ModalMyAccount({languageValue: langValue, handlecloseModal}){
                         </label>
                     </div>
                     <div className="my-account__info1">
-                        <label>
+                        <label className="inputs__label">
                         <FormattedMessage 
                             id="lastName" 
                             defaultMessage="Last name" 
@@ -54,7 +54,7 @@ function ModalMyAccount({languageValue: langValue, handlecloseModal}){
                 </div>
                 <div className="my-account__info">
                     <div className="my-account__info1">
-                        <label>
+                        <label className="inputs__label">
                         <FormattedMessage 
                             id="age" 
                             defaultMessage="Age" 
@@ -72,7 +72,7 @@ function ModalMyAccount({languageValue: langValue, handlecloseModal}){
                         </label>
                     </div>
                     <div className="my-account__info1">
-                        <label>
+                        <label className="inputs__label">
                         <FormattedMessage 
                             id="city" 
                             defaultMessage="City" 
@@ -92,7 +92,7 @@ function ModalMyAccount({languageValue: langValue, handlecloseModal}){
                 </div>
                 <div className="my-account__info">
                     <div className="my-account__info1">
-                        <label>
+                        <label className="inputs__label">
                         <FormattedMessage 
                             id="companyName" 
                             defaultMessage="Company name" 
@@ -110,7 +110,7 @@ function ModalMyAccount({languageValue: langValue, handlecloseModal}){
                         </label>
                     </div>
                     <div className="my-account__info1">
-                        <label>
+                        <label className="inputs__label">
                         <FormattedMessage 
                             id="hobby" 
                             defaultMessage="Hobby" 

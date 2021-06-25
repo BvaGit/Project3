@@ -24,7 +24,7 @@ function ModalSettings({languageValue: langValue, handleLanguage, closeModal}){
                                     </FormattedMessage>
                         </div>
                     {['en', 'ru'].map((x) => (
-                        <label key={x} onChange={handleChange} defaultValue='en'>{x}
+                        <label className="inputs__label" key={x} onChange={handleChange} defaultValue='en'>{x}
                                 <input type="radio" id={x} key={x} value={x} name="local" className="content-language__child"/>
                         </label>
                             ))}
@@ -43,14 +43,14 @@ function ModalSettings({languageValue: langValue, handleLanguage, closeModal}){
                         id="light" 
                         defaultMessage="light" 
                         value={{ langValue }}>
-                        <label htmlFor="light">light</label>
+                        <label className="inputs__label" htmlFor="light">light</label>
                     </FormattedMessage>
                     <input id="light" name="theme" type="radio" className="content-theme__child"/>
                     <FormattedMessage 
                         id="dark" 
                         defaultMessage="dark" 
                         value={{ langValue }}>
-                        <label htmlFor="dark">dark</label>
+                        <label className="inputs__label" htmlFor="dark">dark</label>
                     </FormattedMessage>
                     <input id="dark" name="theme" type="radio" className="content-theme__child"/> 
                 </div>
@@ -76,7 +76,7 @@ function ModalSettings({languageValue: langValue, handleLanguage, closeModal}){
                     </button>
                 </div>
                 <div>
-                    <label>
+                    <label className="inputs__label">
                     <FormattedMessage 
                         id="newLogin" 
                         defaultMessage="New login" 
@@ -94,7 +94,7 @@ function ModalSettings({languageValue: langValue, handleLanguage, closeModal}){
                     </label>
                 </div>
                 <div>
-                    <label>
+                    <label className="inputs__label">
                     <FormattedMessage 
                         id="newPassword" 
                         defaultMessage="New password" 
@@ -112,7 +112,7 @@ function ModalSettings({languageValue: langValue, handleLanguage, closeModal}){
                     </label>
                 </div>
                 <div>
-                    <label>
+                    <label className="inputs__label">
                     <FormattedMessage 
                         id="confirmPassword" 
                         defaultMessage="Confirm password" 

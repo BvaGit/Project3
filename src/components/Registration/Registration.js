@@ -85,43 +85,46 @@ const Registration = () => {
                 </div>
                 <div className="gen__main">
                     <div className="gen__container">
-                        <Input 
-                            id="regLogin" 
-                            label="Login" 
-                            type="text" 
-                            name="login"
-                            value={login}
-                            placeholder="Enter your login" 
-                            minLength="1" 
-                            maxLength="30" 
-                            onBlur={handleBlur}
-                            onChange={handleLogin}
-                        />
+                        <label className="inputs__label">Login
+                            <Input 
+                                id="regLogin" 
+                                type="text" 
+                                name="login"
+                                value={login}
+                                placeholder="Enter your login" 
+                                minLength="1" 
+                                maxLength="30" 
+                                onBlur={handleBlur}
+                                onChange={handleLogin}
+                            />
+                        </label>
                         {(loginDirty && loginError) && <div className="inputErr">{loginError}</div>}
-                        <Input 
-                            id="regPassword" 
-                            label="Password" 
-                            type="password" 
-                            name="password"
-                            value={password}
-                            placeholder="Enter your password" 
-                            minLength="1" 
-                            maxLength="30" 
-                            onBlur={handleBlur}
-                            onChange={handlePassword}
-                        />
+                        <label className="inputs__label">Password
+                            <Input 
+                                id="regPassword" 
+                                type="password" 
+                                name="password"
+                                value={password}
+                                placeholder="Enter your password" 
+                                minLength="1" 
+                                maxLength="30" 
+                                onBlur={handleBlur}
+                                onChange={handlePassword}
+                            />
+                        </label>
                         {(passwordDirty && passwordError) && <div className="inputErr">{passwordError}</div>}
-                        <Input 
-                            id="regRepeatPassword" 
-                            label="Repeat password" 
-                            type="password" 
-                            name="repeatPassword"
-                            placeholder="Confirm your password" 
-                            minLength="1" 
-                            maxLength="30" 
-                            onBlur={handleBlur}
-                            onChange={handleRepeatPassword}
-                        />
+                        <label className="inputs__label">Repeat password
+                            <Input 
+                                id="regRepeatPassword" 
+                                type="password" 
+                                name="repeatPassword"
+                                placeholder="Confirm your password" 
+                                minLength="1" 
+                                maxLength="30" 
+                                onBlur={handleBlur}
+                                onChange={handleRepeatPassword}
+                            />
+                        </label>
                         {(repeatPasswordDirty && repeatPasswordError) && <div className="inputErr">{repeatPasswordError}</div>}
                         <div className="gen__buttons">
                             <Button 

@@ -14,7 +14,7 @@ function ModalCreateChat({languageValue: langValue, handlecloseModal}){
             <div className="new-chat__avatar">
                 <img className="rooms-header__avatar" src="../../../public/assets/images/1-36-1024x1024.jpg"/>
             </div>
-            <label>
+            <label className="inputs__label">
                 <FormattedMessage 
                     id="roomName" 
                     defaultMessage="Room name" 

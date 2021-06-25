@@ -72,31 +72,33 @@ const Auth = () => {
                 </div>
                 <div className="gen__main">
                     <div className="gen__container">
-                        <Input 
-                            id="authLogin" 
-                            label="Login" 
-                            type="text" 
-                            name="login"
-                            value={login}
-                            placeholder="Enter your login" 
-                            minLength="1" 
-                            maxLength="30"
-                            onBlur={handleBlur}
-                            onChange={handleLogin}
-                        />   
+                        <label className="inputs__label">Login
+                            <Input 
+                                id="authLogin" 
+                                type="text" 
+                                name="login"
+                                value={login}
+                                placeholder="Enter your login" 
+                                minLength="1" 
+                                maxLength="30"
+                                onBlur={handleBlur}
+                                onChange={handleLogin}
+                            />   
+                        </label>
                         {(loginDirty && loginError) && <div className="inputErr">{loginError}</div>}
-                        <Input 
-                            id="authPassword" 
-                            label="Password" 
-                            type="password" 
-                            name="password"
-                            value={password}
-                            placeholder="Enter your password" 
-                            minLength="1" 
-                            maxLength="30"
-                            onBlur={handleBlur}
-                            onChange={handlePassword}
-                        />
+                        <label className="inputs__label">Password
+                            <Input 
+                                id="authPassword" 
+                                type="password" 
+                                name="password"
+                                value={password}
+                                placeholder="Enter your password" 
+                                minLength="1" 
+                                maxLength="30"
+                                onBlur={handleBlur}
+                                onChange={handlePassword}
+                            />
+                        </label>
                         {(passwordDirty && passwordError) && <div className="inputErr">{passwordError}</div>}
                         <div className="gen__buttons">
                             <Button 

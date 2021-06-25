@@ -4,7 +4,6 @@ import { useState} from 'react';
 import CustomModal from '../CustomModal';
 import ModalCreateChat from '../ModalCreateChat';
 
-
 import './addroom.scss';
 
 function AddRoom() {
