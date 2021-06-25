@@ -1,5 +1,5 @@
 import React from 'react';
-import { IntlProvider, FormattedMessage } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 import Input from '../Input';
 import message from '../constants/localization';
@@ -10,7 +10,6 @@ import '../RoomsHeader/roomsHeader.scss';
 function ModalMyAccount({languageValue: langValue, handlecloseModal}){
     return (
         <div className="my-account">
-            <IntlProvider locale={langValue} messages={message[langValue]}>
                 <div className="my-account__avatar">
                     <img className="rooms-header__avatar" src="../../../public/assets/images/1-36-1024x1024.jpg"/>
                 </div>
@@ -146,7 +145,6 @@ function ModalMyAccount({languageValue: langValue, handlecloseModal}){
                     </FormattedMessage>
                     </button>
                 </div>
-            </IntlProvider>
         </div>
     )
 }

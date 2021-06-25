@@ -1,16 +1,15 @@
 import React from 'react';
-import { IntlProvider, FormattedMessage } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 import Input from '../Input';
-import message from '../constants/localization';
 
 import './modalCreateChat.scss';
 import '../RoomsHeader/roomsHeader.scss'
 
 function ModalCreateChat({languageValue: langValue, handlecloseModal}){
 
-    return  <div className="new-chat">
-        <IntlProvider locale={langValue} messages={message[langValue]}>
+    return (
+        <div className="new-chat">
             <div className="new-chat__avatar">
                 <img className="rooms-header__avatar" src="../../../public/assets/images/1-36-1024x1024.jpg"/>
             </div>
@@ -64,8 +63,8 @@ function ModalCreateChat({languageValue: langValue, handlecloseModal}){
                     </FormattedMessage>
                 </button>
             </div>
-        </IntlProvider>
-    </div>
+        </div>
+    )
 }
 
 export default ModalCreateChat;
