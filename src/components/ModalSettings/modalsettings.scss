@@ -14,13 +14,15 @@
 .content-language{
     display: flex;
     &__child{
-        margin: auto $margin_md auto 3px
+        margin: auto $margin_md auto 3px;
+        opacity: 0;
     }
 }
 .content-theme{
     @include flex(_,_,_);
     &__child{
-        margin: auto $margin_md auto 3px
+        margin: auto $margin_md auto 3px;
+        opacity: 0;
     }
 }
 .content-reset__header{
@@ -38,5 +40,12 @@
     color: $button-text;
     &:hover {
         background: $button-hover;
+    }
+}
+.theme-dark {
+    .content {
+        &__item-header {
+            color: $l-body-text-color;
+        }
     }
 }

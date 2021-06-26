@@ -65,7 +65,7 @@ function ModalMyAccount({languageValue: langValue, handlecloseModal}){
                             defaultMessage="Enter your age..." 
                             value={{ langValue }}>
                             {placeholder=>
-                            <Input type="text" placeholder={placeholder}/>
+                            <Input type="number" placeholder={placeholder}/>
                             }
                         </FormattedMessage>
                         </label>

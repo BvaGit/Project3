@@ -8,8 +8,16 @@ import "./modalsettings.scss";
 function ModalSettings({languageValue: langValue, handleLanguage, closeModal}){
     const handleChange = (e) => {
         handleLanguage(e.target.value);
-      };
-
+    };
+    const handleThemeChange = (e) => {
+        if (e.target.value === 'light') {
+            document.getElementById('root').classList.remove('theme-dark');
+            document.getElementById('portal').classList.remove('theme-dark');
+        } else {
+            document.getElementById('root').classList.add('theme-dark');
+            document.getElementById('portal').classList.add('theme-dark');
+        }
+    };
     return(
         <div className="content">
             <div  className="content-language">
@@ -21,35 +29,52 @@ function ModalSettings({languageValue: langValue, handleLanguage, closeModal}){
                     Language:
                     </FormattedMessage>
                 </div>
-                {['en', 'ru'].map((x) => (
-                    <label className="inputs__label" key={x} onChange={handleChange} defaultValue='en'>{x}
-                            <input type="radio" id={x} key={x} value={x} name="local" className="content-language__child"/>
+                <label className="inputs__label" htmlFor="en">
+                    <FormattedMessage 
+                    id="en" 
+                    defaultMessage="en" 
+                    value={{ langValue }}>
+                        en
+                    </FormattedMessage>
+                </label>
+                    <input id="en" name="language" type="radio" value="en" onChange={handleChange} className="content-language__child" />
+                    <label className="inputs__label" htmlFor="ru">
+                    <FormattedMessage 
+                    id="ru" 
+                    defaultMessage="ru" 
+                    value={{ langValue }}>
+                        ru
+                    </FormattedMessage>
                     </label>
-                ))}
+                    <input id="ru" name="language" type="radio" value="ru" onChange={handleChange} className="content-language__child"/> 
             </div>
             <div className="content-theme">       
                 <div id="theme" className="content__item-header">
-                <FormattedMessage 
-                    id="theme" 
-                    defaultMessage="Theme:" 
-                    value={{ langValue }}>
-                    Theme:
-                </FormattedMessage>
+                    <FormattedMessage 
+                        id="theme" 
+                        defaultMessage="Theme:" 
+                        value={{ langValue }}>
+                        Theme:
+                    </FormattedMessage>
                 </div>
-                <FormattedMessage 
+                    <label className="inputs__label" htmlFor="light">
+                    <FormattedMessage 
                     id="light" 
                     defaultMessage="light" 
                     value={{ langValue }}>
-                    <label className="inputs__label" htmlFor="light">light</label>
-                </FormattedMessage>
-                <input id="light" name="theme" type="radio" className="content-theme__child"/>
-                <FormattedMessage 
+                        light
+                    </FormattedMessage>
+                    </label>
+                    <input id="light" name="theme" type="radio" value="light" onChange={handleThemeChange} className="content-theme__child" />
+                    <label className="inputs__label" htmlFor="dark">
+                    <FormattedMessage 
                     id="dark" 
                     defaultMessage="dark" 
                     value={{ langValue }}>
-                    <label className="inputs__label" htmlFor="dark">dark</label>
-                </FormattedMessage>
-                <input id="dark" name="theme" type="radio" className="content-theme__child"/> 
+                        dark
+                    </FormattedMessage>
+                    </label>
+                    <input id="dark" name="theme" type="radio" value="dark" onChange={handleThemeChange} className="content-theme__child"/> 
             </div>
             <div className="content-reset">
                 <span className="content__item-header content-reset__header">

@@ -21,7 +21,7 @@ const RoomsHeader = ({languageValue: langValue}) => {
                 </div>
                 <div className="rooms-header__settingsmenu">
                     <Settings className="rooms-header__settings"/>
-                    <img className="rooms-header__logout" src="../../../public/assets/images/logout.png"/>
+                    <img className="rooms-header__logout" src="../../../public/assets/images/logout_2.png"/>
                 </div>
             </div>
             <div className="rooms-header__search">
