@@ -35,11 +35,13 @@ const Registration = () => {
                     <div className="gen__container">
                         <RegistrationInput
                             id="login" 
+                            title="min 3 max 8, no spases, no empties"
                             placeholder="Enter your login" 
                             label="Login" 
                         />
                         <RegistrationInput
                             id="password" 
+                            title="min 6 max 12, not empty, no spases, include digital"
                             placeholder="Enter your password" 
                             label="Password" 
                         />

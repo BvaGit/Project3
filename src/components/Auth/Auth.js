@@ -51,7 +51,7 @@ const Auth = () => {
         setLogin(e.target.value);
 
         if (!loginValidation.test(String(e.target.value).toLowerCase())) {
-            setLoginError('min 3 max 8, no spases, no empties');
+            setLoginError('Invalid login');
         } else {
             setLoginError('');
         }
@@ -60,7 +60,7 @@ const Auth = () => {
         setPassword(e.target.value);
         
         if (!passwordValidation.test(String(e.target.value).toLowerCase())) {
-            setPasswordError('min 6 max 12, not empty, no spases, include digital');
+            setPasswordError('Invalid password');
             if (!e.target.value) {
                 setPasswordError('Password can\'t be empty')
             }
@@ -87,33 +87,33 @@ const Auth = () => {
                 </div>
                 <div className="gen__main">
                     <div className="gen__container">
-                        <label className="inputs__label">Login
                             <Input 
                                 id="authLogin" 
+                                labelId="Login"
                                 type="text" 
                                 name="login"
                                 value={login}
-                                placeholder="Enter your login" 
+                                title="min 3 max 8, no spases, no empties"
+                                placeholderId="Enter your login" 
                                 minLength="1" 
                                 maxLength="30"
                                 onBlur={handleBlur}
                                 onChange={handleLogin}
-                            />   
-                        </label>
+                            />  
                         {(loginDirty && loginError) && <div className="inputErr">{loginError}</div>}
-                        <label className="inputs__label">Password
                             <Input 
                                 id="authPassword" 
+                                labelId="Password"
                                 type="password" 
                                 name="password"
                                 value={password}
-                                placeholder="Enter your password" 
+                                title="min 6 max 12, not empty, no spases, include digital"
+                                placeholderId="Enter your password" 
                                 minLength="1" 
                                 maxLength="30"
                                 onBlur={handleBlur}
                                 onChange={handlePassword}
                             />
-                        </label>
                         {(passwordDirty && passwordError) && <div className="inputErr">{passwordError}</div>}
                         <div className="gen__buttons" onClick={handleAuth}>
                             <Button 

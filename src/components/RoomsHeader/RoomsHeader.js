@@ -4,10 +4,11 @@ import { FormattedMessage } from 'react-intl';
 import CustomModal from '../CustomModal';
 import ModalMyAccount from '../ModalMyAccount';
 import Settings from '../Settings';
+import Input from '../Input';
 
 import './roomsHeader.scss';
 
-const RoomsHeader = ({languageValue: langValue}) => {
+const RoomsHeader = () => {
     const [isOpen, setIsOpen] = useState(false);
     const handleClick = () => setIsOpen(prev => !prev);
 
@@ -25,16 +26,10 @@ const RoomsHeader = ({languageValue: langValue}) => {
                 </div>
             </div>
             <div className="rooms-header__search">
-                <FormattedMessage 
-                    id="search" 
-                    defaultMessage="Search .." 
-                    value={{ langValue }}>
-                        {placeholder=>  
-                            <input 
-                            className="rooms-header__input" 
-                            placeholder={placeholder}/>
-                        }
-                </FormattedMessage>
+                <Input 
+                labelId="search"
+                className="rooms-header__input" 
+                placeholderId="searchPlaceholder"/>
             </div>
         </div>
     )

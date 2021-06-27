@@ -6,7 +6,7 @@
         width: auto;
         height: 30%;
         font-size: 18px;
-        margin-top: $margin_sm;
+        margin: 0 $margin_sm;
         cursor: pointer;
     }
     &__input {
@@ -28,7 +28,9 @@
         }
     }
 }
-
+.opacity {
+    opacity: 0;
+}
 .theme-dark {
     .inputs {
         &__label {
