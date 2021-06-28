@@ -1,17 +1,14 @@
-import React from 'react';
-
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import CustomModal from '../CustomModal';
-import ModalMyAccount from '../ModalMyAccount/ModalMyAccount';
+import ModalMyAccount from '../ModalMyAccount';
 import Settings from '../Settings';
+import Input from '../Input';
 
-import './roomsHeader.scss'
+import './roomsHeader.scss';
 
-
-
-function RoomsHeader(props) {
-
+const RoomsHeader = () => {
     const [isOpen, setIsOpen] = useState(false);
     const handleClick = () => setIsOpen(prev => !prev);
 
@@ -25,14 +22,16 @@ function RoomsHeader(props) {
                 </div>
                 <div className="rooms-header__settingsmenu">
                     <Settings className="rooms-header__settings"/>
-                    <img className="rooms-header__logout" src="../../../public/assets/images/logout.png"/>
+                    <img className="rooms-header__logout" src="../../../public/assets/images/logout_2.png"/>
                 </div>
             </div>
             <div className="rooms-header__search">
-                <input className="rooms-header__input" placeholder="&#128269; search ..."/>
+                <Input 
+                labelId="search"
+                className="rooms-header__input" 
+                placeholderId="searchPlaceholder"/>
             </div>
         </div>
     )
 }
-
-export default RoomsHeader
+export default RoomsHeader;

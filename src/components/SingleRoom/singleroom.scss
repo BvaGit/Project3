@@ -1,31 +1,37 @@
-@import '../../utils/variables.scss';
+@import "../../utils/variables.scss";
 
-.singleroom{
-    background:rgb(214, 214, 214);
-    margin: 3px;
-    padding: $padding_md;
-    @include flex(_, space-between,_);
-    &__info{
-        @include flex(_,_,_);
-    }
-    &__avatar{
-        width: 25px;
-        border: $border solid 1px;
-        border-radius: 50%;
-    }
-    &__roomName{
-        align-self: center;
-        margin-left: $margin_sm;
-        font-family: 'Noto Sans KR', sans-serif;
-    }
-    &__messages{
-        @include flex(_,_,_);
-    }
+.singleroom {
+  background: rgb(214, 214, 214);
+  margin: $margin_sm;
+  padding: $padding_md;
+  @include flex(_, space-between, _);
+  &__info {
+    @include flex(_, _, _);
+  }
+  &__avatar {
+    width: 25px;
+    border: $border solid 1px;
+    border-radius: 50%;
+  }
+  &__roomName {
+    align-self: center;
+    margin-left: $margin_sm;
+    font-family: "Noto Sans KR", sans-serif;
+    cursor: default;
+  }
+  &__messages {
+    @include flex(_, _, _);
+  }
 }
-.singleroom:hover{
-    -webkit-transform: scale(1.005);
-    -ms-transform: scale(1.005);
-    transform: scale(1.005);
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    transition-duration: 0.3s;
+.singleroom:hover {
+  -webkit-transform: scale(1.005);
+  -ms-transform: scale(1.005);
+  transform: scale(1.005);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  transition-duration: 0.3s;
+}
+.theme-dark {
+  .singleroom {
+    background: $l-input;
+  }
 }

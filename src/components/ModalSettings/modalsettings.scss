@@ -11,16 +11,22 @@
 .content >div{
     margin: $margin_sm 0;
 }
+.content-language .inputs__input {
+    display: none;
+}
+.content-theme .inputs__input {
+    display: none;
+}
 .content-language{
     display: flex;
     &__child{
-        margin: auto $margin_md auto 3px
+        margin: auto $margin_md auto 3px;
     }
 }
 .content-theme{
     @include flex(_,_,_);
     &__child{
-        margin: auto $margin_md auto 3px
+        margin: auto $margin_md auto 3px;
     }
 }
 .content-reset__header{
@@ -38,5 +44,12 @@
     color: $button-text;
     &:hover {
         background: $button-hover;
+    }
+}
+.theme-dark {
+    .content {
+        &__item-header {
+            color: $l-body-text-color;
+        }
     }
 }

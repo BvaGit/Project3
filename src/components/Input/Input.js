@@ -1,19 +1,19 @@
 import React from 'react';
+import { injectIntl } from 'react-intl';
 
 import './Input.scss';
 
-const Input = ({ id, label, type, name, value, placeholder, minLength, maxLength, onBlur, onChange }) => {
+const Input = ({ intl, labelId, id, type, name, value, title, placeholderId, minLength, maxLength, onBlur, onChange }) => {
 
     return (
-
-        <label className="inputs__label">
-            {label}
+        <label className="inputs__label">{intl.formatMessage({id: `${labelId}`})}
             <input 
                 id={id}
                 type={type}
                 name={name}
                 value={value}
-                placeholder={placeholder}
+                title={title}
+                placeholder={intl.formatMessage({id: `${placeholderId}`})}
                 className="inputs__input"
                 minLength={minLength}
                 maxLength={maxLength}
@@ -24,4 +24,4 @@ const Input = ({ id, label, type, name, value, placeholder, minLength, maxLength
     )
 }
 
-export default Input;
+export default injectIntl(Input);

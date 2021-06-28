@@ -23,7 +23,7 @@ $width: 600px;
         border-radius: 12px;
     }
     &__buttons {
-        @include flex(row, space-around, center);
+        @include flex(row, flex-end, center);
         height: 20%;
         margin-top: $margin_lg;
     }

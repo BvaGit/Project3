@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from "react";
+import { FormattedMessage } from "react-intl";
 
 import Input from "../Input";
 
 import "./modalCreateChat.scss";
 import "../RoomsHeader/roomsHeader.scss";
 
-function ModalCreateChat({ createChat, sendParticipants, getUsersFromApi, users, handlecloseModal }) {
+function ModalCreateChat({
+  createChat,
+  sendParticipants,
+  getUsersFromApi,
+  users,
+  handlecloseModal,
+  languageValue: langValue,
+}) {
   const [state, setState] = useState({ ids: [], name: "" });
 
   useEffect(() => {
@@ -22,12 +30,12 @@ function ModalCreateChat({ createChat, sendParticipants, getUsersFromApi, users,
   };
 
   const handleChangeSelect = (e) => {
-    console.log(e.target.value)
+    console.log(e.target.value);
     setState({
       ...state,
       ids: state.ids.includes(e.target.value)
-        ? state.ids.filter((id)=>id !== e.target.value)
-        : [...state.ids, e.target.value]
+        ? state.ids.filter((id) => id !== e.target.value)
+        : [...state.ids, e.target.value],
     });
   };
 
@@ -40,23 +48,29 @@ function ModalCreateChat({ createChat, sendParticipants, getUsersFromApi, users,
         />
       </div>
       <Input
+        labelId="roomName"
         onChange={handleChangeInput}
         label="Room name"
         type="text"
-        placeholder="Enter name your new room..."
+        placeholderId="roomNamePlaceholder"
       />
       <div className="new-chat__users">
-        <div className="new-chat__usersLabel">Who do you want to add</div>
-        <select
-          className="new-chat__select"
-          multiple
-        >
+        <div className="new-chat__usersLabel">
+          <FormattedMessage
+            id="addMembers"
+            defaultMessage="Who do you want to add"
+            value={{ langValue }}
+          ></FormattedMessage>
+        </div>
+        <select className="new-chat__select" multiple>
           {users.map((user) => (
             <option
-            value={user.id}
-            key={user.id}
-            onClick={handleChangeSelect}
-            className={state.ids.includes(user.id) ? "selected" : "non-selected"}
+              value={user.id}
+              key={user.id}
+              onClick={handleChangeSelect}
+              className={
+                state.ids.includes(user.id) ? "selected" : "non-selected"
+              }
             >
               {user.login}
             </option>
@@ -65,10 +79,18 @@ function ModalCreateChat({ createChat, sendParticipants, getUsersFromApi, users,
       </div>
       <div className="button-box">
         <button className="button" onClick={handleClick}>
-          Confirm
+          <FormattedMessage
+            id="createBTN"
+            defaultMessage="Create"
+            value={{ langValue }}
+          ></FormattedMessage>
         </button>
         <button className="button" onClick={handlecloseModal}>
-          Cancel
+          <FormattedMessage
+            id="cancelBTN"
+            defaultMessage="Cancel"
+            value={{ langValue }}
+          ></FormattedMessage>
         </button>
       </div>
     </div>

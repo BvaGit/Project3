@@ -1,40 +1,49 @@
-@import '../../utils/variables.scss';
+@import "../../utils/variables.scss";
 
-.new-chat{
-    display: flex;
-    flex-direction: column;
-    &__avatar{
-        text-align: center;
-        margin-bottom: $margin_md;
+.new-chat {
+  display: flex;
+  flex-direction: column;
+  &__avatar {
+    text-align: center;
+    margin-bottom: $margin_md;
+  }
+  &__name {
+    margin-bottom: $margin_md;
+  }
+  &__users {
+    margin-bottom: $margin_md;
+  }
+  &__usersLabel {
+    font-size: 18px;
+    margin-bottom: $margin_md;
+  }
+  &__select {
+    font-size: 14px;
+    width: 100%;
+    border: none;
+    padding: $padding_md;
+    background: $input-color;
+    outline-color: $link-color;
+    .selected {
+      background-color: #aaa;
     }
-    &__name{
-        margin-bottom: $margin_md;
-    }
-    &__users{
-        margin-bottom: $margin_md;
-    }
-    &__usersLabel{
-        font-size: 18px;
-        margin-bottom: $margin_md;
-    }
-    &__select{
-        font-size: 14px;
-        width: 100%;
-        border: none;
-        padding: $padding_md;
-        background:$input-color;
+
+    .non-selected {
+      &:focus,
+      &:hover {
         outline-color: $link-color;
-        .selected {
-            background-color: #aaa;
-        }
-
-        .non-selected {
-            &:focus, &:hover {
-                outline-color: $link-color;
-            }
-        }
+      }
     }
+  }
 }
 
-
-
+.theme-dark {
+  .new-chat {
+    &__select {
+      background: $l-input;
+    }
+    &__usersLabel {
+      color: $l-body-text-color;
+    }
+  }
+}

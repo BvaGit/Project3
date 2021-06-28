@@ -1,10 +1,10 @@
-import { SET_USERS, AUTH_USER, LOGOUT_USER } from "./actionTypes";
+import * as AT from "./actionTypes";
 
 export const setUsers = (payload) => ({
-  type: SET_USERS,
+  type: AT.SET_USERS,
   payload,
 });
 
-export const authUsers = (payload) => ({type: AUTH_USER, payload});
+export const authUsers = (payload) => ({type: AT.AUTH_USER, payload});
 
-export const logoutUsers = () => ({type: LOGOUT_USER});
+export const logoutUsers = () => ({type: AT.LOGOUT_USER});
