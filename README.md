@@ -33,9 +33,7 @@
 }
 ```
 
-В ответе приходят токен и id пользователя
-
-## My account
+В ответе приходят токен и id пользователя## My account
 ### PUT
 
 Для отправки или обновлении информации о пользователе ( поля: first name, last name, age, city, company, hobby, theme, language, notifications) необходимо отправить **PUT** запрос по роуту **_/api/user/myaccount/:id_** <br>
@@ -46,8 +44,6 @@
 ### PUT
 
 Для обновления логина или пароля пользователя необходимо отправить **PUT** запрос по роуту **_/api/user/updatelogpass/:id_** <br>
-
-
 ## Settings
 
 ## Users

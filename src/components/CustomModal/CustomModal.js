@@ -15,9 +15,7 @@ function CustomModal({
     <Portal>
       <div className="modal">
         <div className="modal-content">
-          <span className="close" onClick={handlecloseModal}>
-            &times;
-          </span>
+          <button className="modal-close" onClick={handlecloseModal}></button>
           <div className="modal-header">
             <FormattedMessage
               id={header}

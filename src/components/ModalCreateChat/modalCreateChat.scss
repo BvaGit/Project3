@@ -24,8 +24,9 @@
     padding: $padding_md;
     background: $input-color;
     outline-color: $link-color;
+
     .selected {
-      background-color: #aaa;
+      background-color: $cross;
     }
 
     .non-selected {
@@ -41,6 +42,10 @@
   .new-chat {
     &__select {
       background: $l-input;
+    }
+
+    .selected {
+      background-color: $button-hover;
     }
     &__usersLabel {
       color: $l-body-text-color;
