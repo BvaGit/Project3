@@ -1,3 +1,9 @@
+import { connect } from 'react-redux';
 import Settings from "./Settings";
+import { handleLanguage } from '../../store/localization/actions';
 
-export default Settings;
+const mapDispatchToProps = (dispatch) => ({
+    handleLanguage: (payload) => dispatch(handleLanguage(payload)),
+})
+
+export default connect(null, mapDispatchToProps)(Settings);

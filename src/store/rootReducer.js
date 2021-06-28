@@ -1,11 +1,17 @@
 import { combineReducers } from "redux";
+import {connectRouter} from "connected-react-router";
 
-import { usersReducer } from "/src/store/users/reducer.js";
+import { language } from "./localization/reducer.js";
+import { usersReducer } from "/src/store/users/reducer";
+import { registrationReducer } from "/src/store/registration/reducer";
+import { authReducer } from "/src/store/auth/reducer";
 
-const rootReducer = combineReducers({
+const rootReducer = history => combineReducers({
   usersReducer,
-  // settingsReducer,
-  // roomsReducer
+  auth: authReducer,
+  registration: registrationReducer,
+  router: connectRouter(history),
+  language
 });
 
 export default rootReducer;

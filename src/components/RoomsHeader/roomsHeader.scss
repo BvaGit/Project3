@@ -61,3 +61,14 @@
 
     }
 }
+.theme-dark {
+    .rooms-header {
+        &__userName {
+            color: $l-body-text-color;
+        }
+        &__input {
+            background: $l-input;
+            color: $l-body-text-color
+        }
+    }
+}

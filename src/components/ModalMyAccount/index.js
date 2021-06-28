@@ -1,3 +1,3 @@
-import ModalMyAccount from "./ModalMyAccount"
+import ModalMyAccount from "./ModalMyAccount";
 
-export default ModalMyAccount
+export default ModalMyAccount;

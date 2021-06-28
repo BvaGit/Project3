@@ -2,7 +2,7 @@ import React, { useState} from 'react';
 import Input from '../../Input';
 import { validateRegField } from '/src/helpers/validation'
 
-const RegistrationInput = ({ value, changeField, id, label, placeholder, error, setError }) =>{
+const RegistrationInput = ({ value, title, changeField, id, label, placeholder, error, setError }) =>{
     const [blured, setBlured] = useState(false);
 
     const handleBlur = () =>{
@@ -18,11 +18,12 @@ const RegistrationInput = ({ value, changeField, id, label, placeholder, error, 
     return (
         <>
             <Input  
-                label={label} 
+                labelId={label} 
                 type="text" 
                 name={id}
                 value={value}
-                placeholder={placeholder} 
+                title={title}
+                placeholderId={placeholder} 
                 minLength="1"
                 maxLength="30"
                 onBlur={handleBlur}

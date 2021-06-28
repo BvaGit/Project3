@@ -15,4 +15,12 @@ const slava = {
   ssl: false,
 };
 
-module.exports = { marina, slava };
+const andrey = {
+  user: "postgres",
+  password: "postgres",
+  host: "localhost",
+  port: 5432,
+  database: "blabber-chat",
+};
+
+module.exports = { marina, slava, andrey };

@@ -4,11 +4,12 @@
     background: $button-color;
     color: $button-text;
     padding: $padding_lg;
-    @include flex(row, center,_);
+    @include flex(row, center,center);
     &__appName{
         margin-right: $margin_md;
         margin-top: auto;
         margin-bottom: auto;
+        cursor: default;
     }
     &__logo{
         width: 60px;
@@ -20,4 +21,9 @@
     min-height: 90%;
     position: absolute;
     border: $border solid 1px;
+}
+.theme-dark {
+    .rooms__box {
+        background: $l-body-background;
+    }
 }

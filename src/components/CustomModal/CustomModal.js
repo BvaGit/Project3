@@ -1,19 +1,29 @@
 import React from 'react';
-import Portal from '../Portal'
+import { FormattedMessage } from 'react-intl';
+
+import Portal from '../Portal';
 
 import './custommodal.scss'
 
-function CustomModal(props) {
+function CustomModal({languageValue: langValue, handlecloseModal, header, content}) {
+
     return (
-            <Portal >
-                <div className="modal">
+        <Portal >
+            <div className="modal">
                     <div className="modal-content">
-                        <span className="close" onClick={props.handlecloseModal}>&times;</span>
-                        <div className="modal-header">{props.header}</div>
-                        {props.content}
+                        <span className="close" onClick={handlecloseModal}>&times;</span>
+                        <div className="modal-header">
+                            <FormattedMessage 
+                            id={header} 
+                            defaultMessage="First name" 
+                            value={{ langValue }}>
+                            {header}
+                            </FormattedMessage>
+                            </div>
+                        {content}
                     </div>
-                </div>
-            </Portal>
+            </div>
+        </Portal>
     )       
 }
 

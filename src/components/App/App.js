@@ -1,22 +1,24 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { connect } from "react-redux";
-import { func } from "prop-types";
+import { Route, Switch } from 'react-router-dom';
+import { IntlProvider } from "react-intl";
 
 import Auth from "../Auth";
 import Registration from "../Registration";
 import MainPage from "../MainPage";
+import message from "../constants/localization";
 
 import "./App.scss";
 
-const App = () => {
-
+const App = ({languageValue: langValue}) => {
+  
   return (
-    <Router>
-      <Route exact path='/main' component={MainPage}/>
-      <Route exact path='/registration' component={Registration}/>
-      <Route exact path='/' component={Auth}/>
-    </Router>
+    <IntlProvider locale={langValue} messages={message[langValue]} >
+      <Switch>
+         <Route path='/main' component={MainPage}/>
+         <Route path='/registration' component={Registration}/>
+         <Route exact path='/' component={Auth}/>
+     </Switch>
+    </IntlProvider>
   )
 }
 

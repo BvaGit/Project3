@@ -25,3 +25,14 @@
         outline-color: $link-color;
     }
 }
+
+.theme-dark {
+    .new-chat {
+        &__select {
+            background: $l-input;
+        }
+        &__usersLabel {
+            color: $l-body-text-color;
+        }
+    }
+}

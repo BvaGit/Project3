@@ -1,11 +1,12 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
-import Input from '../Input'
+import Input from '../Input';
 
 import './modalMyAccount.scss';
-import '../RoomsHeader/roomsHeader.scss'
+import '../RoomsHeader/roomsHeader.scss';
 
-function ModalMyAccount(props){
+function ModalMyAccount({languageValue: langValue, handlecloseModal}){
     return (
         <div className="my-account">
             <div className="my-account__avatar">
@@ -13,34 +14,47 @@ function ModalMyAccount(props){
             </div>
             <div className="my-account__info">
                 <div className="my-account__info1">
-                    <Input label="First name" type="text" placeholder="Enter your first name..."/> 
+                    <Input labelId="firstName" type="text" placeholderId="firstNamePlaceholder"/> 
                 </div>
                 <div className="my-account__info1">
-                    <Input label="Last name" type="text" placeholder="Enter your last name..."/>
-                </div>
-            </div>
-            <div className="my-account__info">
-                <div className="my-account__info1">
-                    <Input label="Age" type="number" placeholder="Enter your age..."/>
-                </div>
-                <div className="my-account__info1">
-                    <Input label="City" type="text" placeholder="Enter your city..."/>
+                    <Input labelId="lastName" type="text" placeholderId="lastNamePlaceholder"/>
                 </div>
             </div>
             <div className="my-account__info">
                 <div className="my-account__info1">
-                    <Input label="Company name" type="number" placeholder="Enter your company name..."/>
+                    <Input labelId="age" type="number" placeholderId="agePlaceholder"/>
                 </div>
                 <div className="my-account__info1">
-                    <Input label="Hobby" type="text" placeholder="Enter your hobby..."/>
+                    <Input labelId="city" type="text" placeholderId="cityPlaceholder"/>
+                </div>
+            </div>
+            <div className="my-account__info">
+                <div className="my-account__info1">
+                    <Input labelId="companyName" type="text" placeholderId="companyNamePlaceholder"/>
+                </div>
+                <div className="my-account__info1">
+                    <Input labelId="hobby" type="text" placeholderId="hobbyPlaceholder"/>
                 </div>
             </div>
             <div className="button-box">
-                <button className="button">CONFIRM</button>
-                <button className="button" onClick={props.handlecloseModal}>Cancel</button>
+                <button className="button">
+                <FormattedMessage 
+                    id="saveBTN" 
+                    defaultMessage="Save" 
+                    value={{ langValue }}>
+                    Save
+                </FormattedMessage>
+                </button>
+                <button className="button" onClick={handlecloseModal}>
+                <FormattedMessage 
+                    id="cancelBTN" 
+                    defaultMessage="Cancel" 
+                    value={{ langValue }}>
+                    Cancel
+                </FormattedMessage>
+                </button>
             </div>
         </div>
-        
     )
 }
 
