@@ -37,7 +37,9 @@ const Registration = () => {
                             placeholder="Confirm your password" 
                             label="Repeat password" 
                         />
-                        <RegistrationBtn />
+                        <div className="gen__buttons">
+                            <RegistrationBtn />
+                        </div>
                         <p className="gen__link">Already have an account?</p>
                         <NavLink to='/' className="gen__link">
                             Sign in

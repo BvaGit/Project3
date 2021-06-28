@@ -20,11 +20,11 @@ const AuthInput = ({ value, changeField, id, label, placeholder, error, setError
     return (
         <>
             <Input
-                label={label}
+                labelId={label}
                 type="text"
                 name={id}
                 value={value}
-                placeholder={placeholder}
+                placeholderId={placeholder}
                 minLength="1"
                 maxLength="30"
                 onBlur={handleBlur}
