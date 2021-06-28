@@ -1,7 +1,7 @@
-import RegistrationInput from './RegistrationInput'
-import { connect } from 'react-redux'
-import { getRegErrorByIdStore,getRegFieldByIdStore } from '../../../store/users/selectors'
-import { changeRegistrationField, changeRegistrationFieldError } from '../../../store/users/actions'
+import RegistrationInput from './RegistrationInput';
+import { connect } from 'react-redux';
+import { getRegErrorByIdStore,getRegFieldByIdStore } from '../../../store/registration/selectors';
+import { changeRegistrationField, changeRegistrationFieldError } from '../../../store/registration/actions';
 
 const mapStateToProps = (state, props) => ({
     value: getRegFieldByIdStore(state, props),

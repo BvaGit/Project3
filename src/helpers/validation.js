@@ -4,7 +4,6 @@ export const validateRegField = (field, value) => {
     const {loginValidation, passwordValidation} = validationRegExp
     switch(field){
         case 'login':
-            console.log('here')
             if (!loginValidation.test(String(value).toLowerCase())) {
                 return 'Invalid login';
             } else {

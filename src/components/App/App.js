@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { IntlProvider } from "react-intl";
 
 import Auth from "../Auth";
@@ -13,11 +13,11 @@ const App = ({languageValue: langValue}) => {
   
   return (
     <IntlProvider locale={langValue} messages={message[langValue]} >
-      <Router>
-        <Route exact path='/main' component={MainPage}/>
-        <Route exact path='/registration' component={Registration}/>
-        <Route exact path='/' component={Auth}/>
-      </Router>
+      <Switch>
+         <Route path='/main' component={MainPage}/>
+         <Route path='/registration' component={Registration}/>
+         <Route exact path='/' component={Auth}/>
+     </Switch>
     </IntlProvider>
   )
 }
