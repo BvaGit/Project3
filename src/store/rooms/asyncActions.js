@@ -1,5 +1,7 @@
 import cookie from "js-cookie";
 
+import { getUserID } from "../../store/user/selectors";
+
 export const sendMessages = (body) => {
   return () => {
     return fetch("http://localhost:3000/api/messages/create_message", {
@@ -42,11 +44,9 @@ export const sendParticipants = (body) => {
   };
 };
 
-// export const getUserChats = () => {
-//   async (dispatch, getState) => {
-//     const state = getState;
-//     const user_id = 
-//     const request = await fetch(`http://localhost:3000/api/chat/${user_id}`);
-//     console.log(request);
-//   };
-// };
+export const getUserChats = () => async (dispatch, getState) => {
+  const state = getState;
+  const user_id = getUserID(state);
+  const request = await fetch(`http://localhost:3000/api/chat/${user_id}`);
+  console.log("request", request);
+};

@@ -5,6 +5,6 @@ export const setUsers = (payload) => ({
   payload,
 });
 
-export const authUser = (payload) => ({type: AT.AUTH_USER, payload});
+export const authUser = (payload) => ({ type: AT.AUTH_USER, payload });
 
-export const logoutUsers = () => ({type: AT.LOGOUT_USER});
+export const logoutUser = () => ({ type: AT.LOGOUT_USER });

@@ -4,8 +4,10 @@ import SingleRoom from "../SingleRoom";
 
 import "./rooms.scss";
 
-const Rooms = () => {
-  useEffect(() => {}, []);
+const Rooms = ({ getUserChats }) => {
+  useEffect(() => {
+    getUserChats();
+  }, []);
 
   return (
     <div className="rooms">
