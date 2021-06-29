@@ -4,8 +4,16 @@ import { getTime } from "../../../helpers/message";
 
 import "./messageInput.scss";
 
-const MessageInput = ({ socket, getUsersFromApi, sendMessages, users }) => {
-  // const [valueInput, setValueInput] = useState("");
+const MessageInput = ({
+  socket,
+  getUsersFromApi,
+  sendMessages,
+  getUserChats,
+  userId,
+  chatId,
+  rooms,
+  setActiveRoom,
+}) => {
   const [state, setState] = useState({
     id: "",
     chat_id: "",
@@ -15,11 +23,20 @@ const MessageInput = ({ socket, getUsersFromApi, sendMessages, users }) => {
 
   useEffect(() => {
     getUsersFromApi();
-  }, []);
+    setActiveRoom(chatId);
+    if (userId) {
+      getUserChats(userId);
+    }
+  }, [userId]);
 
   const handleChangeInput = (e) => {
     console.log("setState content", e.target.value);
-    setState({ ...state, content: e.target.value, id: 1, chat_id: 23 });
+    setState({
+      ...state,
+      id: userId,
+      chat_id: chatId,
+      content: e.target.value,
+    });
   };
 
   const handleClick = () => {
@@ -35,6 +52,7 @@ const MessageInput = ({ socket, getUsersFromApi, sendMessages, users }) => {
           chat_id: state.chat_id,
           content: state.content,
           date_create: getTime(),
+          // здесь из редакса айди
         })
       );
     }
@@ -45,6 +63,7 @@ const MessageInput = ({ socket, getUsersFromApi, sendMessages, users }) => {
       <div className="message">
         <label>
           <input
+            key={rooms.chat_id}
             className="message__input"
             onChange={handleChangeInput}
             placeholder="Write a message"
