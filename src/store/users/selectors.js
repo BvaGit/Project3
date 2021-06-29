@@ -1,8 +1,8 @@
 import { createSelector } from "reselect";
 
-export const getUserStore = (state) => state.usersReducer;
+export const getUsersStore = (state) => state.users;
 
-export const getUsersFromStore = createSelector(
-  getUserStore,
-  (users) => users.users
-);
+export const getUsersFromStore = createSelector(getUsersStore, (users) => {
+  console.log(users);
+  return users.users;
+});

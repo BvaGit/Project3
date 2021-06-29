@@ -3,17 +3,8 @@ import {
   SEND_MESSAGE,
   RECEIVED_MESSAGE,
   DATE_LAST_READ,
+  GET_USER_CHATS,
 } from "./actionTypes";
-
-export function getTime() {
-  let date = new Date();
-  let time = [date.getHours(), date.getMinutes()]
-    .map((x) => {
-      return x < 10 ? `0${x}` : x;
-    })
-    .join(":");
-  return time;
-}
 
 export const setSocketEmit = (socket) => ({
   type: SET_SOCKET_EMIT,
@@ -32,4 +23,9 @@ export const recievedMessage = (message) => ({
 
 export const getStatusMessage = (message) => ({
   type: DATE_LAST_READ,
+});
+
+export const getUserChats = (chats) => ({
+  type: GET_USER_CHATS,
+  payload: chats,
 });

@@ -13,15 +13,15 @@ class ChatController {
 
   async getChatById(req, res) {
     try {
+      const user = req.params.user_id;
       const get = await connectPg.query(
-        `SELECT * FROM chat WHERE (chat_id = ${req.params.chat_id})`
+        `SELECT * FROM chat WHERE ${user} = any(id)`
       );
       res.status(200).json(get.rows);
     } catch (e) {
       res.status(400).json(message.abstractErr);
     }
   }
-
   async createChat(req, res) {
     try {
       const { ids, name } = req.body;

@@ -1,5 +1,6 @@
-import ModalCreateChat from "./ModalCreateChat";
 import { connect } from "react-redux";
+
+import ModalCreateChat from "./ModalCreateChat";
 
 import { createChat, sendParticipants } from "../../store/rooms/asyncActions";
 import { getUsersFromApi } from "../../store/users/asyncActions";

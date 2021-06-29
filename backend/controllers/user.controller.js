@@ -99,7 +99,7 @@ class UserController {
 
   async getUsers(req, res) {
     try {
-      const get = await connectPg.query(`SELECT * from users`);
+      const get = await connectPg.query(`SELECT id, login from users`);
       res.json(get.rows);
     } catch (e) {
       console.log(e);

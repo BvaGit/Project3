@@ -4,7 +4,8 @@ import { useDispatch } from "react-redux";
 import RoomsHeader from "../RoomsHeader";
 import Rooms from "../Rooms";
 import AddRoom from "../AddRoom";
-import { addToken } from "../../store/users/asyncActions";
+import MessagesContainer from "../MessagesContainer";
+import { addToken } from "../../store/user/asyncActions";
 
 import ConnectSocket from "../Socket";
 
@@ -32,6 +33,7 @@ const MainPage = () => {
         <AddRoom />
         <ConnectSocket />
       </div>
+      <MessagesContainer />
     </div>
   );
 };

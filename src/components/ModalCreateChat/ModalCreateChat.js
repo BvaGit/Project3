@@ -30,7 +30,6 @@ function ModalCreateChat({
   };
 
   const handleChangeSelect = (e) => {
-    console.log(e.target.value);
     setState({
       ...state,
       ids: state.ids.includes(e.target.value)

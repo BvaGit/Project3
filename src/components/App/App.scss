@@ -7,12 +7,28 @@
 }
 
 body {
-    margin: 0;
-    font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
+  font-family: "Noto Sans KR", sans-serif;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 button {
   cursor: pointer;
+}
+
+button,
+input,
+textarea {
+  background-color: transparent;
+  border-radius: 0;
+  border-style: none;
+  color: inherit;
+  letter-spacing: inherit;
+  margin: 0;
+  outline: 0 !important;
+  padding: 0;
+  text-decoration: none;
 }
 
 input,
@@ -20,5 +36,5 @@ label,
 select,
 option,
 button {
-    font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
 }
