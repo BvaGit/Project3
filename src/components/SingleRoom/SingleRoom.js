@@ -5,7 +5,7 @@ import MentionPin from "../MentionPin";
 
 import "./singleroom.scss";
 
-const SingleRoom = (props) => {
+const SingleRoom = ({ room }) => {
   return (
     <div className="singleroom">
       <div className="singleroom__info">
@@ -13,7 +13,7 @@ const SingleRoom = (props) => {
           className="singleroom__avatar"
           src="../../../public/assets/images/1-36-1024x1024.jpg"
         />
-        <div className="singleroom__roomName">Some name</div>
+        <div className="singleroom__roomName">{room.name}</div>
       </div>
       <div className="singleroom__messages">
         <MentionPin />

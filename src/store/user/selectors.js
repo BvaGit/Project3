@@ -4,12 +4,9 @@ export const getUserStore = (state) => state.user;
 
 export const getUserFromStore = createSelector(
   getUserStore,
-  (user) => user.user
+  (state) => state.user,
 );
 
-export const getUserID = createSelector(getUserStore, (user) => {
-  console.log(user);
-  return user && user.id;
-});
+export const getUserID = createSelector(getUserFromStore, (user) => user.id);
 
-export const getUserToken = createSelector(getUserStore, (user) => user.token);
+export const getUserToken = createSelector(getUserFromStore, (user) => user.token);

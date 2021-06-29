@@ -1,6 +1,6 @@
 import cookie from "js-cookie";
 
-import { getUserID } from "../../store/user/selectors";
+import { setUserChats } from "./actions";
 
 export const sendMessages = (body) => {
   return () => {
@@ -44,9 +44,13 @@ export const sendParticipants = (body) => {
   };
 };
 
-export const getUserChats = () => async (dispatch, getState) => {
-  const state = getState;
-  const user_id = getUserID(state);
-  const request = await fetch(`http://localhost:3000/api/chat/${user_id}`);
-  console.log("request", request);
+export const getUserChats = (userId) => async (dispatch) => {
+  const token = cookie.get("token");
+  const request = await fetch(`http://localhost:3000/api/chat/${userId}`,{
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  const rooms = await request.json();
+  dispatch(setUserChats(rooms));
 };

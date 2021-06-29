@@ -12,7 +12,6 @@ export const getUsersFromApi = () => {
       .then((response) => response.json())
       .then((json) => {
         dispatch(setUsers(json));
-        console.log(json);
       });
   };
 };

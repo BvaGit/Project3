@@ -3,12 +3,14 @@ import {
   SEND_MESSAGE,
   RECEIVED_MESSAGE,
   DATE_LAST_READ,
+  SET_USER_CHATS,
 } from "./actionTypes";
 
 const initialState = {
-  // sendingMessage: false,
-  // messages: [],
-  // socket: null,
+  sendingMessage: false,
+  messages: [],
+  socket: null,
+  rooms: [],
 };
 
 export const roomsReducer = (state = initialState, action) => {
@@ -36,6 +38,12 @@ export const roomsReducer = (state = initialState, action) => {
       return {
         ...state,
       };
+      // correct
+    case SET_USER_CHATS:
+      return {
+        ...state,
+        rooms: action.payload,
+      }
     default:
       return state;
   }

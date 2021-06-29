@@ -4,16 +4,18 @@ import SingleRoom from "../SingleRoom";
 
 import "./rooms.scss";
 
-const Rooms = ({ getUserChats }) => {
+const Rooms = ({ getUserChats, userId, rooms }) => {
   useEffect(() => {
-    getUserChats();
-  }, []);
-
+      if (userId) {
+          getUserChats(userId);
+      }
+  }, [userId]);
   return (
     <div className="rooms">
-      <SingleRoom />
-      <SingleRoom />
-      <SingleRoom />
+        {rooms.length
+            ? rooms.map(room => <SingleRoom room={room} key={room.chat_id} />)
+            : <div>Чатов нету</div>
+        }
     </div>
   );
 };

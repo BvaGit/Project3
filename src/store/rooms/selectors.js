@@ -8,3 +8,8 @@ export const sendMessage = createSelector(
   getRoomsState,
   (messages) => messages.message
 );
+
+export const getRooms = createSelector(
+  getRoomsState,
+  (state) => state.rooms
+);

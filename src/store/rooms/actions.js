@@ -3,7 +3,7 @@ import {
   SEND_MESSAGE,
   RECEIVED_MESSAGE,
   DATE_LAST_READ,
-  GET_USER_CHATS,
+  SET_USER_CHATS,
 } from "./actionTypes";
 
 export const setSocketEmit = (socket) => ({
@@ -25,7 +25,7 @@ export const getStatusMessage = (message) => ({
   type: DATE_LAST_READ,
 });
 
-export const getUserChats = (chats) => ({
-  type: GET_USER_CHATS,
+export const setUserChats = (chats) => ({
+  type: SET_USER_CHATS,
   payload: chats,
 });

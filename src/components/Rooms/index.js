@@ -2,11 +2,16 @@ import Rooms from "./Rooms";
 import { connect } from "react-redux";
 
 import { getUserChats } from "../../store/rooms/asyncActions";
+import { getUserID } from "../../store/user/selectors";
+import { getRooms } from "../../store/rooms/selectors";
 
-const mapDispatchToProps = (dispatch) => ({
-  getUserChats: () => dispatch(getUserChats()),
+const mapStateToProps = state => ({
+  userId: getUserID(state),
+  rooms: getRooms(state),
 });
 
-export default connect(null, mapDispatchToProps)(Rooms);
+const mapDispatchToProps = (dispatch) => ({
+  getUserChats: userId => dispatch(getUserChats(userId)),
+});
 
-// export default Rooms;
+export default connect(mapStateToProps, mapDispatchToProps)(Rooms);

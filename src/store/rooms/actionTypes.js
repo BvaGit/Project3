@@ -2,4 +2,4 @@ export const SET_SOCKET_EMIT = "SET_SOCKET_EMIT";
 export const SEND_MESSAGE = "SEND_MESSAGE";
 export const RECEIVED_MESSAGE = "RECEIVED_MESSAGE";
 export const DATE_LAST_READ = "DATE_LAST_READ";
-export const GET_USER_CHATS = "GET_USER_CHATS";
+export const SET_USER_CHATS = "SET_USER_CHATS";
