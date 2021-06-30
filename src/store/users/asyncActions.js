@@ -30,7 +30,6 @@ export const ChangeCredits = (body) => {
   return (dispatch, getState) => {
     const user = getState().usersReducer;
     const id = user.users[0].id;
-    console.log(id)
     return fetch(`http://localhost:3000/api/user/updatelogpass/${id}`, {
       method: 'PUT',
       headers: {

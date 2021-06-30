@@ -16,7 +16,7 @@ function ModalSettings({languageValue: langValue, handleLanguage, closeModal, ch
             password
         }
         changeLogin(body);
-        console.log(body);
+        closeModal();
     };
     const handleValueInputLogin = (e) => {
         setLogin(e.target.value)
@@ -83,18 +83,14 @@ function ModalSettings({languageValue: langValue, handleLanguage, closeModal, ch
                 </FormattedMessage>
                 </button>
             </div>
-            <div>
-                {/* <ChangeCredits id="newLogin" labelId="newLogin" type="text" placeholderId="newLoginPlaceholder"/> */}
-                
+            <div>                
                 <Input id="newLogin" name="login" labelId="newLogin" type="text" placeholderId="newLoginPlaceholder" onChange={handleValueInputLogin}  />
             </div>
             <div>
-                {/* <ChangeCredits id="newPassword" labelId="newPassword" type="password" placeholderId="newPasswordPlaceholder" value={valueInput} onChange={handleValueInput}/> */}
                 <Input id="newPassword" name="password" labelId="newPassword" type="password" placeholderId="newPasswordPlaceholder"
                 onChange={handleValueInputPassword}  />
             </div>
             <div>
-                {/* <ChangeCredits id="confirmPassword" labelId="confirmPassword" type="password" placeholderId="repeatPasswordPlaceholder"/> */}
                 <Input id="confirmPassword" name="confirmPassword" labelId="confirmPassword" type="password" placeholderId="repeatPasswordPlaceholder"  /> 
             </div>
             <div className="button-box">
