@@ -25,3 +25,22 @@ export const addToken = () => {
   })
  }
 }
+
+export const ChangeCredits = (body) => {
+  return (dispatch, getState) => {
+    const user = getState().usersReducer;
+    const id = user.users[0].id;
+    console.log(id)
+    return fetch(`http://localhost:3000/api/user/updatelogpass/${id}`, {
+      method: 'PUT',
+      headers: {
+        "Content-type": "application/json; charset=utf-8"
+      },
+      body: JSON.stringify(body)
+    })
+    .then(data => data.json())
+    .then(json => {
+      console.log(json)
+    })
+   }
+}

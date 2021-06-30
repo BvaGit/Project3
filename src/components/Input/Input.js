@@ -4,7 +4,6 @@ import { injectIntl } from 'react-intl';
 import './Input.scss';
 
 const Input = ({ intl, labelId, id, type, name, value, title, placeholderId, minLength, maxLength, onBlur, onChange }) => {
-
     return (
         <label className="inputs__label">{intl.formatMessage({id: `${labelId}`})}
             <input 

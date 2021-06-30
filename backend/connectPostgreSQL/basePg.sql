@@ -6,7 +6,6 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL
 );
 
-
 CREATE TABLE myaccount(
     id BIGSERIAL PRIMARY KEY,
     firstname VARCHAR(100),
@@ -16,11 +15,11 @@ CREATE TABLE myaccount(
     company VARCHAR(100),
     hobbi VARCHAR(250),
     avatar VARCHAR(250),
+    locale VARCHAR(100),
+    theme VARCHAR(100),
     user_id INTEGER,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
-
-
 
 CREATE TABLE chat
 (

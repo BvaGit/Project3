@@ -4,7 +4,7 @@ import { validateRegField } from '/src/helpers/validation'
 
 import Input from '../../Input';
 
-const AuthInput = ({ value, changeField, id, label, placeholder, error, setError }) =>{
+const AuthInput = ({ value, type, changeField, id, label, placeholder, error, setError }) =>{
     const [blured, setBlured] = useState(false);
 
     const handleBlur = () =>{
@@ -21,7 +21,7 @@ const AuthInput = ({ value, changeField, id, label, placeholder, error, setError
         <>
             <Input
                 labelId={label}
-                type="text"
+                type={type}
                 name={id}
                 value={value}
                 placeholderId={placeholder}

@@ -13,7 +13,7 @@ const MainPage = () => {
    const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(addToken())
+        dispatch(addToken());
     }, []);
 
     return (

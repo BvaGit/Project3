@@ -22,11 +22,13 @@ const Auth = () => {
                         
                         <AuthInput
                             id='login'
+                            type='text'
                             label="Login"
                             placeholder="Enter your login"
                         />
                         <AuthInput
                             id='password'
+                            type='password'
                             label="Password"
                             placeholder="Enter your password"
                         />

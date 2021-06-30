@@ -2,7 +2,7 @@ import React from 'react';
 import { useState} from 'react';
 
 import CustomModal from '../CustomModal';
-import ModalSettings from '../ModalSettings/ModalSettings';
+import ModalSettings from '../ModalSettings';
 
 import './settings.scss'
 
