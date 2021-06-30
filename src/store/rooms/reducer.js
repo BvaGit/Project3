@@ -30,23 +30,10 @@ export const roomsReducer = (state = initialState, action) => {
     case SET_USER_CHATS:
       return {
         ...state,
-        rooms: [
-          ...state,
-          {
-            id: action.payload.id,
-            chat_id: action.payload.chat_id,
-            name: action.payload.name,
-          },
-        ],
-        //   ...state,
-        //   chat_id: {
-        //     ...state.chat_id,
-        //     [action.payload.chat_id]: {
-        //       ...state.payload.chat_id[action.payload],
-        //       chat_id: action.payload,
-        //     },
-        //   },
-        // };
+        rooms: action.payload.reduce((acc, chat) => {
+          acc[chat.chat_id] = chat;
+          return acc;
+        }, {}),
       };
     case SET_ACTIVE_ROOM:
       return {

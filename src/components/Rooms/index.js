@@ -4,11 +4,11 @@ import { connect } from "react-redux";
 import { getUserChats } from "../../store/rooms/asyncActions";
 import { setActiveRoom } from "../../store/rooms/actions";
 import { getUserID } from "../../store/user/selectors";
-import { getRooms } from "../../store/rooms/selectors";
+import { getRoomsArray } from "../../store/rooms/selectors";
 
 const mapStateToProps = (state) => ({
   userId: getUserID(state),
-  rooms: getRooms(state),
+  rooms: getRoomsArray(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
