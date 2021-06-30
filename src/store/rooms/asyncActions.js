@@ -46,7 +46,7 @@ export const sendParticipants = (body) => {
 
 export const getUserChats = (userId) => async (dispatch) => {
   const token = cookie.get("token");
-  const request = await fetch(`http://localhost:3000/api/chat/${userId}`,{
+  const request = await fetch(`http://localhost:3000/api/chat/${userId}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

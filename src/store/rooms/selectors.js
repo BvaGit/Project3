@@ -9,7 +9,9 @@ export const sendMessage = createSelector(
   (messages) => messages.message
 );
 
-export const getRooms = createSelector(
+export const getRooms = createSelector(getRoomsState, (state) => state.rooms);
+
+export const getActiveRoom = createSelector(
   getRoomsState,
-  (state) => state.rooms
+  (state) => state.activeRoom
 );

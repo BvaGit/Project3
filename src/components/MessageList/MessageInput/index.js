@@ -8,20 +8,21 @@ import { getUsersFromStore } from "../../../store/users/selectors";
 import { getUserChats } from "../../../store/rooms/asyncActions";
 import { setActiveRoom } from "../../../store/rooms/actions";
 import { getUserID } from "../../../store/user/selectors";
-import { getRooms } from "../../../store/rooms/selectors";
+import { getRooms, getActiveRoom } from "../../../store/rooms/selectors";
 
 const mapStateToProps = (state) => ({
   socket: getSocket(state),
   users: getUsersFromStore(state),
   userId: getUserID(state),
   rooms: getRooms(state),
+  chatId: getActiveRoom(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   sendMessages: (payload) => dispatch(sendMessages(payload)),
   getUsersFromApi: (payload) => dispatch(getUsersFromApi(payload)),
   getUserChats: (userId) => dispatch(getUserChats(userId)),
-  setActiveRoom: (chatId) => dispatch(setActiveRoom(chatId)),
+  setActiveRoom: (payload) => dispatch(setActiveRoom(payload)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MessageInput);

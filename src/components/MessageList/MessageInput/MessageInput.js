@@ -7,54 +7,42 @@ import "./messageInput.scss";
 const MessageInput = ({
   socket,
   getUsersFromApi,
-  sendMessages,
   getUserChats,
   userId,
   chatId,
   rooms,
-  setActiveRoom,
 }) => {
   const [state, setState] = useState({
-    id: "",
-    chat_id: "",
     content: "",
-    date_create: "29-06-2021",
   });
 
   useEffect(() => {
     getUsersFromApi();
-    setActiveRoom(chatId);
     if (userId) {
       getUserChats(userId);
     }
   }, [userId]);
 
   const handleChangeInput = (e) => {
-    console.log("setState content", e.target.value);
     setState({
       ...state,
-      id: userId,
-      chat_id: chatId,
       content: e.target.value,
     });
   };
 
-  const handleClick = () => {
-    sendMessages(state);
-  };
+  // const handleClick = () => {
+  //   sendMessages(state);
+  // };
 
   const sendMessage = () => {
     if (state) {
-      socket.emit(
-        "SEND_MESSAGE",
-        JSON.stringify({
-          id: state.id,
-          chat_id: state.chat_id,
-          content: state.content,
-          date_create: getTime(),
-          // здесь из редакса айди
-        })
-      );
+      console.log(userId, chatId);
+      socket.emit("SEND_MESSAGE", {
+        id: userId,
+        chat_id: chatId,
+        content: state.content,
+        date_create: getTime(),
+      });
     }
   };
 
@@ -71,7 +59,7 @@ const MessageInput = ({
         </label>
         <button
           className="message__btn"
-          onClick={(sendMessage, handleClick)}
+          onClick={sendMessage}
           type="submit"
         ></button>
       </div>

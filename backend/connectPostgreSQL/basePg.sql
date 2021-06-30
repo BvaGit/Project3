@@ -1,5 +1,8 @@
 CREATE DATABASE blabber-chat;
 
+ALTER DATABASE "blabber-chat" SET timezone TO 'Europe/Kiev'
+ALTER SYSTEM SET timezone TO 'Europe/Kiev'
+
 CREATE TABLE myaccount(
     id BIGSERIAL PRIMARY KEY,
     firstname VARCHAR(100),
@@ -39,13 +42,13 @@ CREATE TABLE messages
   "message_id" BIGSERIAL PRIMARY KEY NOT NULL,
   "chat_id" INTEGER REFERENCES chat,
   content CHARACTER VARYING (200),
-  "date_create" date NOT NULL
+  "date_create" CHARACTER VARYING (50) NOT NULL
 );
 
 CREATE TABLE message_status
 (
   id INTEGER REFERENCES users,
   "message_id" INTEGER REFERENCES messages,
-  "date_last_read" date NOT NULL
+  "date_last_read" CHARACTER VARYING (50) NOT NULL
 );
 

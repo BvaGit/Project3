@@ -22,16 +22,16 @@ export const recievedMessage = (message) => ({
   payload: message,
 });
 
-export const getStatusMessage = (message) => ({
+export const getStatusMessage = () => ({
   type: DATE_LAST_READ,
 });
 
-export const setUserChats = (chats) => ({
+export const setUserChats = (payload) => ({
   type: SET_USER_CHATS,
-  payload: chats,
+  payload,
 });
 
-export const setActiveRoom = (chatId) => ({
+export const setActiveRoom = (payload) => ({
   type: SET_ACTIVE_ROOM,
-  payload: chatId,
+  payload,
 });

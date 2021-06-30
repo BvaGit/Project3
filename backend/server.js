@@ -113,7 +113,7 @@ io.on("connection", (socket) => {
 
   socket.on("SEND_MESSAGE", (msg) => {
     console.log("message: " + msg);
-    db.createSocketMessage(JSON.parse(msg))
+    db.createSocketMessage(msg)
       .then((data) => {
         emitMostRecentMessages(data);
       })
