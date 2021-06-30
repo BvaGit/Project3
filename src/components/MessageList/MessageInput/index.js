@@ -1,21 +1,19 @@
-import MessageInput from "./MessageInput";
 import { connect } from "react-redux";
 
+import MessageInput from "./MessageInput";
+
 import { getSocket } from "../../../store/rooms/selectors";
-import { sendMessages } from "../../../store/rooms/asyncActions";
-import { getUsersFromApi } from "../../../store/users/asyncActions";
-import { getUsersFromStore } from "../../../store/users/selectors";
-import { getUserChats } from "../../../store/rooms/asyncActions";
-import { setActiveRoom } from "../../../store/rooms/actions";
-import { getUserID } from "../../../store/user/selectors";
 import { getRooms, getActiveRoom } from "../../../store/rooms/selectors";
+import { getUserID } from "../../../store/user/selectors";
+import { getUserChats, sendMessages } from "../../../store/rooms/asyncActions";
+import { getUsersFromApi } from "../../../store/users/asyncActions";
+import { setActiveRoom } from "../../../store/rooms/actions";
 
 const mapStateToProps = (state) => ({
   socket: getSocket(state),
-  users: getUsersFromStore(state),
   userId: getUserID(state),
-  rooms: getRooms(state),
   chatId: getActiveRoom(state),
+  rooms: getRooms(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -5,7 +5,7 @@ import {
   SEND_MESSAGE,
   RECEIVED_MESSAGE,
   DATE_LAST_READ,
-  SYSTEM_MESSAGE,
+  SET_CHAT_MESSAGES,
 } from "./actionTypes";
 
 const initialState = {
@@ -16,7 +16,7 @@ const initialState = {
     },
   ],
   socket: null,
-  rooms: { room: { chat_id: {} } },
+  rooms: {},
   activeRoom: "",
 };
 
@@ -31,7 +31,7 @@ export const roomsReducer = (state = initialState, action) => {
       return {
         ...state,
         rooms: action.payload.reduce((acc, chat) => {
-          acc[chat.chat_id] = chat;
+          acc[chat.chat_id] = { ...chat, messages: [] };
           return acc;
         }, {}),
       };
@@ -48,10 +48,22 @@ export const roomsReducer = (state = initialState, action) => {
         content: action.payload.content,
         date_create: action.payload.date_create,
       };
+    case SET_CHAT_MESSAGES:
+      return {
+        ...state,
+        rooms: {
+          ...state.rooms,
+          [action.payload.chatId]: {
+            ...state.rooms[action.payload.chatId],
+            messages: action.payload.messages,
+          },
+        },
+      };
     case RECEIVED_MESSAGE:
       return {
         ...state,
         id: action.payload.id,
+        message_id: action.payload.message_id,
         chat_id: action.payload.chat_id,
         content: action.payload.content,
         date_create: action.payload.date_create,

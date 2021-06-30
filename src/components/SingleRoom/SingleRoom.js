@@ -5,9 +5,10 @@ import MentionPin from "../MentionPin";
 
 import "./singleroom.scss";
 
-const SingleRoom = ({ room, setActiveRoom }) => {
+const SingleRoom = ({ room, setActiveRoom, getChatMessages }) => {
   const handleClick = () => {
     setActiveRoom(room.chat_id);
+    getChatMessages(room.chat_id);
   };
   return (
     <div className="singleroom" onClick={handleClick}>

@@ -5,6 +5,7 @@ import {
   DATE_LAST_READ,
   SET_USER_CHATS,
   SET_ACTIVE_ROOM,
+  SET_CHAT_MESSAGES,
 } from "./actionTypes";
 
 export const setSocketEmit = (socket) => ({
@@ -33,5 +34,10 @@ export const setUserChats = (payload) => ({
 
 export const setActiveRoom = (payload) => ({
   type: SET_ACTIVE_ROOM,
+  payload,
+});
+
+export const setChatMessages = (payload) => ({
+  type: SET_CHAT_MESSAGES,
   payload,
 });

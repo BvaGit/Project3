@@ -6,6 +6,8 @@ import { createChat, sendParticipants } from "../../store/rooms/asyncActions";
 import { getUsersFromApi } from "../../store/users/asyncActions";
 import { getUsersFromStore } from "../../store/users/selectors";
 
+// TODO добавить юзера, который создает чат к новому чату
+
 const mapStateToProps = (state) => ({
   users: getUsersFromStore(state),
 });

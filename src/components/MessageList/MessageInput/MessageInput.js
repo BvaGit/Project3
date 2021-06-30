@@ -30,13 +30,8 @@ const MessageInput = ({
     });
   };
 
-  // const handleClick = () => {
-  //   sendMessages(state);
-  // };
-
   const sendMessage = () => {
     if (state) {
-      console.log(userId, chatId);
       socket.emit("SEND_MESSAGE", {
         id: userId,
         chat_id: chatId,

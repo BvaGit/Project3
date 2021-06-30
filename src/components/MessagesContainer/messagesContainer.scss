@@ -2,8 +2,27 @@
 
 .message-box {
   padding: 20px 30px;
-  background-color: $l-body-background;
   width: 70%;
   margin-left: auto;
-  height: 600px;
+  max-height: 450px;
+  overflow-y: auto;
+
+  &__title {
+    font-size: 30px;
+    color: $button-hover;
+  }
+
+  &--empty {
+    font-size: 36px;
+    color: $l-body-text-color;
+  }
+}
+
+.theme-dark {
+  .message-box__title {
+    color: $button-hover;
+  }
+  .message-box--empty {
+    color: $l-body-text-color;
+  }
 }

@@ -1,6 +1,6 @@
 import cookie from "js-cookie";
 
-import { setUserChats } from "./actions";
+import { setUserChats, setChatMessages } from "./actions";
 
 export const sendMessages = (body) => {
   return () => {
@@ -53,4 +53,16 @@ export const getUserChats = (userId) => async (dispatch) => {
   });
   const rooms = await request.json();
   dispatch(setUserChats(rooms));
+};
+
+export const getChatMessages = (chatId) => async (dispatch) => {
+  const token = cookie.get("token");
+  const request = await fetch(`http://localhost:3000/api/messages/${chatId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  const messages = await request.json();
+  const payload = { messages, chatId };
+  dispatch(setChatMessages(payload));
 };

@@ -1,0 +1,38 @@
+@import "../../../utils/variables.scss";
+
+.message-item {
+  font-family: "Noto Sans KR", sans-serif;
+  position: relative;
+  background: #f2f2f2;
+  width: 700px;
+  min-height: 70px;
+  margin-bottom: $margin_lg;
+  border-radius: 10px;
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0.09);
+  color: $title-color;
+  padding: 10px 15px 30px;
+  overflow-wrap: break-word;
+
+  &--user {
+    margin-left: auto;
+  }
+
+  &--member {
+    margin-right: auto;
+  }
+
+  &__date {
+    text-align: right;
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-size: 12px;
+  }
+}
+
+.theme-dark {
+  .message-item {
+    background: #292929;
+    color: $l-body-text-color;
+  }
+}

@@ -9,16 +9,16 @@
   margin-bottom: 40px;
 
   &__input {
-    background-color: $l-body-background;
+    background-color: #d6d6d6;
     width: 700px;
     border: 2px solid $background;
     border-radius: 5px;
     height: 80px;
     padding: 5px 10px;
-    color: $background;
+    color: $title-color;
 
     &::placeholder {
-      color: #fff;
+      color: $title-color;
     }
 
     &::-webkit-input-placeholder {
@@ -69,6 +69,17 @@
 
     &:active {
       border-left: 80px solid #7d8c8d;
+    }
+  }
+}
+
+.theme-dark {
+  .message__input {
+    background-color: $l-body-background;
+    color: $background;
+
+    &::placeholder {
+      color: #fff;
     }
   }
 }

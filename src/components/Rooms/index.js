@@ -1,10 +1,11 @@
-import Rooms from "./Rooms";
 import { connect } from "react-redux";
 
-import { getUserChats } from "../../store/rooms/asyncActions";
-import { setActiveRoom } from "../../store/rooms/actions";
+import Rooms from "./Rooms";
+
 import { getUserID } from "../../store/user/selectors";
 import { getRoomsArray } from "../../store/rooms/selectors";
+import { getUserChats } from "../../store/rooms/asyncActions";
+import { setActiveRoom } from "../../store/rooms/actions";
 
 const mapStateToProps = (state) => ({
   userId: getUserID(state),

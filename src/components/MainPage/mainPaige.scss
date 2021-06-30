@@ -1,5 +1,11 @@
 @import "../../utils/variables.scss";
 
+.inner {
+  height: 700px;
+  overflow: hidden;
+  background: $background;
+}
+
 .header {
   background: $button-color;
   color: $button-text;
@@ -22,7 +28,11 @@
   position: absolute;
   border-right: $border solid 2px;
 }
+
 .theme-dark {
+  .inner {
+    background: $l-body-background;
+  }
   .rooms__box {
     background: $l-body-background;
   }

@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import RoomsHeader from "../RoomsHeader";
 import Rooms from "../Rooms";
 import AddRoom from "../AddRoom";
 import MessagesContainer from "../MessagesContainer";
 import { addToken } from "../../store/user/asyncActions";
+import { getActiveRoom } from "../../store/rooms/selectors";
 
 import ConnectSocket from "../Socket";
 
@@ -14,12 +15,14 @@ import "./mainPaige.scss";
 const MainPage = () => {
   const dispatch = useDispatch();
 
+  const chatId = useSelector(getActiveRoom);
+
   useEffect(() => {
     dispatch(addToken());
   }, []);
 
   return (
-    <div>
+    <div className="inner">
       <header className="header">
         <img
           className="header__logo"
@@ -33,7 +36,7 @@ const MainPage = () => {
         <AddRoom />
         <ConnectSocket />
       </div>
-      <MessagesContainer />
+      <MessagesContainer chatId={chatId} />
     </div>
   );
 };

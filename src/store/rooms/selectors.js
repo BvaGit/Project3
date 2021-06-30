@@ -10,7 +10,9 @@ export const sendMessage = createSelector(
 );
 
 export const getRooms = createSelector(getRoomsState, (state) => state.rooms);
-export const getRoomsArray = createSelector(getRoomsState, (state) => Object.values(state.rooms));
+export const getRoomsArray = createSelector(getRoomsState, (state) =>
+  Object.values(state.rooms)
+);
 
 export const getActiveRoom = createSelector(
   getRoomsState,
@@ -18,12 +20,12 @@ export const getActiveRoom = createSelector(
 );
 
 export const getRoomById = createSelector(
-    getRooms,
-    (_state, props) => props.roomId,
-    (rooms, roomId) => rooms[roomId],
+  getRooms,
+  (_state, props) => props.chatId,
+  (rooms, chatId) => rooms[chatId]
 );
 
 export const getRoomMessages = createSelector(
-    getRoomById,
-    (room) => room.messages,
-)
+  getRoomById,
+  (room) => room.messages
+);
