@@ -1,14 +1,14 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
 @mixin flex($fd, $js, $ai) {
-    display: flex;
-    flex-direction: $fd;
-    justify-content: $js;
-    align-items: $ai;
+  display: flex;
+  flex-direction: $fd;
+  justify-content: $js;
+  align-items: $ai;
 }
 
 $margin_sm: 5px;

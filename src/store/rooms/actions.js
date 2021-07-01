@@ -1,42 +1,49 @@
-import actionTypes from "./actionTypes";
+import {
+  SET_SOCKET_EMIT,
+  SET_NEW_ROOM,
+  SEND_MESSAGE,
+  RECEIVED_MESSAGE,
+  DATE_LAST_READ,
+  SET_USER_CHATS,
+  SET_ACTIVE_ROOM,
+  SET_CHAT_MESSAGES,
+} from "./actionTypes";
 
-export function getTime() {
-  let date = new Date();
-  let time = [date.getHours(), date.getMinutes()]
-    .map((x) => {
-      return x < 10 ? `0${x}` : x;
-    })
-    .join(":");
-  return time;
-}
+export const setSocketEmit = (socket) => ({
+  type: SET_SOCKET_EMIT,
+  payload: socket,
+});
 
-export const onConnect = (socket) => {
-  return {
-    type: actionTypes.CONNECTED,
-    payload: socket,
-  };
-};
+export const setNewRoom = (payload) => ({
+  type: SET_NEW_ROOM,
+  payload,
+});
 
-export const sendMessage = (message, author) => ({
-  type: types.ADD_MESSAGE,
-  id: nextMessageId++,
-  message,
-  author,
-  time: getTime(),
+export const sendMessage = (payload) => ({
+  type: SEND_MESSAGE,
+  payload,
 });
 
 export const recievedMessage = (message) => ({
-  type: types.RECEIVED_MESSAGE,
-  id: nextMessageId++,
-  message,
-  author,
-  time: getTime(),
+  type: RECEIVED_MESSAGE,
+  payload: message,
 });
 
-export const getStatusMessage = (message) => ({
-  type: types.DATE_LAST_READ,
-  id: nextMessageId++,
-  message,
-  author,
-  time: getTime(),
+export const getStatusMessage = () => ({
+  type: DATE_LAST_READ,
+});
+
+export const setUserChats = (payload) => ({
+  type: SET_USER_CHATS,
+  payload,
+});
+
+export const setActiveRoom = (payload) => ({
+  type: SET_ACTIVE_ROOM,
+  payload,
+});
+
+export const setChatMessages = (payload) => ({
+  type: SET_CHAT_MESSAGES,
+  payload,
 });

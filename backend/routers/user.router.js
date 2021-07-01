@@ -18,5 +18,4 @@ routerUser.put('/updatelogpass/:id', userController.updateLoginOrPassword);
 routerUser.get('/users', authUserMiddle, userController.getUsers);
 routerUser.get('/addtoken',authUserMiddle, userController.addToken);
 
-
 module.exports =  routerUser;

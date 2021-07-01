@@ -1,24 +1,26 @@
-@import '../../utils/variables.scss';
+@import "../../utils/variables.scss";
 
-$button-size: 30px;
+$button-size: 40px;
 
-.add-room{
-    padding: 2px;
-    font-size: $button-size;
-    font-weight: bold;
-    width: $button-size;
-    height: $button-size;
-    color:$background;
-    border-radius: 50%;
-    line-height: $button-size;
-    text-align: center; 
-    background: $button-color;
-    margin-right: $margin_md;
-    margin-left: auto;
-    cursor: pointer;
+.add-room {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  padding: 2px;
+  font-size: $button-size;
+  font-weight: bold;
+  width: $button-size;
+  height: $button-size;
+  color: $background;
+  border-radius: 50%;
+  line-height: 38px;
+  text-align: center;
+  background: $button-color;
+  margin-right: $margin_md;
+  cursor: pointer;
 }
-.add-room:hover{
-    background: $border;
-    box-shadow: 0 14px 28px $button-color, 0 10px 10px $button-color;
-    transition-duration: 0.3s;
+.add-room:hover {
+  background: $border;
+  box-shadow: 0 14px 28px $button-color, 0 10px 10px $button-color;
+  transition-duration: 0.3s;
 }
