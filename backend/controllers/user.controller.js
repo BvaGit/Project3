@@ -1,5 +1,6 @@
 const connectPg = require("../connectPostgreSQL/connectPg");
 const { generateAcccessToken } = require("../support/support");
+const url = 'http://localhost:3000/avatar/';
 class UserController {
 
   async createUser(req, res){
@@ -55,10 +56,20 @@ class UserController {
 
     }
 
+  async uploadAvatart (req, res) {
+    try {
+      const id = req.params.id;
+      const avaName = req.file.originalname;
+      await connectPg.query(`UPDATE myaccount SET avatar='${url}${avaName}' WHERE user_id='${id}' `);
+      res.status(200);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   async postOrUpdateMyAccount(req, res) {
     try {
-      const { firstname, lastname, age, city, company, hobbi, avatar } =
-        req.body;
+      const { firstname, lastname, age, city, company, hobbi } = req.body;
       const id = req.params.id;
       let myAccount = null;
       const getMyAccount = await connectPg.query(
@@ -66,7 +77,7 @@ class UserController {
       );
       if (!getMyAccount.rows.length) {
         myAccount = await connectPg.query(
-          `INSERT INTO myaccount (firstname, lastname, age, city, company, hobbi, avatar, user_id) VALUES ('${firstname}', '${lastname}', '${age}', '${city}', '${company}', '${hobbi}', '${avatar}', '${id}')`
+          `INSERT INTO myaccount (firstname, lastname, age, city, company, hobbi, user_id) VALUES ('${firstname}', '${lastname}', '${age}', '${city}', '${company}', '${hobbi}', '${id}')`
         );
         res.status(201).json("Created my account");
       } else {
@@ -82,17 +93,18 @@ class UserController {
   }
 
   async getMyAccount(req, res) {
-    const id = req.params.id;
     try {
-      const get = await connectPg.query(
-        `SELECT * FROM myaccount WHERE user_id='${id}'`
-      );
-      res.status(200).json(get.rows);
+      const get = await connectPg.query(`SELECT * FROM myaccount WHERE user_id='${req.user}'`);
+      if(get.rows.length > 0){
+        res.status(200).json(get.rows);
+      } else {
+        res.json('empty');
+      }
+      
     } catch(e) {
       console.log(e);
     }
   }
-
 
   async getUsers(req, res) {
     try {
