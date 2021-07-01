@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { io } from "socket.io-client";
 
-const ConnectSocket = ({ setSocketEmit, setNewRoom }) => {
+const ConnectSocket = ({ setSocketEmit, setNewRoom, setNewMessage }) => {
   useEffect(() => {
     const socket = io("http://localhost:3000");
 
@@ -11,8 +11,9 @@ const ConnectSocket = ({ setSocketEmit, setNewRoom }) => {
       console.log(msg);
     });
 
-    socket.on("result", (msg) => {
-      console.log(msg);
+    socket.on("received_message", (msg) => {
+      setNewMessage(msg[0]);
+      console.log("received_message", msg[0]);
     });
 
     socket.on("invited_room", (msg) => {

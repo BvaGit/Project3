@@ -21,6 +21,7 @@ class MessageController {
         `INSERT INTO messages (id, chat_id, content, date_create) VALUES (${id}, ${chat_id}, '${content}', '${date_create}') RETURNING *`
       );
       res.status(200).json(create.rows);
+      io.emit("send_message", create.rows);
     } catch (e) {
       res.status(400).json(message.abstractErr);
     }

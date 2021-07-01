@@ -1,8 +1,8 @@
 import {
   SET_SOCKET_EMIT,
   SET_NEW_ROOM,
+  SET_NEW_MESSAGE,
   SEND_MESSAGE,
-  RECEIVED_MESSAGE,
   DATE_LAST_READ,
   SET_USER_CHATS,
   SET_ACTIVE_ROOM,
@@ -19,14 +19,14 @@ export const setNewRoom = (payload) => ({
   payload,
 });
 
-export const sendMessage = (payload) => ({
-  type: SEND_MESSAGE,
+export const setNewMessage = (payload) => ({
+  type: SET_NEW_MESSAGE,
   payload,
 });
 
-export const recievedMessage = (message) => ({
-  type: RECEIVED_MESSAGE,
-  payload: message,
+export const sendMessage = (payload) => ({
+  type: SEND_MESSAGE,
+  payload,
 });
 
 export const getStatusMessage = () => ({
