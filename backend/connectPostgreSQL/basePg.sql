@@ -1,11 +1,7 @@
 CREATE DATABASE blabber-chat;
 
-CREATE TABLE users (
-    id BIGSERIAL PRIMARY KEY,
-    login VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL
-);
-
+ALTER DATABASE "blabber-chat" SET timezone TO 'Europe/Kiev'
+ALTER SYSTEM SET timezone TO 'Europe/Kiev'
 
 CREATE TABLE myaccount(
     id BIGSERIAL PRIMARY KEY,
@@ -20,19 +16,24 @@ CREATE TABLE myaccount(
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
-
+CREATE TABLE users (
+    id BIGSERIAL PRIMARY KEY,
+    login VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
 
 CREATE TABLE chat
 (
-  id INTEGER REFERENCES users,
-  "chat_id" SERIAL PRIMARY KEY NOT NULL,
+  id INTEGER [],
+  chat_id SERIAL PRIMARY KEY NOT NULL,
   name CHARACTER VARYING(30) NOT NULL
 );
 
 CREATE TABLE participants
 (
-  "id" INTEGER REFERENCES users,
-  "chat_id" INTEGER REFERENCES chat
+  id INTEGER [],
+  chat_id SERIAL PRIMARY KEY NOT NULL,
+  name CHARACTER VARYING(30) NOT NULL
 );
 
 CREATE TABLE messages
@@ -41,13 +42,13 @@ CREATE TABLE messages
   "message_id" BIGSERIAL PRIMARY KEY NOT NULL,
   "chat_id" INTEGER REFERENCES chat,
   content CHARACTER VARYING (200),
-  "date_create" date NOT NULL
+  "date_create" CHARACTER VARYING (50) NOT NULL
 );
 
 CREATE TABLE message_status
 (
   id INTEGER REFERENCES users,
   "message_id" INTEGER REFERENCES messages,
-  "date_last_read" date NOT NULL
+  "date_last_read" CHARACTER VARYING (50) NOT NULL
 );
 

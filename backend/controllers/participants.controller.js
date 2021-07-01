@@ -24,10 +24,9 @@ class ParticipantsController {
 
   async addParticipant(req, res) {
     try {
-      const id = req.params.id;
-      const chat_id = req.params.chat_id;
+      const { ids, name } = req.body;
       const create = await connectPg.query(
-        `INSERT INTO participants (id, chat_id) VALUES (${id}, '${chat_id}') RETURNING *`
+        `INSERT INTO participants (id, name) VALUES ('{${ids}}', '${name}') RETURNING *`
       );
       res.status(200).json(create.rows);
     } catch (e) {

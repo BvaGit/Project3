@@ -1,22 +1,24 @@
 const connectPg = require("../connectPostgreSQL/connectPg");
 const { generateAcccessToken } = require("../support/support");
 class UserController {
-
-  async createUser(req, res){
+  async createUser(req, res) {
     const { login, password } = req.body;
-      try{
-        const newUser = await connectPg.query(`INSERT INTO users (login, password) VALUES ('${login}', '${password}')`);
-        res.status(201).json("user created successfully");
-      } catch {
-        res.status(400).json("user creation failed");
-      }
-
+    try {
+      const newUser = await connectPg.query(
+        `INSERT INTO users (login, password) VALUES ('${login}', '${password}')`
+      );
+      res.status(201).json("user created successfully");
+    } catch {
+      res.status(400).json("user creation failed");
+    }
   }
 
   async login(req, res) {
     const { login, password } = req.body;
     try {
-      const getUser = await connectPg.query( `SELECT * FROM users WHERE login='${login}' AND password='${password}'`);
+      const getUser = await connectPg.query(
+        `SELECT * FROM users WHERE login='${login}' AND password='${password}'`
+      );
       const user = getUser.rows;
       if (user.length > 0) {
         const id = user[0].id;
@@ -30,10 +32,11 @@ class UserController {
     }
   }
 
-
-  async addToken(req, res){
-    try{
-      const getUser = await connectPg.query(`SELECT * FROM users WHERE id=${req.user}`)
+  async addToken(req, res) {
+    try {
+      const getUser = await connectPg.query(
+        `SELECT * FROM users WHERE id=${req.user}`
+      );
       const user = getUser.rows;
       const id = user[0].id;
       const token = generateAcccessToken(id);
@@ -43,17 +46,18 @@ class UserController {
     }
   }
 
-    async updateLoginOrPassword(req, res){
-        const {login, password} = req.body;
-        const id = req.params.id;
-        try{
-            const updateLoginOrPassworw = await connectPg.query(`UPDATE users SET login='${login}', password='${password}' WHERE id=${id}`);
-            res.status(200).json("update successfully");
-        } catch {
-            res.status(400).json("unsuccessful change of username or password");
-        }
-
+  async updateLoginOrPassword(req, res) {
+    const { login, password } = req.body;
+    const id = req.params.id;
+    try {
+      const updateLoginOrPassworw = await connectPg.query(
+        `UPDATE users SET login='${login}', password='${password}' WHERE id=${id}`
+      );
+      res.status(200).json("update successfully");
+    } catch {
+      res.status(400).json("unsuccessful change of username or password");
     }
+  }
 
   async postOrUpdateMyAccount(req, res) {
     try {
@@ -88,15 +92,14 @@ class UserController {
         `SELECT * FROM myaccount WHERE user_id='${id}'`
       );
       res.status(200).json(get.rows);
-    } catch(e) {
+    } catch (e) {
       console.log(e);
     }
   }
 
-
   async getUsers(req, res) {
     try {
-      const get = await connectPg.query(`SELECT * from users`);
+      const get = await connectPg.query(`SELECT id, login from users`);
       res.json(get.rows);
     } catch (e) {
       console.log(e);
