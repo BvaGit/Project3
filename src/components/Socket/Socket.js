@@ -8,13 +8,12 @@ const ConnectSocket = ({ setSocketEmit, setNewRoom, setNewMessage }) => {
     setSocketEmit(socket);
 
     socket.on("room", (rooms) => {
-      console.log("rooms");
-      rooms.forEach((room) => socket.join(room.room_id));
+      rooms.forEach((room) => socket.join(room.chat_id));
     });
 
-    socket.on("received_message", (msg) => {
-      setNewMessage(msg);
-      console.log("received_message", msg[0]);
+    socket.on("send_message", (msg) => {
+      setNewMessage(msg[0]);
+      console.log("send_message", msg[0]);
     });
 
     socket.on("invited_room", (msg) => {

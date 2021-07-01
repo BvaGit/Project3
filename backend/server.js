@@ -29,7 +29,6 @@ io.on("connection", (socket) => {
 
   socket.on("send_message", (msg) => {
     db.createSocketMessage(msg).then((data) => {
-      console.log("socket.id:", socket.id);
       io.in("room").emit("send_message", data);
       console.log("received msg", data);
     });

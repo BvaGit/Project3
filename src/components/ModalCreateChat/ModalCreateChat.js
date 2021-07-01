@@ -40,8 +40,6 @@ function ModalCreateChat({
     });
   };
 
-  console.log(users);
-
   return (
     <div className="new-chat">
       <div className="new-chat__avatar">
