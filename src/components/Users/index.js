@@ -5,8 +5,6 @@ import { getUsersFromStore } from "/src/store/users/selectors";
 
 import Users from "./Users";
 
-// заглушка
-
 const mapStateToProps = (state) => ({
   users: getUsersFromStore(state),
 });

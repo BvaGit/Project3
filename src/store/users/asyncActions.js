@@ -26,16 +26,17 @@ export const addToken = () => {
  }
 }
 
-export const ChangeCredits = (body) => {
+export const ChangeCredits = () => {
   return (dispatch, getState) => {
     const user = getState().usersReducer;
+    const changeCreds = getState().settings.fields;
     const id = user.users[0].id;
     return fetch(`http://localhost:3000/api/user/updatelogpass/${id}`, {
       method: 'PUT',
       headers: {
-        "Content-type": "application/json; charset=utf-8"
+        "Content-Type": "application/json; charset=utf-8"
       },
-      body: JSON.stringify(body)
+      body: JSON.stringify(changeCreds)
     })
     .then(data => data.json())
     .then(json => {
