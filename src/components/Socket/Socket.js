@@ -7,12 +7,13 @@ const ConnectSocket = ({ setSocketEmit, setNewRoom, setNewMessage }) => {
 
     setSocketEmit(socket);
 
-    socket.on("message", (msg) => {
-      console.log(msg);
+    socket.on("room", (rooms) => {
+      console.log("rooms");
+      rooms.forEach((room) => socket.join(room.room_id));
     });
 
     socket.on("received_message", (msg) => {
-      setNewMessage(msg[0]);
+      setNewMessage(msg);
       console.log("received_message", msg[0]);
     });
 
