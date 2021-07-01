@@ -7,8 +7,6 @@ import { getUsersFromApi } from "../../store/users/asyncActions";
 import { getUsersForDropdown } from "../../store/users/selectors";
 import { getUserID } from "../../store/user/selectors";
 
-// TODO добавить юзера, который создает чат к новому чату
-
 const mapStateToProps = (state) => ({
   users: getUsersForDropdown(state),
   userId: getUserID(state),
