@@ -82,7 +82,7 @@ class UserController {
         res.status(201).json("Created my account");
       } else {
         myAccount = await connectPg.query(
-          `UPDATE myaccount SET firstname='${firstname}', lastname='${lastname}', age='${age}', city='${city}', company='${company}', hobbi='${hobbi}', avatar='${avatar}' WHERE user_id=${id}`
+          `UPDATE myaccount SET firstname='${firstname}', lastname='${lastname}', age='${age}', city='${city}', company='${company}', hobbi='${hobbi}' WHERE user_id=${id}`
         );
         res.status(200).json("Update my account");
       }

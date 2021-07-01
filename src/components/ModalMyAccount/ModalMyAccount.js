@@ -1,43 +1,48 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import Input from '../Input';
+import Input from './ModalMyAccountInput';
+import ModalMyAccountFile from './ModalMyAccountFile';
 
 import './modalMyAccount.scss';
 import '../RoomsHeader/roomsHeader.scss';
 
-function ModalMyAccount({languageValue: langValue, handlecloseModal}){
+const ModalMyAccount = ({languageValue: langValue, handlecloseModal, postMyAccont, getMyAccount}) => {
+
+    const handleBtn = () => {
+        postMyAccont();
+        getMyAccount();
+    }
+
     return (
         <div className="my-account">
-            <div className="my-account__avatar">
-                <img className="rooms-header__avatar" src="../../../public/assets/images/1-36-1024x1024.jpg"/>
-            </div>
+            <ModalMyAccountFile />
             <div className="my-account__info">
                 <div className="my-account__info1">
-                    <Input labelId="firstName" type="text" placeholderId="firstNamePlaceholder"/> 
+                    <Input label="firstName" id="firstname" placeholder="firstNamePlaceholder"/> 
                 </div>
                 <div className="my-account__info1">
-                    <Input labelId="lastName" type="text" placeholderId="lastNamePlaceholder"/>
-                </div>
-            </div>
-            <div className="my-account__info">
-                <div className="my-account__info1">
-                    <Input labelId="age" type="number" placeholderId="agePlaceholder"/>
-                </div>
-                <div className="my-account__info1">
-                    <Input labelId="city" type="text" placeholderId="cityPlaceholder"/>
+                    <Input label="lastName" id="lastname" placeholder="lastNamePlaceholder"/>
                 </div>
             </div>
             <div className="my-account__info">
                 <div className="my-account__info1">
-                    <Input labelId="companyName" type="text" placeholderId="companyNamePlaceholder"/>
+                    <Input label="age" id="age" placeholder="agePlaceholder"/>
                 </div>
                 <div className="my-account__info1">
-                    <Input labelId="hobby" type="text" placeholderId="hobbyPlaceholder"/>
+                    <Input label="city" id="city" placeholder="cityPlaceholder"/>
+                </div>
+            </div>
+            <div className="my-account__info">
+                <div className="my-account__info1">
+                    <Input label="companyName" id="company" placeholder="companyNamePlaceholder"/>
+                </div>
+                <div className="my-account__info1">
+                    <Input label="hobby" id="hobbi" placeholder="hobbyPlaceholder"/>
                 </div>
             </div>
             <div className="button-box">
-                <button className="button">
+                <button className="button" onClick={handleBtn}>
                 <FormattedMessage 
                     id="saveBTN" 
                     defaultMessage="Save" 

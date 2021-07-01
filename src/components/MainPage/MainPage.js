@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import RoomsHeader from '../RoomsHeader'
 import Rooms from '../Rooms'
 import AddRoom from '../AddRoom';
-import { addToken } from '../../store/users/asyncActions'
+import { addToken, myAccountGET } from '../../store/users/asyncActions'
 
 import './mainPaige.scss'
 
@@ -13,7 +13,8 @@ const MainPage = () => {
    const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(addToken())
+        dispatch(addToken());
+        dispatch(myAccountGET());
     }, []);
 
     return (
