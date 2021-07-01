@@ -2,4 +2,6 @@
 
 .rooms {
   padding: $padding_sm;
+  height: 360px;
+  overflow-y: scroll;
 }

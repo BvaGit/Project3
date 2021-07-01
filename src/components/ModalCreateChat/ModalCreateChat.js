@@ -11,10 +11,11 @@ function ModalCreateChat({
   sendParticipants,
   getUsersFromApi,
   users,
+  userId,
   handlecloseModal,
   languageValue: langValue,
 }) {
-  const [state, setState] = useState({ ids: [], name: "" });
+  const [state, setState] = useState({ ids: [userId], name: "" });
 
   useEffect(() => {
     getUsersFromApi();
@@ -23,6 +24,7 @@ function ModalCreateChat({
   const handleClick = () => {
     createChat(state);
     sendParticipants(state);
+    handlecloseModal();
   };
 
   const handleChangeInput = (e) => {

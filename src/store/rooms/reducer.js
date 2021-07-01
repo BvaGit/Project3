@@ -1,5 +1,6 @@
 import {
   SET_SOCKET_EMIT,
+  SET_NEW_ROOM,
   SET_USER_CHATS,
   SET_ACTIVE_ROOM,
   SEND_MESSAGE,
@@ -10,11 +11,13 @@ import {
 
 const initialState = {
   sendingMessage: false,
-  messages: [
-    {
-      text: "Welcome!",
-    },
-  ],
+  messages: {
+    0: [
+      {
+        text: "Welcome!",
+      },
+    ],
+  },
   socket: null,
   rooms: {},
   activeRoom: "",
@@ -26,6 +29,11 @@ export const roomsReducer = (state = initialState, action) => {
       return {
         ...state,
         socket: action.payload,
+      };
+    case SET_NEW_ROOM:
+      return {
+        ...state,
+        rooms: { [action.payload.id]: action.payload, ...state.rooms },
       };
     case SET_USER_CHATS:
       return {
@@ -51,12 +59,9 @@ export const roomsReducer = (state = initialState, action) => {
     case SET_CHAT_MESSAGES:
       return {
         ...state,
-        rooms: {
-          ...state.rooms,
-          [action.payload.chatId]: {
-            ...state.rooms[action.payload.chatId],
-            messages: action.payload.messages,
-          },
+        messages: {
+          ...state.messages,
+          [action.payload.chatId]: action.payload.messages,
         },
       };
     case RECEIVED_MESSAGE:

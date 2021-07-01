@@ -10,6 +10,7 @@ export const sendMessage = createSelector(
 );
 
 export const getRooms = createSelector(getRoomsState, (state) => state.rooms);
+
 export const getRoomsArray = createSelector(getRoomsState, (state) =>
   Object.values(state.rooms)
 );
@@ -25,7 +26,13 @@ export const getRoomById = createSelector(
   (rooms, chatId) => rooms[chatId]
 );
 
-export const getRoomMessages = createSelector(
-  getRoomById,
+export const getMessages = createSelector(
+  getRoomsState,
   (room) => room.messages
+);
+
+export const getRoomMessages = createSelector(
+  getMessages,
+  (_state, props) => props.chatId,
+  (messages, chatId) => messages[chatId]
 );

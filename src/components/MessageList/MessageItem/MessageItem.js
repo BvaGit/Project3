@@ -2,7 +2,7 @@ import React from "react";
 
 import "./messageItem.scss";
 
-const MessageItem = ({ messages, userId }) => {
+const MessageItem = ({ messages = [], userId }) => {
   return (
     <>
       {messages.map((message) => (

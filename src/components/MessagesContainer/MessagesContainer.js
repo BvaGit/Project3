@@ -4,12 +4,12 @@ import MessagesList from "../MessageList";
 
 import "./messagesContainer.scss";
 
-const MessagesContainer = ({ chat }) => {
+const MessagesContainer = ({ chat, chatId }) => {
   return chat ? (
     <>
       <div className="message-box">
         <h1 className="message-box__title">{chat.name}</h1>
-        <MessagesList messages={chat.messages} />
+        <MessagesList chatId={chatId} />
       </div>
     </>
   ) : (

@@ -4,12 +4,14 @@ import ModalCreateChat from "./ModalCreateChat";
 
 import { createChat, sendParticipants } from "../../store/rooms/asyncActions";
 import { getUsersFromApi } from "../../store/users/asyncActions";
-import { getUsersFromStore } from "../../store/users/selectors";
+import { getUsersForDropdown } from "../../store/users/selectors";
+import { getUserID } from "../../store/user/selectors";
 
 // TODO добавить юзера, который создает чат к новому чату
 
 const mapStateToProps = (state) => ({
-  users: getUsersFromStore(state),
+  users: getUsersForDropdown(state),
+  userId: getUserID(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

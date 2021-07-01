@@ -1,5 +1,6 @@
 import {
   SET_SOCKET_EMIT,
+  SET_NEW_ROOM,
   SEND_MESSAGE,
   RECEIVED_MESSAGE,
   DATE_LAST_READ,
@@ -11,6 +12,11 @@ import {
 export const setSocketEmit = (socket) => ({
   type: SET_SOCKET_EMIT,
   payload: socket,
+});
+
+export const setNewRoom = (payload) => ({
+  type: SET_NEW_ROOM,
+  payload,
 });
 
 export const sendMessage = (payload) => ({
