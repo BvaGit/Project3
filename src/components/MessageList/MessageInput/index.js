@@ -19,7 +19,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   sendMessages: (payload) => dispatch(sendMessages(payload)),
   getUsersFromApi: (payload) => dispatch(getUsersFromApi(payload)),
-  // getUserChats: (userId) => dispatch(getUserChats(userId)),
   setActiveRoom: (payload) => dispatch(setActiveRoom(payload)),
 });
 
