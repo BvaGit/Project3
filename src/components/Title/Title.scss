@@ -9,8 +9,10 @@
     cursor: default;
     &__big {
         font-size: 40px;
+        color: $l-body-text-color;
     }
     &__small {
         font-size: 30px;
+        color: $l-body-text-color;
     }
 }

@@ -49,6 +49,8 @@ const message = {
         'Enter your login': 'Enter your login',
         'Enter your password': 'Enter your password',
         'Confirm your password': 'Confirm your password',
+        'SIGN IN': 'SIGN IN',
+        'SIGN UP': 'SIGN UP',
         'undefined': '------>AAAAAAFHFCDSCGFSDCSDGCGF!!!!<<<<------',
     },
     'ru': {
@@ -101,6 +103,8 @@ const message = {
         'Enter your login': 'Введите ваш логин',
         'Enter your password': 'Введите ваш пароль',
         'Confirm your password': 'Подтвердите ваш пароль',
+        'SIGN IN': 'Авторизироваться',
+        'SIGN UP': 'Зарегестрироваться',
         'undefined': '------>AAAAAAFHFCDSCGFSDCSDGCGF!!!!<<<<------',
     },
     'ar': {

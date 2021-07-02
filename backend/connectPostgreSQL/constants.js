@@ -24,11 +24,11 @@ const andrey = {
 };
 
 const MarinaGru = {
-  user: "root",
-  password: "root",
+  user: "marinagrushevska",
+  password: "postgres",
   host: "localhost",
   port: 5432,
-  database: "postgres",
+  database: "blabber",
 };
 
 module.exports = { marina, slava, andrey, MarinaGru };

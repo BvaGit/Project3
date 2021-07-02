@@ -1,40 +1,54 @@
 const express = require("express");
+const http = require("http");
+const app = express();
+
 const userRouter = require("./routers/user.router");
 const chatRouter = require("./routers/chat.router");
 const messageRouter = require("./routers/message.router");
 const messageStatusRouter = require("./routers/message-status.router");
 const participantsRouter = require("./routers/participants-router");
 
-const http = require("http");
+const db = require("./controllers/message.controller");
 
 const PORT = 3000;
 
-const app = express();
+const server = http.createServer(app);
 
-const httpServer = http.createServer(app);
-
-const io = require("socket.io")(httpServer, {
+global.io = require("socket.io")(server, {
   cors: {
     origin: "*",
+    methods: ["GET", "POST"],
   },
 });
+
+const emitMostRecentMessages = (data) => {
+  console.log(data);
+  io.emit("result", data);
+};
 
 io.on("connection", (socket) => {
   console.log("User connected, socket.id:", socket.id);
   socket.emit("connection", null);
 
-  const { roomId } = socket.handshake.query;
-  socket.join(roomId);
-
-  socket.on("NEW_CHAT_MESSAGE_EVENT", (data) => {
-    io.in(roomId).emit("NEW_CHAT_MESSAGE_EVENT", data);
+  socket.on("SEND_MESSAGE", (msg) => {
+    console.log("message: " + msg);
+    db.createSocketMessage(msg)
+      .then((data) => {
+        emitMostRecentMessages(data);
+      })
+      .catch((err) => {
+        io.emit(err);
+        console.log("ERRRROR");
+      });
   });
 
   socket.on("disconnect", (socket) => {
-    console.log("User disconnect", socket.id);
-    socket.leave(roomId);
+    console.log("user disconnected", socket.id);
   });
 });
+
+const cors = require("cors");
+app.use(cors());
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -54,4 +68,6 @@ app.use("/api/messages", messageRouter);
 app.use("/api/message/status", messageStatusRouter);
 app.use("/api/participants", participantsRouter);
 
-httpServer.listen(PORT, () => console.log(`server started ${PORT}`));
+server.listen(PORT, () => {
+  console.log(`listening on :${PORT}`);
+});

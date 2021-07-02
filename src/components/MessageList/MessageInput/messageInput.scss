@@ -1,0 +1,85 @@
+@import "../../../utils/variables.scss";
+
+.message {
+  position: absolute;
+  bottom: 40px;
+  width: 65%;
+  height: 40px;
+  align-items: center;
+  left: 33%;
+  color: #fff;
+
+  &__input {
+    background-color: #d6d6d6;
+    width: 700px;
+    border: 2px solid $background;
+    border-radius: 5px;
+    height: 40px;
+    padding: 5px 10px;
+    color: $title-color;
+
+    &::placeholder {
+      color: $title-color;
+    }
+
+    &::-webkit-input-placeholder {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+    &::-moz-placeholder {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+    &:-moz-placeholder {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+    &:-ms-input-placeholder {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+    &:focus::-webkit-input-placeholder {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    &:focus::-moz-placeholder {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    &:focus:-moz-placeholder {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    &:focus:-ms-input-placeholder {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+  }
+
+  &__btn {
+    width: 0;
+    height: 0;
+    margin-left: 20px;
+    font-size: 30px;
+    color: $cross;
+    &:hover {
+      transition: transform 0.5s ease-in;
+      transform: translate(10px);
+    }
+
+    &:active {
+      border-left: 80px solid #7d8c8d;
+    }
+  }
+}
+
+.theme-dark {
+  .message__input {
+    background-color: $l-body-background;
+    color: $background;
+
+    &::placeholder {
+      color: #fff;
+    }
+  }
+}

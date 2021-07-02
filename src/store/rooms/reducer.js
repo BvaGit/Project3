@@ -1,50 +1,81 @@
 import {
-  CONNECTED,
+  SET_SOCKET_EMIT,
+  SET_NEW_ROOM,
+  SET_USER_CHATS,
+  SET_ACTIVE_ROOM,
   SEND_MESSAGE,
   RECEIVED_MESSAGE,
-  ON_ERROR,
+  DATE_LAST_READ,
+  SET_CHAT_MESSAGES,
 } from "./actionTypes";
 
 const initialState = {
-  items: [],
+  sendingMessage: false,
+  messages: {
+    0: [
+      {
+        text: "Welcome!",
+      },
+    ],
+  },
+  socket: null,
+  rooms: {},
+  activeRoom: "",
 };
 
 export const roomsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CONNECTED:
+    case SET_SOCKET_EMIT:
       return {
         ...state,
-        items: action.payload,
+        socket: action.payload,
+      };
+    case SET_NEW_ROOM:
+      return {
+        ...state,
+        rooms: { [action.payload.id]: action.payload, ...state.rooms },
+      };
+    case SET_USER_CHATS:
+      return {
+        ...state,
+        rooms: action.payload.reduce((acc, chat) => {
+          acc[chat.chat_id] = { ...chat, messages: [] };
+          return acc;
+        }, {}),
+      };
+    case SET_ACTIVE_ROOM:
+      return {
+        ...state,
+        activeRoom: action.payload,
       };
     case SEND_MESSAGE:
       return {
         ...state,
-        message: action.payload,
-        author: action.payload,
-        id: action.payload,
-        time: action.payload,
+        id: action.payload.id,
+        chat_id: action.payload.chat_id,
+        content: action.payload.content,
+        date_create: action.payload.date_create,
+      };
+    case SET_CHAT_MESSAGES:
+      return {
+        ...state,
+        messages: {
+          ...state.messages,
+          [action.payload.chatId]: action.payload.messages,
+        },
       };
     case RECEIVED_MESSAGE:
       return {
-        message: action.payload,
-        author: action.payload,
-        id: action.payload,
-        time: action.payload,
+        ...state,
+        id: action.payload.id,
+        message_id: action.payload.message_id,
+        chat_id: action.payload.chat_id,
+        content: action.payload.content,
+        date_create: action.payload.date_create,
       };
-    case "DATE_LAST_READ":
+    case DATE_LAST_READ:
       return {
         ...state,
-        items: state.items.map((message) => {
-          if (message.message_id === payload.messageId) {
-            message.date_last_read = true;
-          }
-          return message;
-        }),
-      };
-    case ON_ERROR:
-      return {
-        name: action.payload,
-        id: action.payload,
       };
     default:
       return state;

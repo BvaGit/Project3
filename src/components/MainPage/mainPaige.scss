@@ -1,29 +1,41 @@
-@import '../../utils/variables.scss';
+@import "../../utils/variables.scss";
 
-.header{
-    background: $button-color;
-    color: $button-text;
-    padding: $padding_lg;
-    @include flex(row, center,center);
-    &__appName{
-        margin-right: $margin_md;
-        margin-top: auto;
-        margin-bottom: auto;
-        cursor: default;
-    }
-    &__logo{
-        width: 60px;
-        text-align: center;
-    }
+.inner {
+  height: 100vh;
+  overflow: hidden;
+  background: $background;
+  position: relative;
 }
-.rooms__box{
-    width: 30%;
-    min-height: 90%;
-    position: absolute;
-    border: $border solid 1px;
+
+.header {
+  background: $button-color;
+  color: $button-text;
+  padding: $padding_lg;
+  @include flex(row, center, center);
+  &__appName {
+    margin-right: $margin_md;
+    margin-top: auto;
+    margin-bottom: auto;
+    cursor: default;
+  }
+  &__logo {
+    width: 60px;
+    text-align: center;
+  }
 }
+.rooms__box {
+  width: 30%;
+  height: 90vh;
+  position: absolute;
+  border-right: $border solid 2px;
+  padding: 0 10px 0;
+}
+
 .theme-dark {
-    .rooms__box {
-        background: $l-body-background;
-    }
+  .inner {
+    background: $l-body-background;
+  }
+  .rooms__box {
+    background: $l-body-background;
+  }
 }
