@@ -21,25 +21,17 @@ global.io = require("socket.io")(server, {
   },
 });
 
-const emitMostRecentMessages = (data) => {
-  console.log(data);
-  io.emit("result", data);
-};
-
 io.on("connection", (socket) => {
   console.log("User connected, socket.id:", socket.id);
   socket.emit("connection", null);
 
-  socket.on("SEND_MESSAGE", (msg) => {
-    console.log("message: " + msg);
-    db.createSocketMessage(msg)
-      .then((data) => {
-        emitMostRecentMessages(data);
-      })
-      .catch((err) => {
-        io.emit(err);
-        console.log("ERRRROR");
-      });
+  socket.join("room");
+
+  socket.on("send_message", (msg) => {
+    db.createSocketMessage(msg).then((data) => {
+      io.in("room").emit("send_message", data);
+      console.log("received msg", data);
+    });
   });
 
   socket.on("disconnect", (socket) => {
