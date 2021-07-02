@@ -2,7 +2,7 @@ import React from 'react';
 
 import Button from '../../Button';
 
-const ModalSettingsSaveButton = ({ id, textId, changeLogin, closeModal }) => {
+const ModalSettingsButton = ({ id, textId, changeLogin, closeModal, isError }) => {
     const handleClick = () => {
         if (id === 'Save') {
             changeLogin();
@@ -16,8 +16,9 @@ const ModalSettingsSaveButton = ({ id, textId, changeLogin, closeModal }) => {
             type="button"
             textId={textId}
             onClick={handleClick}
+            disabled={!isError}
         />
     )
 }
 
-export default ModalSettingsSaveButton;
+export default ModalSettingsButton;

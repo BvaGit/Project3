@@ -23,7 +23,7 @@ const Registration = () => {
                         <RegistrationInput
                             id="login" 
                             type="text"
-                            title="min 3 max 8, no spases, no empties"
+                            title="min 4 max 8, no spases, no empties"
                             placeholder="Enter your login" 
                             label="Login" 
                         />
@@ -35,8 +35,9 @@ const Registration = () => {
                             label="Password" 
                         />
                         <RegistrationInput
-                            id="confirm_password" 
+                            id="confirmPassword" 
                             type="password"
+                            title="min 6 max 12, not empty, no spases, include digital"
                             placeholder="Confirm your password" 
                             label="Repeat password" 
                         />

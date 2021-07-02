@@ -2,8 +2,9 @@ import React from "react";
 import { FormattedMessage } from "react-intl";
 
 import Input from '../Input';
+import Button from "../Button";
 import ModalSettingsInput from './ModalSettingsInput';
-import ModalSettingsSaveButton from './ModalSettingsSaveButton';
+import ModalSettingsButton from './ModalSettingsButton';
 
 import "./modalsettings.scss";
 
@@ -103,6 +104,7 @@ function ModalSettings({ languageValue: langValue, handleLanguage, closeModal })
               name="login" 
               labelId="newLogin" 
               type="text" 
+              titleId="min 4 max 8, no spases, no empties"
               placeholderId="newLoginPlaceholder" 
             />    
           </div>
@@ -112,6 +114,7 @@ function ModalSettings({ languageValue: langValue, handleLanguage, closeModal })
               name="password" 
               labelId="newPassword" 
               type="password" 
+              titleId="min 6 max 12, not empty, no spases, include digital"
               placeholderId="newPasswordPlaceholder"
             />   
           </div>
@@ -121,16 +124,17 @@ function ModalSettings({ languageValue: langValue, handleLanguage, closeModal })
               name="confirmPassword" 
               labelId="confirmPassword" 
               type="password" 
+              titleId="min 6 max 12, not empty, no spases, include digital"
               placeholderId="repeatPasswordPlaceholder"  
             />  
           </div>
           <div className="button-box">
-            <ModalSettingsSaveButton 
+            <ModalSettingsButton 
               id="Save"
               textId="Save"
               closeModal={closeModal}
             />
-            <ModalSettingsSaveButton 
+            <Button 
               id="cancel"
               textId="Cancel"
               closeModal={closeModal}

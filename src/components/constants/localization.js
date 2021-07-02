@@ -52,6 +52,8 @@ const message = {
         'SIGN IN': 'SIGN IN',
         'SIGN UP': 'SIGN UP',
         'Write a message': 'Write a message',
+        'min 4 max 8, no spases, no empties': 'min 4 max 8, no spases, no empties',
+        'min 6 max 12, not empty, no spases, include digital': 'min 6 max 12, not empty, no spases, include digital',
         'undefined': '------>AAAAAAFHFCDSCGFSDCSDGCGF!!!!<<<<------',
     },
     'ru': {
@@ -107,6 +109,8 @@ const message = {
         'SIGN IN': 'Авторизироваться',
         'SIGN UP': 'Зарегестрироваться',
         'Write a message': 'Введите сообщение',
+        'min 4 max 8, no spases, no empties': 'от 4 до 8 символов без пробелов',
+        'min 6 max 12, not empty, no spases, include digital': 'от 6 до 12 символов, без пробелов, включая 1 цифру',
         'undefined': '------>AAAAAAFHFCDSCGFSDCSDGCGF!!!!<<<<------',
     },
     'ar': {

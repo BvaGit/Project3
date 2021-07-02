@@ -7,7 +7,7 @@ const RegistrationInput = ({ type, value, title, changeField, id, label, placeho
 
     const handleBlur = () =>{
         setBlured(true);
-        if(id !== 'confirm_password') setError({[id]: validateRegField(id, value) })
+        if(id !== 'confirmPassword') setError({[id]: validateRegField(id, value) })
     }
 
     const handleChange = (e) => {
@@ -22,7 +22,7 @@ const RegistrationInput = ({ type, value, title, changeField, id, label, placeho
                 type={type} 
                 name={id}
                 value={value}
-                title={title}
+                titleId={title}
                 placeholderId={placeholder} 
                 minLength="1"
                 maxLength="30"

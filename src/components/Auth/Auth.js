@@ -23,12 +23,14 @@ const Auth = () => {
               id='login'
               type='text'
               label="Login"
+              title='Enter your login'
               placeholder="Enter your login"
             />
             <AuthInput
               id='password'
               type='password'
               label="Password"
+              title='Enter your password'
               placeholder="Enter your password"
             />
             <div className="gen__buttons">
