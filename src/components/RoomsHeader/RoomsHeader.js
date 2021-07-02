@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { FormattedMessage } from 'react-intl';
 
 import CustomModal from '../CustomModal';
 import ModalMyAccount from '../ModalMyAccount';

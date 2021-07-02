@@ -54,7 +54,7 @@ function ModalMyAccount({ languageValue: langValue, handlecloseModal }) {
       <div className="button-box">
         <button className="button">
           <FormattedMessage
-            id="saveBTN"
+            id="Save"
             defaultMessage="Save"
             value={{ langValue }}
           >
@@ -63,7 +63,7 @@ function ModalMyAccount({ languageValue: langValue, handlecloseModal }) {
         </button>
         <button className="button" onClick={handlecloseModal}>
           <FormattedMessage
-            id="cancelBTN"
+            id="Cancel"
             defaultMessage="Cancel"
             value={{ langValue }}
           >

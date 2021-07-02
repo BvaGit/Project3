@@ -1,10 +1,10 @@
 import {
   SET_SOCKET_EMIT,
   SET_NEW_ROOM,
+  SET_NEW_MESSAGE,
   SET_USER_CHATS,
   SET_ACTIVE_ROOM,
   SEND_MESSAGE,
-  RECEIVED_MESSAGE,
   DATE_LAST_READ,
   SET_CHAT_MESSAGES,
 } from "./actionTypes";
@@ -35,6 +35,20 @@ export const roomsReducer = (state = initialState, action) => {
         ...state,
         rooms: { [action.payload.id]: action.payload, ...state.rooms },
       };
+    case SET_NEW_MESSAGE:
+      return {
+        ...state,
+        rooms: {
+          ...state.rooms,
+          [action.payload.chat_id]: {
+            ...state.rooms[action.payload.chat_id],
+            messages: [
+              ...state.rooms[action.payload.chat_id].messages,
+              action.payload,
+            ],
+          },
+        },
+      };
     case SET_USER_CHATS:
       return {
         ...state,
@@ -59,19 +73,13 @@ export const roomsReducer = (state = initialState, action) => {
     case SET_CHAT_MESSAGES:
       return {
         ...state,
-        messages: {
-          ...state.messages,
-          [action.payload.chatId]: action.payload.messages,
+        rooms: {
+          ...state.rooms,
+          [action.payload.chatId]: {
+            ...state.rooms[action.payload.chatId],
+            messages: action.payload.messages,
+          },
         },
-      };
-    case RECEIVED_MESSAGE:
-      return {
-        ...state,
-        id: action.payload.id,
-        message_id: action.payload.message_id,
-        chat_id: action.payload.chat_id,
-        content: action.payload.content,
-        date_create: action.payload.date_create,
       };
     case DATE_LAST_READ:
       return {

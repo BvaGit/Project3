@@ -88,7 +88,7 @@ function ModalCreateChat({
         </button>
         <button className="button" onClick={handlecloseModal}>
           <FormattedMessage
-            id="cancelBTN"
+            id="Cancel"
             defaultMessage="Cancel"
             value={{ langValue }}
           ></FormattedMessage>

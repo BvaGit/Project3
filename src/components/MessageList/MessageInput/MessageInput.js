@@ -1,43 +1,30 @@
 import React, { useEffect, useState } from "react";
+import { FormattedMessage } from "react-intl";
 
 import { getTime } from "../../../helpers/message";
 
 import "./messageInput.scss";
 
-const MessageInput = ({
-  socket,
-  getUsersFromApi,
-  getUserChats,
-  userId,
-  chatId,
-  rooms,
-}) => {
-  const [state, setState] = useState({
-    content: "",
-  });
+const MessageInput = ({ socket, getUsersFromApi, userId, chatId, rooms }) => {
+  const [content, setContent] = useState("");
 
   useEffect(() => {
     getUsersFromApi();
-    if (userId) {
-      getUserChats(userId);
-    }
   }, [userId]);
 
   const handleChangeInput = (e) => {
-    setState({
-      ...state,
-      content: e.target.value,
-    });
+    setContent(e.target.value);
   };
 
   const sendMessage = () => {
-    if (state) {
-      socket.emit("SEND_MESSAGE", {
+    if (content) {
+      socket.emit("send_message", {
         id: userId,
         chat_id: chatId,
-        content: state.content,
+        content: content,
         date_create: getTime(),
       });
+      setContent("");
     }
   };
 
@@ -45,18 +32,24 @@ const MessageInput = ({
     <>
       <div className="message">
         <label>
-          <input
-            key={rooms.chat_id}
-            className="message__input"
-            onChange={handleChangeInput}
-            placeholder="Write a message"
-          />
+        <FormattedMessage
+          id='Write a message'
+          defaultMessage='Write a message'>{placeholder => (
+            <input
+              key={rooms.chat_id}
+              value={content}
+              className="message__input"
+              onChange={handleChangeInput}
+              placeholder={placeholder}
+            />
+          )}
+          </FormattedMessage>
         </label>
         <button
           className="message__btn"
           onClick={sendMessage}
           type="submit"
-        >&#10148;</button>
+        ></button>
       </div>
     </>
   );
