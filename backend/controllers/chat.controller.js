@@ -31,7 +31,6 @@ class ChatController {
       res.status(200).json(create.rows);
       io.emit("invited_room", create.rows);
     } catch (e) {
-      console.log(e);
       res.status(400).json(message.abstractErr);
     }
   }

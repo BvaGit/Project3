@@ -81,7 +81,7 @@ export const roomsReducer = (state = initialState, action) => {
           },
         },
       };
-    case "DATE_LAST_READ":
+    case DATE_LAST_READ:
       return {
         ...state,
       };
