@@ -8,8 +8,14 @@ class UserController {
       const newUser = await connectPg.query(
         `INSERT INTO users (login, password) VALUES ('${login}', '${password}')`
       );
+      const getId = await connectPg.query(`SELECT id FROM users`);
+      let ids = Object.values(getId.rows);
+      let arrIds = ids.map((el) => el.id);
+      const newGlobalChat = await connectPg.query(
+        `UPDATE chat SET id = ('{${arrIds}}') WHERE name= 'GLOBAL CHAT'`
+      );
       res.status(201).json("user created successfully");
-    } catch {
+    } catch (e) {
       res.status(400).json("user creation failed");
     }
   }

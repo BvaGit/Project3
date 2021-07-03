@@ -1,13 +1,4 @@
-import {
-  SET_SOCKET_EMIT,
-  SET_NEW_ROOM,
-  SET_NEW_MESSAGE,
-  SET_USER_CHATS,
-  SET_ACTIVE_ROOM,
-  SEND_MESSAGE,
-  DATE_LAST_READ,
-  SET_CHAT_MESSAGES,
-} from "./actionTypes";
+import * as AT from "./actionTypes.js";
 
 const initialState = {
   sendingMessage: false,
@@ -25,17 +16,17 @@ const initialState = {
 
 export const roomsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_SOCKET_EMIT:
+    case AT.SET_SOCKET_EMIT:
       return {
         ...state,
         socket: action.payload,
       };
-    case SET_NEW_ROOM:
+    case AT.SET_NEW_ROOM:
       return {
         ...state,
         rooms: { [action.payload.id]: action.payload, ...state.rooms },
       };
-    case SET_NEW_MESSAGE:
+    case AT.SET_NEW_MESSAGE:
       return {
         ...state,
         rooms: {
@@ -49,7 +40,7 @@ export const roomsReducer = (state = initialState, action) => {
           },
         },
       };
-    case SET_USER_CHATS:
+    case AT.SET_USER_CHATS:
       return {
         ...state,
         rooms: action.payload.reduce((acc, chat) => {
@@ -57,12 +48,12 @@ export const roomsReducer = (state = initialState, action) => {
           return acc;
         }, {}),
       };
-    case SET_ACTIVE_ROOM:
+    case AT.SET_ACTIVE_ROOM:
       return {
         ...state,
         activeRoom: action.payload,
       };
-    case SEND_MESSAGE:
+    case AT.SEND_MESSAGE:
       return {
         ...state,
         id: action.payload.id,
@@ -70,7 +61,7 @@ export const roomsReducer = (state = initialState, action) => {
         content: action.payload.content,
         date_create: action.payload.date_create,
       };
-    case SET_CHAT_MESSAGES:
+    case AT.SET_CHAT_MESSAGES:
       return {
         ...state,
         rooms: {
@@ -81,7 +72,7 @@ export const roomsReducer = (state = initialState, action) => {
           },
         },
       };
-    case "DATE_LAST_READ":
+    case AT.DATE_LAST_READ:
       return {
         ...state,
       };

@@ -35,7 +35,9 @@
     font-size: 12px;
     color: #fff;
     background-color: #209a9f;
-    padding: 2px;
+    padding: 2px 5px;
+    border-radius: 3px;
+    width: max-content;
   }
 
   &__date {

@@ -4,7 +4,7 @@ export const getUserStore = (state) => state.user;
 
 export const getUserFromStore = createSelector(
   getUserStore,
-  (state) => state.user,
+  (state) => state.user
 );
 
 export const getUserID = createSelector(getUserFromStore, (user) => user.id);
@@ -15,6 +15,7 @@ export const getUserMyAccount = createSelector(getUserStore, (state) => state.my
 export const getUserAvatar = createSelector(getUserMyAccount, (myAccount) => myAccount.avatar);
 
 export const getIsOpen = createSelector(getUserStore, (state) => state.isOpen);
+
 
 
 

@@ -17,7 +17,9 @@ const SingleRoom = ({ room, setActiveRoom, getChatMessages }) => {
           className="singleroom__avatar"
           src="../../../public/assets/images/1-36-1024x1024.jpg"
         />
-        <div className="singleroom__roomName">{room.name}</div>
+        <div className="singleroom__roomName" key={room.chat_id}>
+          {room.name}
+        </div>
       </div>
       <div className="singleroom__messages">
         <MentionPin />
