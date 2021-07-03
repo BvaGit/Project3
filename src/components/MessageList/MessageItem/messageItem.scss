@@ -21,6 +21,23 @@
     margin-right: auto;
   }
 
+  &__block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  &__name {
+    position: absolute;
+    right: 25px;
+    top: -10px;
+    font-size: 12px;
+    color: #fff;
+    background-color: #209a9f;
+    padding: 2px;
+  }
+
   &__date {
     text-align: right;
     position: absolute;
@@ -34,5 +51,16 @@
   .message-item {
     background: #292929;
     color: $l-body-text-color;
+  }
+}
+
+.avatar {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  img {
+    width: 100%;
   }
 }

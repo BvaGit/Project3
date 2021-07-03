@@ -5,7 +5,7 @@ import RoomsHeader from "../RoomsHeader";
 import Rooms from "../Rooms";
 import AddRoom from "../AddRoom";
 import MessagesContainer from "../MessagesContainer";
-import { addToken } from "../../store/user/asyncActions";
+import { addToken, myAccountGET } from "../../store/user/asyncActions";
 import { getActiveRoom } from "../../store/rooms/selectors";
 
 import ConnectSocket from "../Socket";
@@ -16,11 +16,12 @@ const MainPage = () => {
   const dispatch = useDispatch();
 
   const chatId = useSelector(getActiveRoom);
-
-  useEffect(() => {
-    dispatch(addToken());
-  }, []);
-
+    
+    useEffect(() => {
+        dispatch(addToken());
+        dispatch(myAccountGET());
+    }, []);
+    
   return (
     <div className="inner">
       <header className="header">
