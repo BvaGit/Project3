@@ -4,11 +4,11 @@ import MessageInput from "./MessageInput";
 import MessageItem from "./MessageItem";
 
 const MessagesList = ({ messages }) => {
-    const lastMessageBlock = React.useRef(null);
+    const messagesBlock = React.useRef(null);
   return (
     <>
-      <MessageItem messages={messages} lastMessageBlock={lastMessageBlock} />
-      <MessageInput lastMessageBlock={lastMessageBlock} />
+      <MessageItem messages={messages} messagesBlock={messagesBlock} />
+      <MessageInput messages={messages} messagesBlock={messagesBlock} />
     </>
   );
 };

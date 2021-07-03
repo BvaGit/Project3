@@ -4,12 +4,11 @@ import moment from "moment-timezone";
 
 import "./messageItem.scss";
 
-const MessageItem = ({ messages = [], userId, name, lastMessageBlock }) => {
+const MessageItem = ({ messages = [], userId, name, messagesBlock }) => {
   return (
-    <div className='message-box__container'>
-      {messages.map((message, index) => (
+    <div className='message-box__container' ref={messagesBlock}>
+      {messages.map((message) => (
         <div
-          ref={messages.length - 1 === index ? lastMessageBlock : null}
           key={message.message_id}
           className={
             +userId === message.id

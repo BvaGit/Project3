@@ -4,7 +4,7 @@ import { getTime } from "../../../helpers/message";
 
 import "./messageInput.scss";
 
-const MessageInput = ({ socket, getUsersFromApi, userId, chatId, rooms, lastMessageBlock }) => {
+const MessageInput = ({ socket, getUsersFromApi, userId, chatId, rooms, messagesBlock , messages}) => {
   const [content, setContent] = useState("");
 
   const handleKeyDown = event => {
@@ -16,6 +16,10 @@ const MessageInput = ({ socket, getUsersFromApi, userId, chatId, rooms, lastMess
   useEffect(() => {
     getUsersFromApi();
   }, [userId]);
+
+  useEffect(() => {
+    messagesBlock.current.scrollTop = messagesBlock.current.scrollHeight;
+  }, [messages.length]);
 
   const handleChangeInput = (e) => {
     setContent(e.target.value);
@@ -30,7 +34,6 @@ const MessageInput = ({ socket, getUsersFromApi, userId, chatId, rooms, lastMess
         date_create: getTime(),
       });
       setContent("");
-      lastMessageBlock.current.scrollIntoView({ behavior: "smooth" });
     }
   };
 
