@@ -54,6 +54,7 @@ function ModalCreateChat({
         label="Room name"
         type="text"
         placeholderId="roomNamePlaceholder"
+        titleId="roomNamePlaceholder"
       />
       <div className="new-chat__users">
         <div className="new-chat__usersLabel">

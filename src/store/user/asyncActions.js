@@ -19,7 +19,6 @@ export const addToken = () => {
 export const ChangeCredits = () => {
   return (dispatch, getState) => {
     const user = getState().user;
-    console.log(user)
     const changeCreds = getState().settings.fields;
     const id = user.user.id;
     return fetch(`http://localhost:3000/api/user/updatelogpass/${id}`, {
@@ -35,6 +34,22 @@ export const ChangeCredits = () => {
     })
    }
 }
+
+export const updateMyAccount = () => async (dispatch, getState) => {
+  const user = getState().user;
+  const id = user.user.id
+  const myAccount = user.myAccount;
+
+  await fetch(`http://localhost:3000/api/user/myaccount/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-type": "application/json; charset=utf-8"
+    },
+    body: JSON.stringify(myAccount)
+  })
+  .then( data => data.json() )
+}
+
 export const myAccountPOST = () => async (dispatch, getState) => {
   const user = getState().user;
   const id = user.user.id

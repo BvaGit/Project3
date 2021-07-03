@@ -1,10 +1,11 @@
 import React from "react";
+import { FormattedMessage } from "react-intl";
 
 import MessagesList from "../MessageList";
 
 import "./messagesContainer.scss";
 
-const MessagesContainer = ({ chat, chatId, userName }) => {
+const MessagesContainer = ({ chat, chatId, userName, languageValue: langValue }) => {
   return chat ? (
     <>
       <div className="message-box">
@@ -13,7 +14,16 @@ const MessagesContainer = ({ chat, chatId, userName }) => {
       </div>
     </>
   ) : (
-    <div className="message-box message-box--empty">Welcome!<br />{ userName }</div>
+    <div className="message-box message-box--empty">
+      <FormattedMessage
+            id="Welcome, "
+            defaultMessage="Welcome, "
+            value={{ langValue }}
+          >
+      Welcome, 
+      </FormattedMessage>
+      <br />{ userName } !
+      </div>
   );
 };
 

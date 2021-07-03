@@ -1,20 +1,20 @@
-
 CREATE DATABASE blabber;
 
-ALTER DATABASE "blabber" SET timezone TO 'Europe/Kiev'
-ALTER SYSTEM SET timezone TO 'Europe/Kiev'
+ALTER DATABASE "blabber" SET timezone TO 'Europe/Kiev';
+ALTER SYSTEM SET timezone TO 'Europe/Kiev';
 
--- CREATE DATABASE "blabber-chat";
-
--- ALTER DATABASE "blabber-chat" SET timezone TO 'Europe/Kiev';
--- ALTER SYSTEM SET timezone TO 'Europe/Kiev';
+CREATE TABLE users (
+    id BIGSERIAL PRIMARY KEY,
+    login VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
 
 
 CREATE TABLE myaccount(
     id BIGSERIAL PRIMARY KEY,
     firstname VARCHAR(100),
     lastname VARCHAR(100),
-    age INTEGER,
+    age VARCHAR(100),
     city VARCHAR(100),
     company VARCHAR(100),
     hobbi VARCHAR(250),
@@ -23,12 +23,6 @@ CREATE TABLE myaccount(
     theme VARCHAR(100),
     user_id INTEGER,
     FOREIGN KEY (user_id) REFERENCES users(id)
-);
-
-CREATE TABLE users (
-    id BIGSERIAL PRIMARY KEY,
-    login VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE chat
@@ -61,3 +55,4 @@ CREATE TABLE message_status
   "date_last_read" CHARACTER VARYING (50) NOT NULL
 );
 
+ALTER SYSTEM SET timezone TO 'Europe/Kiev';

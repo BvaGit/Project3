@@ -4,10 +4,17 @@ const routerUser = new Router();
 const userController = require('../controllers/user.controller');
 const authUserMiddle = require('../middleware/authUserMiddle');
 const uploadImg = require('../middleware/uploadImg');
-const imgUpload = require('../controllers/img.controller');
 
-const storageConfig = imgUpload.storage;
-const mult = multer({storage:storageConfig});
+const storage = multer.diskStorage({
+
+    destination: (req, file, cb) => {
+        cb(null, "avatar");
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.originalname );
+    }
+})
+const mult = multer({ storage });
 
 routerUser.post('/reg', userController.createUser);
 routerUser.post('/auth', userController.login);

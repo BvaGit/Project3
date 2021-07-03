@@ -2,9 +2,8 @@ import React from 'react';
 
 import Button from '../../Button';
 
-const ModalSettingsButton = ({ id, textId, changeLogin, closeModal, isError }) => {
+const ModalCancelButton = ({ id, textId, closeModal }) => {
     const handleClick = () => {
-        changeLogin();
         closeModal();
     }
 
@@ -14,9 +13,9 @@ const ModalSettingsButton = ({ id, textId, changeLogin, closeModal, isError }) =
             type="button"
             textId={textId}
             onClick={handleClick}
-            disabled={!isError}
+            disabled={false}
         />
     )
 }
 
-export default ModalSettingsButton;
+export default ModalCancelButton;

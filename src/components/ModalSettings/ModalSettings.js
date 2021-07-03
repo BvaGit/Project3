@@ -1,6 +1,8 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
 
+import { DEFAULT_THEME, THEME } from "../../constants/theme";
+import { DEFAULT_LOCALE, LOCALE } from "../../constants/locale";
 import Input from '../Input';
 import Button from "../Button";
 import ModalSettingsInput from './ModalSettingsInput';
@@ -8,20 +10,31 @@ import ModalSettingsButton from './ModalSettingsButton';
 
 import "./modalsettings.scss";
 
-function ModalSettings({ languageValue: langValue, handleLanguage, closeModal }) {
-  const handleChange = (e) => {
-      handleLanguage(e.target.value);
+function ModalSettings({ languageValue: langValue, handleLanguage, handleTheme, closeModal, changeAccountField, updateAccount, account }) {
+  const handleLanguageChange = (e) => {
+    const language = e.target.value;
+    handleLanguage(language);
+    changeAccountField({ locale: language });
+    updateAccount();
   };
   const handleThemeChange = (e) => {
       const selectedTheme = e.target.value;
-      if (selectedTheme === 'light') {
-          document.getElementById('root').classList.remove('theme-dark');
-          document.getElementById('portal').classList.remove('theme-dark');
-      } else {
-          document.getElementById('root').classList.add('theme-dark');
-          document.getElementById('portal').classList.add('theme-dark');
-      }
+      handleTheme(selectedTheme);
+      changeAccountField({ theme: selectedTheme });
+      updateAccount();
   };
+  const handleResetSettings = () => {
+    handleTheme(DEFAULT_THEME);
+    handleLanguage(DEFAULT_LOCALE);
+    changeAccountField({ 
+      theme: DEFAULT_THEME,
+      locale: DEFAULT_LOCALE 
+    });
+    updateAccount();
+  };
+  const handleClose = () => {
+    closeModal();
+  }
 
     return(
         <div className="content">
@@ -38,18 +51,20 @@ function ModalSettings({ languageValue: langValue, handleLanguage, closeModal })
                 id="en" 
                 name="language" 
                 type="radio" 
-                value="en" 
-                onChange={handleChange} 
+                value={LOCALE.EN} 
+                onChange={handleLanguageChange} 
                 className="content-language__child"
+                isSelected={account.locale === LOCALE.EN}
             />
             <Input 
                 labelId="ru" 
                 id="ru" 
                 name="language" 
                 type="radio" 
-                value="ru" 
-                onChange={handleChange} 
+                value={LOCALE.RU} 
+                onChange={handleLanguageChange} 
                 className="content-language__child"
+                isSelected={account.locale === LOCALE.RU}
             /> 
           </div>
           <div className="content-theme">       
@@ -65,18 +80,20 @@ function ModalSettings({ languageValue: langValue, handleLanguage, closeModal })
               labelId="light" 
               name="theme" 
               type="radio" 
-              value="light" 
+              value={THEME.LIGHT} 
               onChange={handleThemeChange} 
               className="content-theme__child" 
+              isSelected={account.theme === THEME.LIGHT}
             />
             <Input 
               id="dark" 
               labelId="dark" 
               name="theme" 
               type="radio" 
-              value="dark" 
+              value={THEME.DARK} 
               onChange={handleThemeChange} 
               className="content-theme__child"
+              isSelected={account.theme === THEME.DARK}
             /> 
           </div>
           <div className="content-reset">
@@ -90,7 +107,7 @@ function ModalSettings({ languageValue: langValue, handleLanguage, closeModal })
             <input type="checkbox"/>
           </div>
           <div>
-            <button className="button">
+            <button className="button" onClick={handleResetSettings}>
             <FormattedMessage 
               id="reset" 
               defaultMessage="Reset all settings" 
@@ -135,9 +152,9 @@ function ModalSettings({ languageValue: langValue, handleLanguage, closeModal })
               closeModal={closeModal}
             />
             <Button 
-              id="cancel"
+              id="Cancel"
               textId="Cancel"
-              closeModal={closeModal}
+              onClick={handleClose}
             />
           </div>
         </div>
