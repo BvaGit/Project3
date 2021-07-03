@@ -71,7 +71,6 @@ class UserController {
       const id = req.params.id;
       const avaName = req.file.originalname;
       const uploadAva = await connectPg.query(`SELECT * FROM myaccount WHERE user_id='${id}'`);
-      console.log('uploadAvatar', uploadAva.rows[0].avatar)
       if(uploadAva.rows.length === 0){
         await connectPg.query(`INSERT INTO myaccount (avatar, user_id) VALUES ('${url}${avaName}', '${id}') `)
         res.status(200);
@@ -89,7 +88,6 @@ class UserController {
     try {
       const id = req.params.id;
       const ava = await connectPg.query(`SELECT avatar FROM myaccount WHERE user_id='${id}'`);
-      console.log(ava.rows[0].avatar)
       res.status(200).json(ava.rows[0].avatar);
     } catch(e) {
       console.log(e);
@@ -129,10 +127,8 @@ class UserController {
         res.status(200).json(get.rows);
       } else {
         const getEmpty = await connectPg.query( `INSERT INTO myaccount (firstname, lastname, age, city, company, hobbi, avatar, user_id) VALUES ('', '', '', '', '', '', '', '${req.user}')`)
-        console.log(getEmpty.rows[0])
         res.json(getEmpty.rows[0]);
       }
-      
     } catch(e) {
       console.log(e);
     }
