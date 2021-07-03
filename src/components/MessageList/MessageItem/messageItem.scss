@@ -1,0 +1,93 @@
+@import "../../../utils/variables.scss";
+
+.message-box__container {
+  max-height: 420px;
+  overflow-y: auto;
+  padding-top: 10px;
+
+  &::-webkit-scrollbar {
+    border-radius: 10px;
+    width: 10px;
+    height: 40px;
+    background-color: $l-body-text-color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: $cross;
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: $l-body-text-color;
+  }
+
+  .message-item {
+    font-family: "Noto Sans KR", sans-serif;
+    position: relative;
+    background: #f2f2f2;
+    width: 700px;
+    min-height: 70px;
+    margin-bottom: $margin_lg;
+    border-radius: 10px;
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0.09);
+    color: $title-color;
+    padding: 10px 15px 30px;
+    overflow-wrap: break-word;
+
+    &--user {
+      margin-left: auto;
+    }
+
+    &--member {
+      margin-right: auto;
+    }
+
+    &__block {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    &__name {
+      position: absolute;
+      right: 25px;
+      top: -10px;
+      font-size: 12px;
+      color: #fff;
+      background-color: #209a9f;
+      padding: 2px 5px;
+      border-radius: 3px;
+      width: max-content;
+    }
+
+    &__date {
+      text-align: right;
+      position: absolute;
+      bottom: 10px;
+      right: 15px;
+      font-size: 12px;
+    }
+  }
+
+  .avatar {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.theme-dark {
+  .message-item {
+    background: #292929;
+    color: $l-body-text-color;
+  }
+}

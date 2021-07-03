@@ -1,6 +1,9 @@
-import { SET_USERS } from "./actionTypes";
+import * as AT from "./actionTypes";
 
 export const setUsers = (payload) => ({
-  type: SET_USERS,
+  type: AT.SET_USERS,
   payload,
 });
+
+
+

@@ -1,0 +1,36 @@
+@import "../../utils/variables.scss";
+
+.message-box {
+  padding: 0 20px 0 40px;
+  width: 70%;
+  margin: 25px 20px 0 auto;
+
+  &__title {
+    font-size: 30px;
+    color: $button-hover;
+    margin-bottom: $margin_lg;
+  }
+
+  &--empty {
+    font-size: 36px;
+    color: $l-body-text-color;
+    display: flex;
+
+    &__user {
+      padding-left: 10px;
+      text-transform: capitalize;
+    }
+  }
+}
+
+.theme-dark {
+  .message-box__container {
+    .message-box__title {
+      color: $button-hover;
+    }
+
+    .message-box--empty {
+      color: $l-body-text-color;
+    }
+  }
+}

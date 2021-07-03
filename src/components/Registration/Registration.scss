@@ -1,0 +1,9 @@
+@import '../Auth/Auth.scss';
+
+.inputErr {
+    position: absolute;
+    text-align: right;
+    color: red;
+    font-size: 15px;
+    width: 315px;
+}

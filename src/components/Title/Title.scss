@@ -1,0 +1,16 @@
+@import '../../utils/variables.scss';
+
+.title {
+    text-align: left;
+    margin: 0 auto;
+    width: 50%;
+    color: $title-color;
+    letter-spacing: 1.5px;
+    cursor: default;
+    &__big {
+        font-size: 40px;
+    }
+    &__small {
+        font-size: 30px;
+    }
+}
