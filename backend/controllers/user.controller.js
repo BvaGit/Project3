@@ -60,7 +60,7 @@ class UserController {
     }
   }
 
-  async uploadAvatart (req, res) {
+  async uploadAvatar (req, res) {
     try {
       const id = req.params.id;
       const avaName = req.file.originalname;

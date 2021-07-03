@@ -11,11 +11,8 @@ import './roomsHeader.scss';
 
 const RoomsHeader = ({ userName, avatar, isOpen, modalMyAccount }) => {
 
-
-    
     const handleClick = () => modalMyAccount();
     
-
     return(
         <div className="rooms-header">
             <div className="rooms-header__usermenu">

@@ -12,7 +12,7 @@ const mult = multer({storage:storageConfig});
 routerUser.post('/reg', userController.createUser);
 routerUser.post('/auth', userController.login);
 routerUser.put('/myaccount/:id', userController.postOrUpdateMyAccount);
-routerUser.put('/myaccount/avatar/:id', mult.single("file"), uploadImg, userController.uploadAvatart);
+routerUser.put('/myaccount/avatar/:id', mult.single("file"), uploadImg, userController.uploadAvatar);
 routerUser.get('/myaccount/getavatar/:id', userController.getAvatar);
 routerUser.get('/getmyaccount', authUserMiddle, userController.getMyAccount);
 routerUser.put('/updatelogpass/:id', userController.updateLoginOrPassword);

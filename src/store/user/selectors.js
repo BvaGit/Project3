@@ -14,6 +14,8 @@ export const getUserName = createSelector(getUserFromStore, (user) => user.userN
 export const getUserMyAccount = createSelector(getUserStore, (state) => state.myAccount);
 export const getUserAvatar = createSelector(getUserMyAccount, (myAccount) => myAccount.avatar);
 
+export const getIsOpen = createSelector(getUserStore, (state) => state.isOpen);
+
 
 
 
