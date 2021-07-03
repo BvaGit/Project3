@@ -31,4 +31,12 @@ const andrey = {
   database: "blabber-chat",
 };
 
-module.exports = { marina, slava, andrey, deploy };
+const MarinaGru = {
+  user: "marinagrushevska",
+  password: "postgres",
+  host: "localhost",
+  port: 5432,
+  database: "blabber-chat",
+};
+
+module.exports = { marina, slava, andrey, MarinaGru, deploy };

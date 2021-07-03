@@ -18,13 +18,13 @@
     display: none;
 }
 .content-language{
-    display: flex;
+    @include flex(row, flex-start, baseline);
     &__child{
         margin: auto $margin_md auto 3px;
     }
 }
 .content-theme{
-    @include flex(_,_,_);
+    @include flex(row, flex-start, baseline);
     &__child{
         margin: auto $margin_md auto 3px;
     }

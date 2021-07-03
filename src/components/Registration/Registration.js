@@ -22,18 +22,22 @@ const Registration = () => {
                     <div className="gen__container">
                         <RegistrationInput
                             id="login" 
-                            title="min 3 max 8, no spases, no empties"
+                            type="text"
+                            title="min 4 max 8, no spases, no empties"
                             placeholder="Enter your login" 
                             label="Login" 
                         />
                         <RegistrationInput
                             id="password" 
+                            type="password"
                             title="min 6 max 12, not empty, no spases, include digital"
                             placeholder="Enter your password" 
                             label="Password" 
                         />
                         <RegistrationInput
-                            id="confirm_password" 
+                            id="confirmPassword" 
+                            type="password"
+                            title="min 6 max 12, not empty, no spases, include digital"
                             placeholder="Confirm your password" 
                             label="Repeat password" 
                         />

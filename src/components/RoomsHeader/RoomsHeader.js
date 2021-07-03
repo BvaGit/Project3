@@ -28,7 +28,9 @@ const RoomsHeader = ({ userLogin, userName, avatar, isOpen, modalMyAccount }) =>
                 <Input 
                 labelId="search"
                 className="rooms-header__input" 
-                placeholderId="searchPlaceholder"/>
+                placeholderId="searchPlaceholder"
+                titleId="Enter room name"
+                />
             </div>
         </div>
     )

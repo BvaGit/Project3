@@ -9,30 +9,35 @@ import AuthBtn from "./AuthBtn";
 import "./Auth.scss";
 
 const Auth = () => {
-  return (
+
+  return(
     <div className="gen__holder">
       <div className="gen">
         <div className="gen__info">
-          <Logo src="../../public/assets/images/logo.png" alt="logo" />
-          <Title textBig="SIGN IN" textSmall="YOUR ACCOUNT" />
+          <Logo src="../../public/assets/images/logo.png" alt="logo"/>
+          <Title textBig="SIGN IN" textSmall="YOUR ACCOUNT"/>
         </div>
         <div className="gen__main">
           <div className="gen__container">
             <AuthInput
-              id="login"
+              id='login'
+              type='text'
               label="Login"
+              title='Enter your login'
               placeholder="Enter your login"
             />
             <AuthInput
-              id="password"
+              id='password'
+              type='password'
               label="Password"
+              title='Enter your password'
               placeholder="Enter your password"
             />
             <div className="gen__buttons">
               <AuthBtn />
             </div>
             <p className="gen__link">Create new account</p>
-            <NavLink to="/registration" className="gen__link">
+            <NavLink to='/registration' className="gen__link">
               Sign up
             </NavLink>
           </div>
