@@ -96,7 +96,7 @@ function ModalSettings({ languageValue: langValue, handleLanguage, handleTheme, 
               isSelected={account.theme === THEME.DARK}
             /> 
           </div>
-          <div className="content-reset">
+          {/* <div className="content-reset">
             <span className="content__item-header content-reset__header">
               <FormattedMessage 
                 id="notifications" 
@@ -105,7 +105,7 @@ function ModalSettings({ languageValue: langValue, handleLanguage, handleTheme, 
               </FormattedMessage>
             </span>
             <input type="checkbox"/>
-          </div>
+          </div> */}
           <div>
             <button className="button" onClick={handleResetSettings}>
             <FormattedMessage 

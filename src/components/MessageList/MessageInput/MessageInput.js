@@ -5,12 +5,22 @@ import { getTime } from "../../../helpers/message";
 
 import "./messageInput.scss";
 
-const MessageInput = ({ socket, getUsersFromApi, userId, chatId, rooms }) => {
+const MessageInput = ({ socket, getUsersFromApi, userId, chatId, rooms, messagesBlock , messages}) => {
   const [content, setContent] = useState("");
+
+  const handleKeyDown = event => {
+    if (event.keyCode === 13) {
+      sendMessage();
+    }
+  };
 
   useEffect(() => {
     getUsersFromApi();
   }, [userId]);
+
+  useEffect(() => {
+    messagesBlock.current.scrollTop = messagesBlock.current.scrollHeight;
+  }, [messages.length]);
 
   const handleChangeInput = (e) => {
     setContent(e.target.value);
@@ -41,6 +51,7 @@ const MessageInput = ({ socket, getUsersFromApi, userId, chatId, rooms }) => {
               className="message__input"
               onChange={handleChangeInput}
               placeholder={placeholder}
+              onKeyDown={handleKeyDown}
             />
           )}
           </FormattedMessage>
@@ -49,7 +60,7 @@ const MessageInput = ({ socket, getUsersFromApi, userId, chatId, rooms }) => {
           className="message__btn"
           onClick={sendMessage}
           type="submit"
-        ></button>
+        />
       </div>
     </>
   );

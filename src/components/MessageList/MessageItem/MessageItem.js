@@ -4,9 +4,9 @@ import moment from "moment-timezone";
 
 import "./messageItem.scss";
 
-const MessageItem = ({ messages = [], userId, avatar, name }) => {
+const MessageItem = ({ messages = [], userId, name, messagesBlock }) => {
   return (
-    <>
+    <div className='message-box__container' ref={messagesBlock}>
       {messages.map((message) => (
         <div
           key={message.message_id}
@@ -17,18 +17,24 @@ const MessageItem = ({ messages = [], userId, avatar, name }) => {
           }
         >
           <div className="message-item__block">
-          {message.content}
-            <p className="message-item__name"> {name} </p>
+            {message.content}
+            <p className="message-item__name"> {message.login || name}</p>
             <span className="avatar">
-          <img src={avatar ? avatar : '../../../../public/assets/images/1-36-1024x1024.jpg'} />
-          </span>
+              <img
+                src={
+                  message.avatar
+                    ? message.avatar
+                    : "../../../../public/assets/images/1-36-1024x1024.jpg"
+                }
+              />
+            </span>
           </div>
           <span className="message-item__date">
             {moment(message.date_create).format("LT")}
           </span>
         </div>
       ))}
-    </>
+    </div>
   );
 };
 
