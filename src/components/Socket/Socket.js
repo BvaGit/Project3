@@ -5,25 +5,16 @@ const ConnectSocket = ({
   setSocketEmit,
   setNewRoom,
   setNewMessage,
-  userId,
-  getUsersFromApi,
 }) => {
-  console.log("USER ID", +userId);
+
   useEffect(() => {
     const socket = io("http://localhost:3000");
-    getUsersFromApi();
+
     setSocketEmit(socket);
 
     socket.on("connection", function (socket) {
       console.log("connection", socket);
     });
-
-    // socket.on("join", (rooms) => {
-    //   rooms.forEach((room) => socket.emit(socket.join(room.chat_id)));
-    //   console.log("join", rooms);
-    // });
-
-    // socket.emit("ROOM:JOIN", setNewRoom(channel[0]));
 
     socket.on("room", (rooms) => {
       rooms.forEach((room) => socket.join(room.chat_id));

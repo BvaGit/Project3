@@ -16,6 +16,12 @@
   &--empty {
     font-size: 36px;
     color: $l-body-text-color;
+    display: flex;
+
+    &__user {
+      padding-left: 10px;
+      text-transform: capitalize;
+    }
   }
 
   &::-webkit-scrollbar {

@@ -7,14 +7,11 @@ import "./messagesContainer.scss";
 const MessagesContainer = ({
   chat,
   chatId,
-  userId,
-  id,
   getUsersFromApi,
-  users,
+  userLogin,
+  userName,
 }) => {
-  // console.log("users", users);
-  // console.log("+userId", +userId);
-  // console.log("+id", id);
+  const login = userLogin && userLogin.login;
 
   useEffect(() => {
     getUsersFromApi();
@@ -28,8 +25,10 @@ const MessagesContainer = ({
     </>
   ) : (
     <>
-      <div className="message-box message-box--empty">Welcome!</div>
-      <div className="message-box message-box--empty">{/* {users} */}</div>
+      <div className="message-box message-box--empty">
+        Welcome,
+        <p className="message-box--empty__user">{userName || login}</p>!
+      </div>
     </>
   );
 };

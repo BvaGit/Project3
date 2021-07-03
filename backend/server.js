@@ -17,8 +17,8 @@ const server = http.createServer(app);
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept"
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
   );
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
   next();
@@ -31,20 +31,10 @@ global.io = require("socket.io")(server, {
   },
 });
 
-let users = [];
-let connections = [];
-
 io.on("connection", (socket) => {
   console.log("User connected, socket.id:", socket.id);
 
-  connections.push(socket);
-
   socket.emit("connection", null);
-
-  // socket.on("join", function (room) {
-  //   socket.join(room);
-  //   console.log("socket.join(room)", room);
-  // });
 
   socket.join("room");
 
@@ -52,9 +42,6 @@ io.on("connection", (socket) => {
     io.in("room").emit("new_room", channel);
     console.log("socket.join(room)", channel);
   });
-
-  // console.log("clients", clients);
-  // console.log("numClients", numClients);
 
   socket.on("send_message", (msg) => {
     db.createSocketMessage(msg).then((data) => {
