@@ -1,6 +1,8 @@
+import config from "../../src/constants/config";
+
 const connectPg = require("../connectPostgreSQL/connectPg");
 const { generateAcccessToken } = require("../support/support");
-const url = 'http://localhost:3000/avatar/';
+const url = `${config.prod_url}/avatar/`;
 class UserController {
   async createUser(req, res) {
     const { login, password } = req.body;

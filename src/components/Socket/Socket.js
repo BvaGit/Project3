@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { io } from "socket.io-client";
+import config from "../../constants/config";
 
 const ConnectSocket = ({
   setSocketEmit,
@@ -8,7 +9,7 @@ const ConnectSocket = ({
 }) => {
 
   useEffect(() => {
-    const socket = io("http://localhost:3000");
+    const socket = io(config.prod_url);
 
     setSocketEmit(socket);
 
@@ -31,7 +32,7 @@ const ConnectSocket = ({
       console.log("new_room", channel);
     });
 
-    socket.on("disconnect", (data) => {
+    socket.on("disconnect", () => {
       console.log("User disconnected");
     });
   }, []);

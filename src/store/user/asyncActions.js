@@ -1,10 +1,12 @@
-import { authUser, getMyAccount, updateAvatar, isOpen, userName } from "./actions";
 import cookie from "js-cookie";
+
+import config from "../../constants/config";
+import { authUser, getMyAccount, updateAvatar, isOpen, userName } from "./actions";
 
 export const addToken = () => {
   const token = cookie.get("token");
   return (dispatch) => {
-    return fetch("http://localhost:3000/api/user/addtoken/", {
+    return fetch(`${config.prod_url}/api/user/addtoken/`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -20,7 +22,7 @@ export const myAccountPOST = () => async (dispatch, getState) => {
   const user = getState().user;
   const id = user.user.id
   const myAccount = user.myAccount;
-  await fetch(`http://localhost:3000/api/user/myaccount/${id}`, {
+  await fetch(`${config.prod_url}/api/user/myaccount/${id}`, {
     method: "PUT",
     headers: {
       "Content-type": "application/json; charset=utf-8"
@@ -37,7 +39,7 @@ export const myAccountPOST = () => async (dispatch, getState) => {
 export const myAccountGET = () => {
   const token = cookie.get('token');
   return (dispatch) => {
-    return fetch(`http://localhost:3000/api/user/getmyaccount/`, {
+    return fetch(`${config.prod_url}/api/user/getmyaccount/`, {
       headers: {
         "Authorization": `Bearer ${token}`
       }
@@ -55,13 +57,13 @@ export const avatarPUT = (body) => {
   return (dispatch, getState) => {
     const user = getState().user;
     const id = user.user.id
-    return fetch(`http://localhost:3000/api/user/myaccount/avatar/${id}`, {
+    return fetch(`${config.prod_url}/api/user/myaccount/avatar/${id}`, {
       method: "PUT",
       body: body
     })
     .then(() => {
       setTimeout(() => 
-      fetch(`http://localhost:3000/api/user/myaccount/getavatar/${id}`)
+      fetch(`${config.prod_url}/api/user/myaccount/getavatar/${id}`)
         .then((data) => data.json())
         .then(json => {
           dispatch(updateAvatar(json))}), 300)
