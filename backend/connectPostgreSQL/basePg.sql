@@ -1,7 +1,12 @@
 CREATE DATABASE "blabber-chat";
 
 ALTER DATABASE "blabber-chat" SET timezone TO 'Europe/Kiev';
-ALTER SYSTEM SET timezone TO 'Europe/Kiev';
+
+CREATE TABLE users (
+    id BIGSERIAL PRIMARY KEY,
+    login VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
 
 -- обязательно в таблице поле 'GLOBAL CHAT'
 INSERT INTO chat (name) VALUES ('GLOBAL CHAT') RETURNING *
@@ -17,12 +22,6 @@ CREATE TABLE myaccount(
     avatar VARCHAR(250),
     user_id INTEGER,
     FOREIGN KEY (user_id) REFERENCES users(id)
-);
-
-CREATE TABLE users (
-    id BIGSERIAL PRIMARY KEY,
-    login VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE chat
@@ -54,4 +53,6 @@ CREATE TABLE message_status
   "message_id" INTEGER REFERENCES messages,
   "date_last_read" CHARACTER VARYING (50) NOT NULL
 );
+
+ALTER SYSTEM SET timezone TO 'Europe/Kiev';
 
