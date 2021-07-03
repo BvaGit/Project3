@@ -21,11 +21,30 @@ global.io = require("socket.io")(server, {
   },
 });
 
+let users = [];
+let connections = [];
+
 io.on("connection", (socket) => {
   console.log("User connected, socket.id:", socket.id);
+
+  connections.push(socket);
+
   socket.emit("connection", null);
 
+  // socket.on("join", function (room) {
+  //   socket.join(room);
+  //   console.log("socket.join(room)", room);
+  // });
+
   socket.join("room");
+
+  socket.on("new_room", function (channel) {
+    io.in("room").emit("new_room", channel);
+    console.log("socket.join(room)", channel);
+  });
+
+  // console.log("clients", clients);
+  // console.log("numClients", numClients);
 
   socket.on("send_message", (msg) => {
     db.createSocketMessage(msg).then((data) => {
@@ -34,8 +53,9 @@ io.on("connection", (socket) => {
     });
   });
 
-  socket.on("disconnect", (socket) => {
-    console.log("user disconnected", socket.id);
+  socket.on("disconnect", (data) => {
+    connections.splice(connections.indexOf(socket), 1);
+    console.log("User disconnected");
   });
 });
 

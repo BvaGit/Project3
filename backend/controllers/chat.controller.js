@@ -22,6 +22,7 @@ class ChatController {
       res.status(400).json(message.abstractErr);
     }
   }
+
   async createChat(req, res) {
     try {
       const { ids, name } = req.body;
@@ -29,7 +30,7 @@ class ChatController {
         `INSERT INTO chat (id, name) VALUES ('{${ids}}', '${name}') RETURNING *`
       );
       res.status(200).json(create.rows);
-      io.emit("invited_room", create.rows);
+      io.emit("new_room", create.rows);
     } catch (e) {
       res.status(400).json(message.abstractErr);
     }

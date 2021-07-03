@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import MessagesList from "../MessageList";
 
 import "./messagesContainer.scss";
 
-const MessagesContainer = ({ chat, chatId }) => {
+const MessagesContainer = ({
+  chat,
+  chatId,
+  userId,
+  id,
+  getUsersFromApi,
+  users,
+}) => {
+  // console.log("users", users);
+  // console.log("+userId", +userId);
+  // console.log("+id", id);
+
+  useEffect(() => {
+    getUsersFromApi();
+  }, []);
   return chat ? (
     <>
       <div className="message-box">
@@ -13,7 +27,10 @@ const MessagesContainer = ({ chat, chatId }) => {
       </div>
     </>
   ) : (
-    <div className="message-box message-box--empty">Welcome!</div>
+    <>
+      <div className="message-box message-box--empty">Welcome!</div>
+      <div className="message-box message-box--empty">{/* {users} */}</div>
+    </>
   );
 };
 
