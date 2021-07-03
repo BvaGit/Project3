@@ -1,7 +1,7 @@
 import * as AT from "./actionTypes";
 
 const initialState = {
-  user: { id: null, token: null },
+  user: { id: null, token: null, userName: null },
   myAccount: {
     firstname: '',
     lastname: '',
@@ -21,6 +21,14 @@ export const userReducer = (state = initialState, action) => {
         ...state,
         user: { ...action.payload },
       };
+    case AT.USER_NAME:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          userName: action.payload
+        }
+      }
     case AT.LOGOUT_USER:
       return initialState;
     case AT.GET_MYACCOUNT:

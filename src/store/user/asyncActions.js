@@ -1,4 +1,4 @@
-import { authUser, getMyAccount, updateAvatar, isOpen } from "./actions";
+import { authUser, getMyAccount, updateAvatar, isOpen, userName } from "./actions";
 import cookie from "js-cookie";
 
 export const addToken = () => {
@@ -27,7 +27,11 @@ export const myAccountPOST = () => async (dispatch, getState) => {
     },
     body: JSON.stringify(myAccount)
   })
-  .then(() => dispatch(isOpen()));
+  .then( data => data.json() )
+  .then( json => {
+    dispatch(userName(json.firstname));
+    dispatch(isOpen());
+  })
 }
 
 export const myAccountGET = () => {
@@ -41,6 +45,7 @@ export const myAccountGET = () => {
     .then((data) => data.json())
     .then((json) => {
       dispatch(getMyAccount(json[0]));
+      dispatch(userName(json[0].firstname));
     });
   }
 }

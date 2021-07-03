@@ -16,3 +16,5 @@ export const getMyAccount = (payload) => ({type: AT.GET_MYACCOUNT, payload});
 export const updateAvatar = (payload) => ({type: AT.CHANGE_MY_ACCOUNT_AVATAR, payload});
 
 export const isOpen = () => ({type: AT.IS_OPEN});
+
+export const userName = (payload) => ({type: AT.USER_NAME, payload});

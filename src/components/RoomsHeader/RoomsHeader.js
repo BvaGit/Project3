@@ -9,7 +9,7 @@ import Input from '../Input';
 
 import './roomsHeader.scss';
 
-const RoomsHeader = ({ fname, avatar, isOpen, modalMyAccount }) => {
+const RoomsHeader = ({ userName, avatar, isOpen, modalMyAccount }) => {
 
 
     
@@ -21,7 +21,7 @@ const RoomsHeader = ({ fname, avatar, isOpen, modalMyAccount }) => {
             <div className="rooms-header__usermenu">
                 <div className="rooms-header__userinfo">
                     <img className="rooms-header__avatar" src={avatar ? avatar : '../../../public/assets/images/1-36-1024x1024.jpg'}/>
-                    <div className="rooms-header__userName" onClick={handleClick}>{ fname ? fname : "Enter your name " }</div>
+                    <div className="rooms-header__userName" onClick={handleClick}>{ userName ? userName : "Enter your name " }</div>
                     {isOpen && <CustomModal header="My Account" content={<ModalMyAccount handlecloseModal={handleClick}/>} handlecloseModal={handleClick}/>}
                 </div>
                 <div className="rooms-header__settingsmenu">

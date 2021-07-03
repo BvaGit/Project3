@@ -1,9 +1,10 @@
 import RoomsHeader from "./RoomsHeader";
 import { connect } from "react-redux";
 import { isOpen } from '../../store/user/actions';
+import { getUserName } from '../../store/user/selectors';
 
 const mapStateToProps = (state) => ({
-    fname: state.user.myAccount.firstname,
+    userName: getUserName(state),
     avatar: state.user.myAccount.avatar,
     isOpen: state.user.isOpen
 })

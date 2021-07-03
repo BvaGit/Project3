@@ -1,6 +1,6 @@
 const multer = require('multer');
 class ImgUploads {
-
+    
     storage = multer.diskStorage({
         
         destination: (req, file, cb) => {

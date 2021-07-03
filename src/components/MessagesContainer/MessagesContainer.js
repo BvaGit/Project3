@@ -4,7 +4,7 @@ import MessagesList from "../MessageList";
 
 import "./messagesContainer.scss";
 
-const MessagesContainer = ({ chat, chatId }) => {
+const MessagesContainer = ({ chat, chatId, userName }) => {
   return chat ? (
     <>
       <div className="message-box">
@@ -13,7 +13,7 @@ const MessagesContainer = ({ chat, chatId }) => {
       </div>
     </>
   ) : (
-    <div className="message-box message-box--empty">Welcome!</div>
+    <div className="message-box message-box--empty">Welcome!<br />{ userName }</div>
   );
 };
 
