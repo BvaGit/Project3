@@ -6,7 +6,7 @@ const initialState = {
     firstname: '',
     lastname: '',
     avatar: '',
-    age: '',
+    age: "0",
     city: '',
     company: '',
     hobbi: ''

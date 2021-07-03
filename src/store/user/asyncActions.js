@@ -94,11 +94,11 @@ export const avatarPUT = (body) => {
       body: body
     })
     .then(() => {
+      setTimeout(() => 
       fetch(`http://localhost:3000/api/user/myaccount/getavatar/${id}`)
-      .then((data) => data.json())
-      .then(json => {
-        dispatch(updateAvatar(json))
-      })
+        .then((data) => data.json())
+        .then(json => {
+          dispatch(updateAvatar(json))}), 300)
     })
     .catch(e => console.log(e))
   }
