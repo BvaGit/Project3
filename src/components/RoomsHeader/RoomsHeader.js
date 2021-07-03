@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FormattedMessage } from 'react-intl';
+import cookie from "js-cookie";
 
 import CustomModal from '../CustomModal';
 import ModalMyAccount from '../ModalMyAccount';
@@ -8,9 +9,12 @@ import Input from '../Input';
 
 import './roomsHeader.scss';
 
-const RoomsHeader = ({ fname, avatar }) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const handleClick = () => setIsOpen(prev => !prev);
+const RoomsHeader = ({ fname, avatar, isOpen, modalMyAccount }) => {
+
+
+    
+    const handleClick = () => modalMyAccount();
+    
 
     return(
         <div className="rooms-header">

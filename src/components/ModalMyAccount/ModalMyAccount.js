@@ -17,37 +17,40 @@ function ModalMyAccount({ languageValue: langValue, handlecloseModal, postMyAcco
       <div className="my-account__info">
         <div className="my-account__info1">
           <Input
-            labelId="firstName"
+            label="firstName"
+            id="firstname"
             type="text"
-            placeholderId="firstNamePlaceholder"
+            placeholder="firstNamePlaceholder"
           />
         </div>
         <div className="my-account__info1">
           <Input
-            labelId="lastName"
+            label="lastName"
+            id="lastname"
             type="text"
-            placeholderId="lastNamePlaceholder"
+            placeholder="lastNamePlaceholder"
           />
         </div>
       </div>
       <div className="my-account__info">
         <div className="my-account__info1">
-          <Input labelId="age" type="number" placeholderId="agePlaceholder" />
+          <Input label="age" type="number" id="age" placeholder="agePlaceholder" />
         </div>
         <div className="my-account__info1">
-          <Input labelId="city" type="text" placeholderId="cityPlaceholder" />
+          <Input label="city" type="text" id="city" placeholder="cityPlaceholder" />
         </div>
       </div>
       <div className="my-account__info">
         <div className="my-account__info1">
           <Input
-            labelId="companyName"
+            label="companyName"
             type="text"
-            placeholderId="companyNamePlaceholder"
+            id="company"
+            placeholder="companyNamePlaceholder"
           />
         </div>
         <div className="my-account__info1">
-          <Input labelId="hobby" type="text" placeholderId="hobbyPlaceholder" />
+          <Input label="hobby" type="text" id="hobby" placeholder="hobbyPlaceholder" />
         </div>
       </div>
       <div className="button-box">

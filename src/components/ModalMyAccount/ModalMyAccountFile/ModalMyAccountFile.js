@@ -1,14 +1,13 @@
 import React from 'react';
 import './ModalMyAccountFile.scss';
 
-const ModalMyAccountFile = ({ upAvatar, avatar, getMyAccount }) => {
+const ModalMyAccountFile = ({ upAvatar, avatar }) => {
 
     const handleFile = (e) => {
        const file = e.target.files[0];
        const formData = new FormData();
        formData.append('file', file);
        upAvatar(formData);
-       getMyAccount();
     }
 
     return (

@@ -6,6 +6,4 @@ export const setUsers = (payload) => ({
 });
 
 
-export const changeMyAccountField = (payload) => ({type: AT.CHANGE_MYACCOUNT_FIELD, payload});
 
-export const getMyAccount = (payload) => ({type: AT.GET_MYACCOUNT, payload});

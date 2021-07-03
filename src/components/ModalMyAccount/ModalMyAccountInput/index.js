@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import ModalMyAccountInput from "./ModalMyAccountInput";
 
-import { changeMyAccountField } from '../../../store/users/actions';
+import { changeMyAccountField } from '../../../store/user/actions';
 
 
 const mapStateToProps = (state) => ({})

@@ -1,3 +1,2 @@
 export const SET_USERS = "SET_USERS";
-export const CHANGE_MYACCOUNT_FIELD = "CHANGE_MYACCOUNT_FIELD";
-export const GET_MYACCOUNT = "GET_MYACCOUNT";
+

@@ -64,9 +64,21 @@ class UserController {
     try {
       const id = req.params.id;
       const avaName = req.file.originalname;
-      await connectPg.query(`UPDATE myaccount SET avatar='${url}${avaName}' WHERE user_id='${id}' `);
-      res.status(200);
+      const data = await connectPg.query(`UPDATE myaccount SET avatar='${url}${avaName}' WHERE user_id='${id}' `);
+      const ava = await connectPg.query(`SELECT avatar FROM myaccount WHERE user_id='${id}'`);
+      console.log(ava.rows[0])
+      res.status(200)
     } catch (e) {
+      console.log(e);
+    }
+  }
+
+  async getAvatar (req, res) {
+    try {
+      const id = req.params.id;
+      const ava = await connectPg.query(`SELECT avatar FROM myaccount WHERE user_id='${id}'`);
+      res.status(200).json(ava.rows[0].avatar);
+    } catch(e) {
       console.log(e);
     }
   }
@@ -99,12 +111,12 @@ class UserController {
   async getMyAccount(req, res) {
     try {
       const get = await connectPg.query(`SELECT * FROM myaccount WHERE user_id='${req.user}'`);
-      if(get.rows.length){
+      if(get.rows.length > 0){
         res.status(200).json(get.rows);
       } else {
         res.json('empty');
       }
-
+      
     } catch(e) {
       console.log(e);
     }

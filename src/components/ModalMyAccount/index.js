@@ -1,10 +1,10 @@
 import ModalMyAccount from "./ModalMyAccount";
 import { connect } from 'react-redux'
 
-import { myAccountPOST, myAccountGET } from '../../store/users/asyncActions'
+import { myAccountPOST, myAccountGET } from '../../store/user/asyncActions'
 
 const mapStateToProps = (state) => ({
-    avatar: state.usersReducer.myAccount.avatar
+    avatar: state.user.myAccount.avatar
 })
 
 const mapDispatchToProps = (dispatch) => ({

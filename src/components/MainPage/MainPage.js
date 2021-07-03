@@ -16,12 +16,12 @@ const MainPage = () => {
   const dispatch = useDispatch();
 
   const chatId = useSelector(getActiveRoom);
-
+    
     useEffect(() => {
         dispatch(addToken());
         dispatch(myAccountGET());
     }, []);
-
+    
   return (
     <div className="inner">
       <header className="header">

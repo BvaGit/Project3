@@ -7,9 +7,9 @@ class ImgUploads {
              cb(null, "avatar");
         },
         filename: (req, file, cb) => {
-            const index = file.originalname.lastIndexOf('.');
-            const format = file.originalname.substr(index);
-            cb(null, file.originalname = req.params.id + format);
+            // const index = file.originalname.lastIndexOf('.');
+            // const format = file.originalname.substr(index);
+            cb(null, file.originalname );
         }
     })
 
