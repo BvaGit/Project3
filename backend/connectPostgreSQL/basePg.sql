@@ -12,11 +12,13 @@ CREATE TABLE myaccount(
     id BIGSERIAL PRIMARY KEY,
     firstname VARCHAR(100),
     lastname VARCHAR(100),
-    age INTEGER,
+    age VARCHAR(100),
     city VARCHAR(100),
     company VARCHAR(100),
     hobbi VARCHAR(250),
     avatar VARCHAR(250),
+    theme VARCHAR(100),
+    locale VARCHAR(100),
     user_id INTEGER,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
