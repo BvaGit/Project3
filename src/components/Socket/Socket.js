@@ -1,18 +1,19 @@
 import React, { useEffect } from "react";
 import { io } from "socket.io-client";
 
-const ConnectSocket = ({ setSocketEmit, setNewRoom }) => {
+const ConnectSocket = ({ setSocketEmit, setNewRoom, setNewMessage }) => {
   useEffect(() => {
     const socket = io("http://localhost:3000");
 
     setSocketEmit(socket);
 
-    socket.on("message", (msg) => {
-      console.log(msg);
+    socket.on("room", (rooms) => {
+      rooms.forEach((room) => socket.join(room.chat_id));
     });
 
-    socket.on("result", (msg) => {
-      console.log(msg);
+    socket.on("send_message", (msg) => {
+      setNewMessage(msg[0]);
+      console.log("send_message", msg[0]);
     });
 
     socket.on("invited_room", (msg) => {
