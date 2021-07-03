@@ -31,6 +31,8 @@ global.io = require("socket.io")(server, {
   },
 });
 
+const connections = [];
+
 io.on("connection", (socket) => {
   console.log("User connected, socket.id:", socket.id);
 

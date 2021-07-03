@@ -20,3 +20,9 @@ export const getUserLogin = createSelector(
   getUserID,
   (users, userID) => users.find((user) => user.id === userID)
 );
+
+export const getMemberLogin = createSelector(
+  getUsersFromStore,
+  getUserID,
+  (users, userID) => users.find((user) => user.id === userID)
+);

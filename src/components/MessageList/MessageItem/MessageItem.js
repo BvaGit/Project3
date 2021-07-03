@@ -4,13 +4,7 @@ import moment from "moment-timezone";
 
 import "./messageItem.scss";
 
-const MessageItem = ({
-  messages = [],
-  userId,
-  avatar,
-  name,
-  login,
-}) => {
+const MessageItem = ({ messages = [], userId, name, login }) => {
   const userLogin = login.login;
   return (
     <>
@@ -29,8 +23,8 @@ const MessageItem = ({
             <span className="avatar">
               <img
                 src={
-                  avatar
-                    ? avatar
+                  message.avatar
+                    ? message.avatar
                     : "../../../../public/assets/images/1-36-1024x1024.jpg"
                 }
               />
