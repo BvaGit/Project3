@@ -1,2 +1,7 @@
 export const AUTH_USER = "AUTH_USER";
 export const LOGOUT_USER = "LOGOUT_USER";
+export const CHANGE_MYACCOUNT_FIELD = "CHANGE_MYACCOUNT_FIELD";
+export const GET_MYACCOUNT = "GET_MYACCOUNT";
+export const CHANGE_MY_ACCOUNT_AVATAR = "CHANGE_MY_ACCOUNT_AVATAR";
+export const IS_OPEN = "IS_OPEN";
+export const USER_NAME = "USER_NAME";

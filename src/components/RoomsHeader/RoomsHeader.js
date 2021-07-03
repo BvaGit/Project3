@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FormattedMessage } from 'react-intl';
+import cookie from "js-cookie";
 
 import CustomModal from '../CustomModal';
 import ModalMyAccount from '../ModalMyAccount';
@@ -8,16 +9,16 @@ import Input from '../Input';
 
 import './roomsHeader.scss';
 
-const RoomsHeader = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const handleClick = () => setIsOpen(prev => !prev);
+const RoomsHeader = ({ userName, avatar, isOpen, modalMyAccount }) => {
 
+    const handleClick = () => modalMyAccount();
+    
     return(
         <div className="rooms-header">
             <div className="rooms-header__usermenu">
                 <div className="rooms-header__userinfo">
-                    <img className="rooms-header__avatar" src="../../../public/assets/images/1-36-1024x1024.jpg"/>
-                    <div className="rooms-header__userName" onClick={handleClick}>Valera</div>
+                    <img className="rooms-header__avatar" src={avatar ? avatar : '../../../public/assets/images/1-36-1024x1024.jpg'}/>
+                    <div className="rooms-header__userName" onClick={handleClick}>{ userName ? userName : "Enter your name " }</div>
                     {isOpen && <CustomModal header="My Account" content={<ModalMyAccount handlecloseModal={handleClick}/>} handlecloseModal={handleClick}/>}
                 </div>
                 <div className="rooms-header__settingsmenu">

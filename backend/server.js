@@ -14,6 +14,16 @@ const PORT = 3000;
 
 const server = http.createServer(app);
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  next();
+});
+
 global.io = require("socket.io")(server, {
   cors: {
     origin: "*",
@@ -71,6 +81,8 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
   next();
 });
+
+app.use(express.static(__dirname));
 
 app.use(express.json());
 
