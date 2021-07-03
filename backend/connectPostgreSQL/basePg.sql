@@ -1,7 +1,7 @@
-CREATE DATABASE blabber-chat;
+CREATE DATABASE "blabber-chat";
 
-ALTER DATABASE "blabber-chat" SET timezone TO 'Europe/Kiev'
-ALTER SYSTEM SET timezone TO 'Europe/Kiev'
+ALTER DATABASE "blabber-chat" SET timezone TO 'Europe/Kiev';
+ALTER SYSTEM SET timezone TO 'Europe/Kiev';
 
 CREATE TABLE myaccount(
     id BIGSERIAL PRIMARY KEY,

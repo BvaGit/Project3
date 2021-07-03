@@ -11,7 +11,7 @@ const slava = {
   password: "1111",
   host: "localhost",
   port: 5432,
-  database: "blabber",
+  database: "blabber-chat",
   ssl: false,
 };
 
