@@ -4,8 +4,7 @@ import moment from "moment-timezone";
 
 import "./messageItem.scss";
 
-const MessageItem = ({ messages = [], userId, name, login }) => {
-  const userLogin = login.login;
+const MessageItem = ({ messages = [], userId, name }) => {
   return (
     <>
       {messages.map((message) => (
@@ -19,7 +18,7 @@ const MessageItem = ({ messages = [], userId, name, login }) => {
         >
           <div className="message-item__block">
             {message.content}
-            <p className="message-item__name"> {userLogin || name}</p>
+            <p className="message-item__name"> {message.login || name}</p>
             <span className="avatar">
               <img
                 src={

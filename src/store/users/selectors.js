@@ -18,7 +18,10 @@ export const getUsersForDropdown = createSelector(
 export const getUserLogin = createSelector(
   getUsersFromStore,
   getUserID,
-  (users, userID) => users.find((user) => user.id === userID)
+  (users, userID) => {
+      const user = users.find((user) => user.id === userID);
+      return user && user.login;
+  }
 );
 
 export const getMemberLogin = createSelector(

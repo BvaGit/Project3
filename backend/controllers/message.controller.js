@@ -5,9 +5,9 @@ class MessageController {
     try {
       const get = await connectPg.query(
         `SELECT messages.id, messages.message_id, messages.chat_id, messages.content, messages.date_create,
-        users.login, myaccount.avatar FROM messages INNER JOIN users
+        users.login, myaccount.avatar FROM messages LEFT JOIN users
 	      ON messages.id = users.id
-		    INNER JOIN myaccount ON messages.id = myaccount.user_id
+		    LEFT JOIN myaccount ON messages.id = myaccount.user_id
 		    WHERE (chat_id = ${req.params.chat_id})`
       );
       res.status(200).json(get.rows);
@@ -36,7 +36,12 @@ class MessageController {
         `INSERT INTO messages (id, chat_id, content, date_create) VALUES (${message.id},
         ${message.chat_id}, '${message.content}', '${message.date_create}') RETURNING *`
       );
-      return create.rows;
+      const userInfo = await connectPg.query(
+          `SELECT users.login, myaccount.avatar FROM users
+            LEFT JOIN myaccount ON myaccount.user_id = ${message.id}
+            WHERE users.id = ${message.id}`
+      )
+      return [{...create.rows[0], ...userInfo.rows[0]}];
     } catch (e) {
       console.log(e);
     }

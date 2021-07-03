@@ -11,8 +11,6 @@ const MessagesContainer = ({
   userLogin,
   userName,
 }) => {
-  const login = userLogin && userLogin.login;
-
   useEffect(() => {
     getUsersFromApi();
   }, []);
@@ -27,7 +25,7 @@ const MessagesContainer = ({
     <>
       <div className="message-box message-box--empty">
         Welcome,
-        <p className="message-box--empty__user">{userName || login}</p>!
+        <p className="message-box--empty__user">{userName || userLogin}</p>!
       </div>
     </>
   );

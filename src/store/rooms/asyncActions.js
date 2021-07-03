@@ -1,6 +1,7 @@
 import cookie from "js-cookie";
 
 import { setUserChats, setChatMessages } from "./actions";
+import { sortByDateCreate } from "../../helpers/message";
 
 export const sendMessages = (body) => {
   return () => {
@@ -63,6 +64,6 @@ export const getChatMessages = (chatId) => async (dispatch) => {
     },
   });
   const messages = await request.json();
-  const payload = { messages, chatId };
+  const payload = { messages: sortByDateCreate(messages), chatId };
   dispatch(setChatMessages(payload));
 };
