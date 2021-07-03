@@ -1,6 +1,6 @@
-CREATE DATABASE blabber;
+CREATE DATABASE "blabber-chat";
 
-ALTER DATABASE "blabber" SET timezone TO 'Europe/Kiev';
+ALTER DATABASE "blabber-chat" SET timezone TO 'Europe/Kiev';
 -- обязательно в таблице поле 'GLOBAL CHAT'
 INSERT INTO chat (name) VALUES ('GLOBAL CHAT') RETURNING *
 

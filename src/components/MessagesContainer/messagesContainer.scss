@@ -19,7 +19,7 @@
     display: flex;
 
     &__user {
-      padding-left: 10px;
+      padding-left: $padding_md;
       text-transform: capitalize;
     }
   }

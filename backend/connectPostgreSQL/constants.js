@@ -36,7 +36,7 @@ const MarinaGru = {
   password: "postgres",
   host: "localhost",
   port: 5432,
-  database: "blabber",
+  database: "blabber-chat",
 };
 
 module.exports = { marina, slava, andrey, MarinaGru, deploy };

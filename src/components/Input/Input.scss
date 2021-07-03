@@ -11,7 +11,7 @@
 
         &.is-selected {
             text-decoration: underline;
-            color: #409aa2;
+            color: $button-hover;
         }
     }
     &__input {
@@ -42,7 +42,7 @@
 
             &.is-selected {
                 text-decoration: underline;
-                color: #409aa2;
+                color: $button-hover;
             }
         }
         &__input {
