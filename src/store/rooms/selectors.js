@@ -17,9 +17,9 @@ export const getNewMessage = createSelector(
 export const getRooms = createSelector(getRoomsState, (state) => state.rooms);
 
 export const getRoomsArray = createSelector(getRoomsState, (state) =>{
-  // Object.values(state.rooms)
-   const arrRooms = Object.values(state.rooms)
-   return arrRooms.filter(arrRoom => arrRoom.name.includes(state.searchRoom))
+  return Object.values(state.rooms)
+  // const arrRooms = Object.values(state.rooms)
+  // return arrRooms.filter(arrRoom => arrRoom.name.includes(state.searchRoom))
 
 }
 );
