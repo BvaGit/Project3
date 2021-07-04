@@ -16,8 +16,12 @@ export const getNewMessage = createSelector(
 
 export const getRooms = createSelector(getRoomsState, (state) => state.rooms);
 
-export const getRoomsArray = createSelector(getRoomsState, (state) =>
-  Object.values(state.rooms)
+export const getRoomsArray = createSelector(getRoomsState, (state) =>{
+  // Object.values(state.rooms)
+   const arrRooms = Object.values(state.rooms)
+   return arrRooms.filter(arrRoom => arrRoom.name.includes(state.searchRoom))
+
+}
 );
 
 export const getActiveRoom = createSelector(
@@ -35,3 +39,5 @@ export const getRoomMessages = createSelector(
   getRoomById,
   (room) => room.messages
 );
+
+

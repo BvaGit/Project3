@@ -12,6 +12,7 @@ const initialState = {
   socket: null,
   rooms: {},
   activeRoom: "",
+  searchRoom: ""
 };
 
 export const roomsReducer = (state = initialState, action) => {
@@ -76,6 +77,11 @@ export const roomsReducer = (state = initialState, action) => {
       return {
         ...state,
       };
+    case AT.SEARCH_ROOM:
+      return {
+        ...state,
+        searchRoom: action.payload
+      }
     default:
       return state;
   }

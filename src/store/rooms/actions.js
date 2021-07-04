@@ -38,3 +38,8 @@ export const setChatMessages = (payload) => ({
   type: AT.SET_CHAT_MESSAGES,
   payload,
 });
+
+export const searchRoom = (payload) => ({
+  type: AT.SEARCH_ROOM,
+  payload
+})
