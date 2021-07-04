@@ -37,11 +37,11 @@ class MessageController {
         ${message.chat_id}, '${message.content}', '${message.date_create}') RETURNING *`
       );
       const userInfo = await connectPg.query(
-          `SELECT users.login, myaccount.avatar FROM users
+        `SELECT users.login, myaccount.avatar FROM users
             LEFT JOIN myaccount ON myaccount.user_id = ${message.id}
             WHERE users.id = ${message.id}`
-      )
-      return [{...create.rows[0], ...userInfo.rows[0]}];
+      );
+      return [{ ...create.rows[0], ...userInfo.rows[0] }];
     } catch (e) {
       console.log(e);
     }

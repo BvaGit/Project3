@@ -1,11 +1,12 @@
 import { setUsers } from "./actions";
 import cookie from "js-cookie";
-import config from "../../constants/config";
+
+import prod_url from "../../constants/config";
 
 export const getUsersFromApi = () => {
   const token = cookie.get("token");
   return (dispatch) => {
-    return fetch(`${config.prod_url}/api/user/users`, {
+    return fetch(`${prod_url}/api/user/users`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

@@ -1,12 +1,18 @@
 import cookie from "js-cookie";
 
-import config from "../../constants/config";
-import { authUser, getMyAccount, updateAvatar, isOpen, userName } from "./actions";
+import {
+  authUser,
+  getMyAccount,
+  updateAvatar,
+  isOpen,
+  userName,
+} from "./actions";
+import prod_url from "../../constants/config";
 
 export const addToken = () => {
   const token = cookie.get("token");
   return (dispatch) => {
-    return fetch(`${config.prod_url}/api/user/addtoken/`, {
+    return fetch(`${prod_url}/api/user/addtoken/`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -20,56 +26,57 @@ export const addToken = () => {
 
 export const myAccountPOST = () => async (dispatch, getState) => {
   const user = getState().user;
-  const id = user.user.id
+  const id = user.user.id;
   const myAccount = user.myAccount;
-  await fetch(`${config.prod_url}/api/user/myaccount/${id}`, {
+  await fetch(`${prod_url}/api/user/myaccount/${id}`, {
     method: "PUT",
     headers: {
-      "Content-type": "application/json; charset=utf-8"
+      "Content-type": "application/json; charset=utf-8",
     },
-    body: JSON.stringify(myAccount)
+    body: JSON.stringify(myAccount),
   })
-  .then( data => data.json() )
-  .then( json => {
-    dispatch(userName(json.firstname));
-    dispatch(isOpen());
-  })
-}
-
-export const myAccountGET = () => {
-  const token = cookie.get('token');
-  return (dispatch) => {
-    return fetch(`${config.prod_url}/api/user/getmyaccount/`, {
-      headers: {
-        "Authorization": `Bearer ${token}`
-      }
-    })
     .then((data) => data.json())
     .then((json) => {
-      dispatch(getMyAccount(json[0]));
-      dispatch(userName(json[0].firstname));
+      dispatch(userName(json.firstname));
+      dispatch(isOpen());
     });
-  }
-}
+};
 
+export const myAccountGET = () => {
+  const token = cookie.get("token");
+  return (dispatch) => {
+    return fetch(`${prod_url}/api/user/getmyaccount/`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((data) => data.json())
+      .then((json) => {
+        dispatch(getMyAccount(json[0]));
+        dispatch(userName(json[0].firstname));
+      });
+  };
+};
 
 export const avatarPUT = (body) => {
   return (dispatch, getState) => {
     const user = getState().user;
-    const id = user.user.id
-    return fetch(`${config.prod_url}/api/user/myaccount/avatar/${id}`, {
+    const id = user.user.id;
+    return fetch(`${prod_url}/api/user/myaccount/avatar/${id}`, {
       method: "PUT",
-      body: body
+      body: body,
     })
-    .then(() => {
-      setTimeout(() => 
-      fetch(`${config.prod_url}/api/user/myaccount/getavatar/${id}`)
-        .then((data) => data.json())
-        .then(json => {
-          dispatch(updateAvatar(json))}), 300)
-    })
-    .catch(e => console.log(e))
-  }
-}
-
-
+      .then(() => {
+        setTimeout(
+          () =>
+            fetch(`${prod_url}/api/user/myaccount/getavatar/${id}`)
+              .then((data) => data.json())
+              .then((json) => {
+                dispatch(updateAvatar(json));
+              }),
+          300
+        );
+      })
+      .catch((e) => console.log(e));
+  };
+};

@@ -1,8 +1,8 @@
-import config from "../../src/constants/config";
+const prod_url = require("../support/constants");
 
 const connectPg = require("../connectPostgreSQL/connectPg");
 const { generateAcccessToken } = require("../support/support");
-const url = `${config.prod_url}/avatar/`;
+const url = `${prod_url}/avatar/`;
 class UserController {
   async createUser(req, res) {
     const { login, password } = req.body;
@@ -68,32 +68,39 @@ class UserController {
     }
   }
 
-  async uploadAvatar (req, res) {
+  async uploadAvatar(req, res) {
     try {
       const id = req.params.id;
       const avaName = req.file.originalname;
-      const uploadAva = await connectPg.query(`SELECT * FROM myaccount WHERE user_id='${id}'`);
-      console.log('uploadAvatar', uploadAva.rows[0].avatar)
-      if(uploadAva.rows.length === 0){
-        await connectPg.query(`INSERT INTO myaccount (avatar, user_id) VALUES ('${url}${avaName}', '${id}') `)
+      const uploadAva = await connectPg.query(
+        `SELECT * FROM myaccount WHERE user_id='${id}'`
+      );
+      console.log("uploadAvatar", uploadAva.rows[0].avatar);
+      if (uploadAva.rows.length === 0) {
+        await connectPg.query(
+          `INSERT INTO myaccount (avatar, user_id) VALUES ('${url}${avaName}', '${id}') `
+        );
         res.status(200);
       } else {
-        await connectPg.query(`UPDATE myaccount SET avatar='${url}${avaName}' WHERE user_id='${id}' `);
+        await connectPg.query(
+          `UPDATE myaccount SET avatar='${url}${avaName}' WHERE user_id='${id}' `
+        );
         res.status(200);
       }
-
     } catch (e) {
       console.log(e);
     }
   }
 
-  async getAvatar (req, res) {
+  async getAvatar(req, res) {
     try {
       const id = req.params.id;
-      const ava = await connectPg.query(`SELECT avatar FROM myaccount WHERE user_id='${id}'`);
-      console.log(ava.rows[0].avatar)
+      const ava = await connectPg.query(
+        `SELECT avatar FROM myaccount WHERE user_id='${id}'`
+      );
+      console.log(ava.rows[0].avatar);
       res.status(200).json(ava.rows[0].avatar);
-    } catch(e) {
+    } catch (e) {
       console.log(e);
     }
   }
@@ -109,13 +116,17 @@ class UserController {
         await connectPg.query(
           `INSERT INTO myaccount (firstname, lastname, age, city, company, hobbi, user_id) VALUES ('${firstname}', '${lastname}', '${age}', '${city}', '${company}', '${hobbi}', '${id}')`
         );
-        const fname = await connectPg.query(`SELECT firstname FROM myaccount WHERE user_id=${id}`);
+        const fname = await connectPg.query(
+          `SELECT firstname FROM myaccount WHERE user_id=${id}`
+        );
         res.status(200).json(fname.rows[0]);
       } else {
         await connectPg.query(
           `UPDATE myaccount SET firstname='${firstname}', lastname='${lastname}', age='${age}', city='${city}', company='${company}', hobbi='${hobbi}' WHERE user_id=${id}`
         );
-        const fname = await connectPg.query(`SELECT firstname FROM myaccount WHERE user_id=${id}`);
+        const fname = await connectPg.query(
+          `SELECT firstname FROM myaccount WHERE user_id=${id}`
+        );
         res.status(200).json(fname.rows[0]);
       }
     } catch (e) {
@@ -126,16 +137,19 @@ class UserController {
 
   async getMyAccount(req, res) {
     try {
-      const get = await connectPg.query(`SELECT * FROM myaccount WHERE user_id='${req.user}'`);
-      if(get.rows.length > 0){
+      const get = await connectPg.query(
+        `SELECT * FROM myaccount WHERE user_id='${req.user}'`
+      );
+      if (get.rows.length > 0) {
         res.status(200).json(get.rows);
       } else {
-        const getEmpty = await connectPg.query( `INSERT INTO myaccount (firstname, lastname, age, city, company, hobbi, avatar, user_id) VALUES ('', '', '', '', '', '', '', '${req.user}')`)
-        console.log(getEmpty.rows[0])
+        const getEmpty = await connectPg.query(
+          `INSERT INTO myaccount (firstname, lastname, age, city, company, hobbi, avatar, user_id) VALUES ('', '', '', '', '', '', '', '${req.user}')`
+        );
+        console.log(getEmpty.rows[0]);
         res.json(getEmpty.rows[0]);
       }
-      
-    } catch(e) {
+    } catch (e) {
       console.log(e);
     }
   }
