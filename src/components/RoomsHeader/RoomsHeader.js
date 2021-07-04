@@ -52,7 +52,7 @@ const RoomsHeader = ({
           <Settings className="rooms-header__settings" />
           <img
             className="rooms-header__logout"
-            src="../../../public/assets/images/logout_2.png"
+            src="/assets/images/logout_2.png"
             onClick={handleLogout}
           />
         </div>
