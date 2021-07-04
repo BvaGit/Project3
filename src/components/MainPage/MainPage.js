@@ -9,7 +9,7 @@ import './mainPaige.scss'
 const MainPage = () => (
     <div>
         <header className="header">
-            <img className="header__logo" src="../../../public/assets/images/hate.png"/>
+            <img className="header__logo" src="/assets/images/hate.png"/>
             <h1 className="header__appName">Blabber</h1>
         </header>
         <div className="rooms__box">

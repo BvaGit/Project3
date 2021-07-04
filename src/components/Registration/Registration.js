@@ -14,7 +14,7 @@ const Registration = () => {
         <div className="gen__holder">
             <div className="gen">
                 <div className="gen__info">
-                    <Logo src="../../public/assets/images/logo.png" alt="logo"/>
+                    <Logo src="/assets/images/logo.png" alt="logo"/>
                     <Title textBig="SIGN UP" textSmall="YOUR ACCOUNT"/>
                 </div>
                 <div className="gen__main">
