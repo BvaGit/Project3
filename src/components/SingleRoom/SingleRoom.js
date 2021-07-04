@@ -1,7 +1,7 @@
 import React from "react";
 
-import MessageCounter from "../MessageCounter";
-import MentionPin from "../MentionPin";
+// import MessageCounter from "../MessageCounter";
+// import MentionPin from "../MentionPin";
 
 import "./singleroom.scss";
 
@@ -22,8 +22,8 @@ const SingleRoom = ({ room, setActiveRoom, getChatMessages }) => {
         </div>
       </div>
       <div className="singleroom__messages">
-        <MentionPin />
-        <MessageCounter />
+        {/* <MentionPin />
+        <MessageCounter /> */}
       </div>
     </div>
   );

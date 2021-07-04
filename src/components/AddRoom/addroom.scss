@@ -13,10 +13,10 @@ $button-size: 40px;
   height: $button-size;
   color: $background;
   border-radius: 50%;
-  line-height: 38px;
+  line-height: 33px;
   text-align: center;
   background: $button-color;
-  margin-right: $margin_md;
+  margin: $margin_md;
   cursor: pointer;
 }
 .add-room:hover {

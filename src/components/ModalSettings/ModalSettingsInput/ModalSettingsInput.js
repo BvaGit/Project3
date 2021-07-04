@@ -1,8 +1,9 @@
-import React, { useState} from 'react';
-import Input from '../../Input';
-import { validateRegField } from '/src/helpers/validation'
+import React, { useState}  from 'react';
 
-const RegistrationInput = ({ type, value, title, changeField, id, label, placeholder, error, setError }) =>{
+import Input from '../../Input';
+import { validateRegField } from '/src/helpers/validation';
+
+const ModalSettingsInput = ({ id, name, value, labelId, type,  titleId, placeholderId, changeInput, error, setError, changeField }) => {
     const [blured, setBlured] = useState(false);
 
     const handleBlur = () =>{
@@ -11,27 +12,27 @@ const RegistrationInput = ({ type, value, title, changeField, id, label, placeho
     }
 
     const handleChange = (e) => {
+        changeInput({ [id]:e.target.value }) 
         changeField({ [id]: e.target.value })
         if(blured) setBlured(false)
     }
 
-    return (
+    return(
         <>
-            <Input  
-                labelId={label} 
+            <Input 
+                id={id} 
+                name={name}
+                labelId={labelId} 
                 type={type} 
-                name={id}
                 value={value}
-                titleId={title}
-                placeholderId={placeholder} 
-                minLength="1"
-                maxLength="30"
-                onBlur={handleBlur}
+                titleId={titleId}
+                placeholderId={placeholderId} 
                 onChange={handleChange}
+                onBlur={handleBlur}
             />
             {(blured && error) && <div className="inputErr">{error}</div>}
         </>
     )
 }
 
-export default RegistrationInput
+export default ModalSettingsInput;

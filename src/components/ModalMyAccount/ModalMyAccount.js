@@ -21,6 +21,7 @@ function ModalMyAccount({ languageValue: langValue, handlecloseModal, postMyAcco
             id="firstname"
             type="text"
             placeholder="firstNamePlaceholder"
+            title="firstNamePlaceholder"
           />
         </div>
         <div className="my-account__info1">
@@ -29,15 +30,28 @@ function ModalMyAccount({ languageValue: langValue, handlecloseModal, postMyAcco
             id="lastname"
             type="text"
             placeholder="lastNamePlaceholder"
+            title="lastNamePlaceholder"
           />
         </div>
       </div>
       <div className="my-account__info">
         <div className="my-account__info1">
-          <Input label="age" type="number" id="age" placeholder="agePlaceholder" />
+          <Input 
+            label="age" 
+            type="number" 
+            id="age" 
+            placeholder="agePlaceholder"
+            title="agePlaceholder" 
+          />
         </div>
         <div className="my-account__info1">
-          <Input label="city" type="text" id="city" placeholder="cityPlaceholder" />
+          <Input 
+            label="city" 
+            type="text" 
+            id="city" 
+            placeholder="cityPlaceholder" 
+            title="cityPlaceholder"
+          />
         </div>
       </div>
       <div className="my-account__info">
@@ -46,17 +60,24 @@ function ModalMyAccount({ languageValue: langValue, handlecloseModal, postMyAcco
             label="companyName"
             type="text"
             id="company"
-            placeholder="companyNamePlaceholder"
+            placeholder="Enter your company name..."
+            title="Enter your company name..."
           />
         </div>
         <div className="my-account__info1">
-          <Input label="hobby" type="text" id="hobby" placeholder="hobbyPlaceholder" />
+          <Input 
+            label="hobby" 
+            type="text" 
+            id="hobby" 
+            placeholder="hobbyPlaceholder" 
+            title="hobbyPlaceholder"
+            />
         </div>
       </div>
       <div className="button-box">
         <button className="button"  onClick={handleBtn}>
           <FormattedMessage
-            id="saveBTN"
+            id="Save"
             defaultMessage="Save"
             value={{ langValue }}
           >
@@ -65,7 +86,7 @@ function ModalMyAccount({ languageValue: langValue, handlecloseModal, postMyAcco
         </button>
         <button className="button" onClick={handlecloseModal}>
           <FormattedMessage
-            id="cancelBTN"
+            id="Cancel"
             defaultMessage="Cancel"
             value={{ langValue }}
           >

@@ -37,10 +37,12 @@ const RoomsHeader = ({ userLogin, userName, avatar, isOpen, modalMyAccount, logo
             </div>
             <div className="rooms-header__search">
                 <Input 
-                labelId="search"
-                className="rooms-header__input" 
-                placeholderId="searchPlaceholder"
-                onChange={handleSearchRoom}/>
+                    labelId="search"
+                    className="rooms-header__input"
+                    placeholderId="searchPlaceholder"
+                    titleId="Enter room name"
+                    onChange={handleSearchRoom}
+                />
             </div>
         </div>
     )

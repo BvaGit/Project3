@@ -71,7 +71,6 @@ class UserController {
       const id = req.params.id;
       const avaName = req.file.originalname;
       const uploadAva = await connectPg.query(`SELECT * FROM myaccount WHERE user_id='${id}'`);
-      console.log('uploadAvatar', uploadAva.rows[0].avatar)
       if(uploadAva.rows.length === 0){
         await connectPg.query(`INSERT INTO myaccount (avatar, user_id) VALUES ('${url}${avaName}', '${id}') `)
         res.status(200);
@@ -89,7 +88,6 @@ class UserController {
     try {
       const id = req.params.id;
       const ava = await connectPg.query(`SELECT avatar FROM myaccount WHERE user_id='${id}'`);
-      console.log(ava.rows[0].avatar)
       res.status(200).json(ava.rows[0].avatar);
     } catch(e) {
       console.log(e);
@@ -98,20 +96,20 @@ class UserController {
 
   async postOrUpdateMyAccount(req, res) {
     try {
-      const { firstname, lastname, age, city, company, hobbi } = req.body;
+      const { firstname, lastname, age, city, company, hobbi, theme = '', locale = '' } = req.body;
       const id = req.params.id;
       const getMyAccount = await connectPg.query(
         `SELECT * FROM myaccount WHERE user_id='${id}'`
       );
       if (!getMyAccount.rows.length) {
         await connectPg.query(
-          `INSERT INTO myaccount (firstname, lastname, age, city, company, hobbi, user_id) VALUES ('${firstname}', '${lastname}', '${age}', '${city}', '${company}', '${hobbi}', '${id}')`
+          `INSERT INTO myaccount (firstname, lastname, age, city, company, hobbi, user_id, theme, locale) VALUES ('${firstname}', '${lastname}', '${age}', '${city}', '${company}', '${hobbi}', '${id}', '${theme}', '${locale}')`
         );
         const fname = await connectPg.query(`SELECT firstname FROM myaccount WHERE user_id=${id}`);
         res.status(200).json(fname.rows[0]);
       } else {
         await connectPg.query(
-          `UPDATE myaccount SET firstname='${firstname}', lastname='${lastname}', age='${age}', city='${city}', company='${company}', hobbi='${hobbi}' WHERE user_id=${id}`
+          `UPDATE myaccount SET firstname='${firstname}', lastname='${lastname}', age='${age}', city='${city}', company='${company}', hobbi='${hobbi}', theme='${theme}', locale='${locale}' WHERE user_id=${id}`
         );
         const fname = await connectPg.query(`SELECT firstname FROM myaccount WHERE user_id=${id}`);
         res.status(200).json(fname.rows[0]);
@@ -129,10 +127,8 @@ class UserController {
         res.status(200).json(get.rows);
       } else {
         const getEmpty = await connectPg.query( `INSERT INTO myaccount (firstname, lastname, age, city, company, hobbi, avatar, user_id) VALUES ('', '', '', '', '', '', '', '${req.user}')`)
-        console.log(getEmpty.rows[0])
         res.json(getEmpty.rows[0]);
       }
-      
     } catch(e) {
       console.log(e);
     }

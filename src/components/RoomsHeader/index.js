@@ -1,5 +1,6 @@
-import RoomsHeader from "./RoomsHeader";
 import { connect } from "react-redux";
+
+import RoomsHeader from "./RoomsHeader";
 import { isOpen, logoutUser } from '../../store/user/actions';
 import { searchRoom } from '../../store/rooms/actions';
 import { getUserName, getUserAvatar, getIsOpen } from '../../store/user/selectors';
@@ -18,7 +19,4 @@ const mapDispatchToProps = (dispatch) => ({
     searchRoom: (nameRooms) => dispatch(searchRoom(nameRooms))
 })
 
-
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(RoomsHeader) ;
+export default connect(mapStateToProps, mapDispatchToProps)(RoomsHeader);
