@@ -12,7 +12,7 @@ const ModalMyAccountFile = ({ upAvatar, avatar }) => {
 
     return (
         <label className="load-img-file">
-            <img src={avatar ? avatar : '../../../public/assets/images/1-36-1024x1024.jpg'}/>
+            <img src={avatar ? avatar : '/assets/images/1-36-1024x1024.jpg'}/>
             <input type="file" name="filedata" onChange={handleFile} hidden />
         </label>
     )

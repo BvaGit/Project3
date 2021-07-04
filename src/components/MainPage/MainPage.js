@@ -27,7 +27,7 @@ const MainPage = () => {
       <header className="header">
         <img
           className="header__logo"
-          src="../../../public/assets/images/logo.png"
+          src="/assets/images/logo.png"
         />
         <h1 className="header__appName">Blabber</h1>
       </header>

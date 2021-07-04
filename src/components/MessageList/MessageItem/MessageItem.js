@@ -24,7 +24,7 @@ const MessageItem = ({ messages = [], userId, name, messagesBlock }) => {
                 src={
                   message.avatar
                     ? message.avatar
-                    : "../../../../public/assets/images/1-36-1024x1024.jpg"
+                    : "/assets/images/1-36-1024x1024.jpg"
                 }
               />
             </span>
