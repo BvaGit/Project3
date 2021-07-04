@@ -16,7 +16,7 @@ $button-size: 40px;
   line-height: 38px;
   text-align: center;
   background: $button-color;
-  margin-right: $margin_md;
+  margin: 0 $margin_md 20px;
   cursor: pointer;
 }
 .add-room:hover {

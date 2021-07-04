@@ -49,7 +49,8 @@ const message = {
         'Enter your login': 'Enter your login',
         'Enter your password': 'Enter your password',
         'Confirm your password': 'Confirm your password',
-        'undefined': '------>AAAAAAFHFCDSCGFSDCSDGCGF!!!!<<<<------',
+        'No chats': 'No chats',
+        'undefined': ' '
     },
     'ru': {
         'header': 'Добро пожаловать',
@@ -101,7 +102,8 @@ const message = {
         'Enter your login': 'Введите ваш логин',
         'Enter your password': 'Введите ваш пароль',
         'Confirm your password': 'Подтвердите ваш пароль',
-        'undefined': '------>AAAAAAFHFCDSCGFSDCSDGCGF!!!!<<<<------',
+        'No chats': 'Список чатов пуст',
+        'undefined': ' ',
     },
     'ar': {
         'header': 'أهلا بك',

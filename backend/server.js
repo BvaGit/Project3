@@ -41,7 +41,7 @@ io.on("connection", (socket) => {
   socket.join("room");
 
   socket.on("new_room", function (channel) {
-    io.in("room").emit("new_room", channel);
+    // io.in("room").emit("new_room", channel);
     console.log("socket.join(room)", channel);
   });
 
