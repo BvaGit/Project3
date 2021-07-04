@@ -7,6 +7,7 @@ import {
   errorNotification,
   successNotification,
 } from "../../helpers/notification";
+import config from "../../constants/config";
 
 export const authUserRequest = () => async (dispatch, getState) => {
   const state = getState();
@@ -14,7 +15,7 @@ export const authUserRequest = () => async (dispatch, getState) => {
     login: getAuthFieldByIdStore(state, { id: "login" }),
     password: getAuthFieldByIdStore(state, { id: "password" }),
   };
-  const response = await fetch("http://localhost:3000/api/user/auth", {
+  const response = await fetch(`${config.prod_url}/api/user/auth`, {
     method: "POST",
     headers: {
       "Content-type": "application/json; charset=utf-8",

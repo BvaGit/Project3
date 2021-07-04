@@ -1,11 +1,12 @@
 import cookie from "js-cookie";
 
+import config from "../../constants/config";
 import { setUserChats, setChatMessages } from "./actions";
 import { sortByDateCreate } from "../../helpers/message";
 
 export const sendMessages = (body) => {
   return () => {
-    return fetch("http://localhost:3000/api/messages/create_message", {
+    return fetch(`${config.prod_url}/api/messages/create_message`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
@@ -19,7 +20,7 @@ export const sendMessages = (body) => {
 
 export const createChat = (body) => {
   return () => {
-    return fetch("http://localhost:3000/api/chat/create_chat", {
+    return fetch(`${config.prod_url}/api/chat/create_chat`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
@@ -30,7 +31,7 @@ export const createChat = (body) => {
 export const sendParticipants = (body) => {
   const token = cookie.get("token");
   return () => {
-    return fetch("http://localhost:3000/api/participants", {
+    return fetch(`${config.prod_url}/api/participants`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +48,7 @@ export const sendParticipants = (body) => {
 
 export const getUserChats = (userId) => async (dispatch) => {
   const token = cookie.get("token");
-  const request = await fetch(`http://localhost:3000/api/chat/${userId}`, {
+  const request = await fetch(`${config.prod_url}/api/chat/${userId}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -58,7 +59,7 @@ export const getUserChats = (userId) => async (dispatch) => {
 
 export const getChatMessages = (chatId) => async (dispatch) => {
   const token = cookie.get("token");
-  const request = await fetch(`http://localhost:3000/api/messages/${chatId}`, {
+  const request = await fetch(`${config.prod_url}/api/messages/${chatId}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
