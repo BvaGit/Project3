@@ -1,3 +1,3 @@
 export default {
-    prod_url: 'http://localhost:3000',
+  prod_url: "http://34.132.101.206",
 };
