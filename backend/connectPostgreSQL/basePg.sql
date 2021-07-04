@@ -20,8 +20,8 @@ CREATE TABLE myaccount(
     company VARCHAR(100),
     hobbi VARCHAR(250),
     avatar VARCHAR(250),
-    theme VARCHAR(100),
     locale VARCHAR(100),
+    theme VARCHAR(100),
     user_id INTEGER,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
@@ -57,4 +57,3 @@ CREATE TABLE message_status
 );
 
 ALTER SYSTEM SET timezone TO 'Europe/Kiev';
-

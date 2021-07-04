@@ -4,12 +4,12 @@ const initialState = {
   fields:{
     login: '',
     password: '',
-    confirm_password:""
+    confirmPassword:""
   },
   errors:{
     login:"",
     password:"",
-    confirm_password:""
+    confirmPassword:""
   }
 };
 
@@ -26,10 +26,10 @@ export const registrationReducer = (state = initialState, action) => {
           fields:newFields,
           errors:{
             ...state.errors,
-            password: newFields.password === newFields.confirm_password
+            password: newFields.password === newFields.confirmPassword
               ? ''
               : "Passwords should match",
-            confirm_password: newFields.password === newFields.confirm_password
+            confirmPassword: newFields.password === newFields.confirmPassword
               ? ''
               : "Passwords should match"
           }

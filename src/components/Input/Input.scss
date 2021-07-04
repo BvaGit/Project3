@@ -8,6 +8,11 @@
         font-size: 18px;
         margin: 0 $margin_sm;
         cursor: pointer;
+
+        &.is-selected {
+            text-decoration: underline;
+            color: $button-hover;
+        }
     }
     &__input {
         width: 100%;
@@ -23,7 +28,6 @@
         }
         &::placeholder{
             color: $title-color;
-            font-style: italic;
             font-size: $margin_md;
         }
     }
@@ -35,6 +39,11 @@
     .inputs {
         &__label {
             color: $l-body-text-color;
+
+            &.is-selected {
+                text-decoration: underline;
+                color: $button-hover;
+            }
         }
         &__input {
             color: $l-body-text-color;

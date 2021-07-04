@@ -31,6 +31,11 @@ export const userReducer = (state = initialState, action) => {
       }
     case AT.LOGOUT_USER:
       return initialState;
+    case AT.SET_USERS:
+      return {
+        ...state,
+        users: action.payload,
+      };
     case AT.GET_MYACCOUNT:
       return {
         ...state,

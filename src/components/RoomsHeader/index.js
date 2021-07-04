@@ -1,5 +1,6 @@
-import RoomsHeader from "./RoomsHeader";
 import { connect } from "react-redux";
+
+import RoomsHeader from "./RoomsHeader";
 import { isOpen } from '../../store/user/actions';
 import { getUserName, getUserAvatar, getIsOpen } from '../../store/user/selectors';
 import { getUserLogin } from "../../store/users/selectors";
@@ -15,7 +16,4 @@ const mapDispatchToProps = (dispatch) => ({
     modalMyAccount: () => dispatch(isOpen())
 })
 
-
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(RoomsHeader) ;
+export default connect(mapStateToProps, mapDispatchToProps)(RoomsHeader);

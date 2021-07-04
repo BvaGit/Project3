@@ -1,8 +1,9 @@
 import React from 'react';
+import { injectIntl } from 'react-intl';
 
 import './Button.scss';
 
-const Button = ({ type, text, disabled, onClick }) => {
+const Button = ({ intl, type, textId, disabled, onClick }) => {
     
     return (
         <button 
@@ -11,9 +12,9 @@ const Button = ({ type, text, disabled, onClick }) => {
             className="button"
             disabled={disabled}
         >
-            {text}
+            {intl.formatMessage({id: `${textId}`})}
         </button>
     )
 }
 
-export default Button;
+export default injectIntl(Button);
