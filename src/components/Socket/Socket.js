@@ -1,15 +1,10 @@
 import React, { useEffect } from "react";
 import { io } from "socket.io-client";
-import config from "../../constants/config";
+import { prod_url_socket } from "../../constants/config";
 
-const ConnectSocket = ({
-  setSocketEmit,
-  setNewRoom,
-  setNewMessage,
-}) => {
-
+const ConnectSocket = ({ setSocketEmit, setNewRoom, setNewMessage }) => {
   useEffect(() => {
-    const socket = io(config.prod_url);
+    const socket = io(prod_url_socket);
 
     setSocketEmit(socket);
 

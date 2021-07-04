@@ -52,7 +52,7 @@ io.on("connection", (socket) => {
     });
   });
 
-  socket.on("disconnect", (data) => {
+  socket.on("disconnect", () => {
     connections.splice(connections.indexOf(socket), 1);
     console.log("User disconnected");
   });
