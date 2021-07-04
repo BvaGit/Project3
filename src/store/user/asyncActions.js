@@ -1,4 +1,10 @@
-import { authUser, getMyAccount, updateAvatar, isOpen, userName } from "./actions";
+import {
+  authUser,
+  getMyAccount,
+  updateAvatar,
+  isOpen,
+  userName,
+} from "./actions";
 import cookie from "js-cookie";
 
 export const addToken = () => {
@@ -22,86 +28,86 @@ export const ChangeCredits = () => {
     const changeCreds = getState().settings.fields;
     const id = user.user.id;
     return fetch(`http://localhost:3000/api/user/updatelogpass/${id}`, {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        "Content-Type": "application/json; charset=utf-8"
+        "Content-Type": "application/json; charset=utf-8",
       },
-      body: JSON.stringify(changeCreds)
+      body: JSON.stringify(changeCreds),
     })
-    .then(data => data.json())
-    .then(json => {
-      console.log(json)
-    })
-   }
-}
+      .then((data) => data.json())
+      .then((json) => {
+        console.log(json);
+      });
+  };
+};
 
 export const updateMyAccount = () => async (dispatch, getState) => {
   const user = getState().user;
-  const id = user.user.id
+  const id = user.user.id;
   const myAccount = user.myAccount;
 
   await fetch(`http://localhost:3000/api/user/myaccount/${id}`, {
     method: "PUT",
     headers: {
-      "Content-type": "application/json; charset=utf-8"
+      "Content-type": "application/json; charset=utf-8",
     },
-    body: JSON.stringify(myAccount)
-  })
-  .then( data => data.json() )
-}
+    body: JSON.stringify(myAccount),
+  }).then((data) => data.json());
+};
 
 export const myAccountPOST = () => async (dispatch, getState) => {
   const user = getState().user;
-  const id = user.user.id
+  const id = user.user.id;
   const myAccount = user.myAccount;
   await fetch(`http://localhost:3000/api/user/myaccount/${id}`, {
     method: "PUT",
     headers: {
-      "Content-type": "application/json; charset=utf-8"
+      "Content-type": "application/json; charset=utf-8",
     },
-    body: JSON.stringify(myAccount)
+    body: JSON.stringify(myAccount),
   })
-  .then( data => data.json() )
-  .then( json => {
-    dispatch(userName(json.firstname));
-    dispatch(isOpen());
-  })
-}
+    .then((data) => data.json())
+    .then((json) => {
+      dispatch(userName(json.firstname));
+      dispatch(isOpen());
+    });
+};
 
 export const myAccountGET = () => {
-  const token = cookie.get('token');
+  const token = cookie.get("token");
   return (dispatch) => {
     return fetch(`http://localhost:3000/api/user/getmyaccount/`, {
       headers: {
-        "Authorization": `Bearer ${token}`
-      }
+        Authorization: `Bearer ${token}`,
+      },
     })
-    .then((data) => data.json())
-    .then((json) => {
-      dispatch(getMyAccount(json[0]));
-      dispatch(userName(json[0].firstname));
-    });
-  }
-}
-
+      .then((data) => data.json())
+      .then((json) => {
+        dispatch(getMyAccount(json[0]));
+        dispatch(userName(json[0].firstname));
+      });
+  };
+};
 
 export const avatarPUT = (body) => {
   return (dispatch, getState) => {
     const user = getState().user;
-    const id = user.user.id
+    const id = user.user.id;
     return fetch(`http://localhost:3000/api/user/myaccount/avatar/${id}`, {
       method: "PUT",
-      body: body
+      body: body,
     })
-    .then(() => {
-      setTimeout(() => 
-      fetch(`http://localhost:3000/api/user/myaccount/getavatar/${id}`)
-        .then((data) => data.json())
-        .then(json => {
-          dispatch(updateAvatar(json))}), 300)
-    })
-    .catch(e => console.log(e))
-  }
-}
-
-
+      .then(() => {
+        setTimeout(
+          () =>
+            fetch(`http://localhost:3000/api/user/myaccount/getavatar/${id}`)
+              .then((data) => data.json())
+              .then((json) => {
+                dispatch(updateAvatar(json));
+              }),
+          300
+        );
+      })
+      .catch((e) => console.log(e));
+  };
+};
