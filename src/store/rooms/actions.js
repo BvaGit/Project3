@@ -42,4 +42,9 @@ export const setChatMessages = (payload) => ({
 export const searchRoom = (payload) => ({
   type: AT.SEARCH_ROOM,
   payload
+});
+
+export const addCreateChat = (payload) => ({
+  type: AT.ADD_CREATE_CHAT,
+  payload
 })

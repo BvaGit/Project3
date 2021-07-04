@@ -49,6 +49,16 @@ export const roomsReducer = (state = initialState, action) => {
           return acc;
         }, {}),
       };
+    case AT.ADD_CREATE_CHAT: //----
+    // eslint-disable-next-line no-case-declarations
+      const addRoom = {
+        ...state.rooms,
+        ...action.payload
+      }
+      return {
+        ...state,
+        rooms: addRoom
+      }
     case AT.SET_ACTIVE_ROOM:
       return {
         ...state,

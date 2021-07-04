@@ -1,5 +1,4 @@
 import cookie from "js-cookie";
-
 import config from "../../constants/config";
 import { setUserChats, setChatMessages } from "./actions";
 import { sortByDateCreate } from "../../helpers/message";
@@ -19,12 +18,25 @@ export const sendMessages = (body) => {
 };
 
 export const createChat = (body) => {
-  return () => {
+  return (dispatch, getState) => {
     return fetch(`${config.prod_url}/api/chat/create_chat`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
-    }).then((response) => console.log(response.json()));
+    })
+    .then( async () => {
+      const user = getState().user;
+      const id = user.user.id
+      const token = cookie.get("token");
+      const request = await fetch(`${config.prod_url}/api/chat/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const rooms = await request.json();
+      console.log(rooms)
+      dispatch(setUserChats(rooms));
+    })
   };
 };
 

@@ -50,6 +50,8 @@ const message = {
         'Enter your login': 'Enter your login',
         'Enter your password': 'Enter your password',
         'Confirm your password': 'Confirm your password',
+        'No chats': 'No chats',
+        'undefined': ' ',
         'SIGN IN': 'SIGN IN',
         'SIGN UP': 'SIGN UP',
         'Write a message': 'Write a message',
@@ -57,7 +59,6 @@ const message = {
         'min 6 max 12, not empty, no spases, include digital': 'min 6 max 12, not empty, no spases, include digital',
         'Enter room name': 'Enter room name',
         'Welcome, ': 'Welcome, ',
-        'undefined': '------>AAAAAAFHFCDSCGFSDCSDGCGF!!!!<<<<------',
     },
     'ru': {
         'header': 'Добро пожаловать',
@@ -110,6 +111,8 @@ const message = {
         'Enter your login': 'Введите ваш логин',
         'Enter your password': 'Введите ваш пароль',
         'Confirm your password': 'Подтвердите ваш пароль',
+        'No chats': 'Список чатов пуст',
+        'undefined': ' ',
         'SIGN IN': 'Авторизироваться',
         'SIGN UP': 'Зарегестрироваться',
         'Write a message': 'Введите сообщение',
@@ -117,7 +120,6 @@ const message = {
         'min 6 max 12, not empty, no spases, include digital': 'от 6 до 12 символов, без пробелов, включая 1 цифру',
         'Enter room name': 'Введите название комнаты',
         'Welcome, ': 'Добро пожаловать, ',
-        'undefined': '------>AAAAAAFHFCDSCGFSDCSDGCGF!!!!<<<<------',
     },
     'ar': {
         'header': 'أهلا بك',
