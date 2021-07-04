@@ -18,7 +18,7 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
   );
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
   next();
@@ -61,23 +61,10 @@ io.on("connection", (socket) => {
     });
   });
 
-  socket.on("disconnect", (data) => {
+  socket.on("disconnect", () => {
     connections.splice(connections.indexOf(socket), 1);
     console.log("User disconnected");
   });
-});
-
-const cors = require("cors");
-app.use(cors());
-
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  );
-  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-  next();
 });
 
 app.use(express.static(__dirname));

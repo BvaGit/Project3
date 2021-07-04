@@ -18,4 +18,3 @@ CREATE TABLE messages ( id INTEGER REFERENCES users, "message_id" BIGSERIAL PRIM
 CREATE TABLE message_status ( id INTEGER REFERENCES users, "message_id" INTEGER REFERENCES messages, "date_last_read" CHARACTER VARYING (50) NOT NULL );
 
 ALTER SYSTEM SET timezone TO 'Europe/Kiev';
-

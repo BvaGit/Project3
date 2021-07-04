@@ -4,6 +4,8 @@
   padding: 0 20px 0 40px;
   width: 70%;
   margin: 25px 20px 0 auto;
+  max-height: 78vh;
+  overflow-y: auto;
 
   &__title {
     font-size: 30px;
@@ -17,7 +19,7 @@
     display: flex;
 
     &__user {
-      padding-left: 10px;
+      padding-left: $padding_md;
       text-transform: capitalize;
     }
   }
