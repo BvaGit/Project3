@@ -4,6 +4,8 @@ import CustomModal from "../CustomModal";
 import ModalMyAccount from "../ModalMyAccount";
 import Settings from "../Settings";
 import Input from "../Input";
+import history from "../../helpers/history";
+import cookie from "js-cookie";
 
 import "./roomsHeader.scss";
 
@@ -13,8 +15,19 @@ const RoomsHeader = ({
   avatar,
   isOpen,
   modalMyAccount,
+  logout,
+  searchRoom,
 }) => {
   const handleClick = () => modalMyAccount();
+  const handleLogout = () => {
+    logout();
+    cookie.remove("token");
+    history.push("/");
+  };
+
+  const handleSearchRoom = (e) => {
+    searchRoom(e.target.value);
+  };
 
   return (
     <div className="rooms-header">
@@ -39,7 +52,8 @@ const RoomsHeader = ({
           <Settings className="rooms-header__settings" />
           <img
             className="rooms-header__logout"
-            src="/assets/images/logout_2.png"
+            src="../../../public/assets/images/logout_2.png"
+            onClick={handleLogout}
           />
         </div>
       </div>
@@ -49,9 +63,11 @@ const RoomsHeader = ({
           className="rooms-header__input"
           placeholderId="searchPlaceholder"
           titleId="Enter room name"
+          onChange={handleSearchRoom}
         />
       </div>
     </div>
   );
 };
+
 export default RoomsHeader;
