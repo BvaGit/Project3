@@ -1,9 +1,7 @@
+
 module.exports={
     collectCoverage: true,
-    moduleFileExtensions:[
-        "js",
-        "jsx"
-    ],
+
     globals:{
         window:true
     },
@@ -13,10 +11,7 @@ module.exports={
         "**/*.(test|spec).(js)",
         "**/*.(test|spec).(jsx)"
     ],
-    coverageReporters:[
-        "json",
-        "lcov"
-    ],
+
     setupFilesAfterEnv: [
         "<rootDir>/__tests__/setup.js"
     ],
@@ -34,5 +29,21 @@ module.exports={
         '^.+\\.(css|scss)$': 'identity-obj-proxy',
         '^/src/(.*)$': '<rootDir>/src/$1',
     },
-    testEnvironment:"jsdom"
-}
+    testEnvironment:"jsdom",
+
+
+  coverageProvider: "v8",
+
+  coverageReporters: ["json", "text", "lcov", "clover"],
+
+  moduleFileExtensions: ["js", "jsx", "ts", "tsx", "json", "node", "scss"],
+
+  setupFiles: ["./src/setupTests.js"],
+
+//   testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[tj]s?(x)"],
+
+
+  transformIgnorePatterns: ["\\\\node_modules\\\\", "\\.pnp\\.[^\\\\]+$"]
+
+};
+

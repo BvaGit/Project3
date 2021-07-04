@@ -5,7 +5,7 @@ import RoomsHeader from "../RoomsHeader";
 import Rooms from "../Rooms";
 import AddRoom from "../AddRoom";
 import MessagesContainer from "../MessagesContainer";
-import { addToken } from "../../store/user/asyncActions";
+import { addToken, myAccountGET } from "../../store/user/asyncActions";
 import { getActiveRoom } from "../../store/rooms/selectors";
 
 import ConnectSocket from "../Socket";
@@ -19,15 +19,13 @@ const MainPage = () => {
 
   useEffect(() => {
     dispatch(addToken());
+    dispatch(myAccountGET());
   }, []);
 
   return (
     <div className="inner">
       <header className="header">
-        <img
-          className="header__logo"
-          src="../../../public/assets/images/logo.png"
-        />
+        <img className="header__logo" src="/assets/images/logo.png" />
         <h1 className="header__appName">Blabber</h1>
       </header>
       <div className="rooms__box">

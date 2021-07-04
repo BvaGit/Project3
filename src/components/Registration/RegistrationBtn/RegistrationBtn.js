@@ -6,7 +6,7 @@ const RegistrationBtn = ({ regAuthRequest, isError }) => {
     return (
         <Button
             type="button"
-            text="SIGN UP"
+            textId="SIGN UP"
             onClick={regAuthRequest}
             disabled={!isError}
         />

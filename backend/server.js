@@ -14,34 +14,6 @@ const PORT = 3000;
 
 const server = http.createServer(app);
 
-global.io = require("socket.io")(server, {
-  cors: {
-    origin: "*",
-    methods: ["GET", "POST"],
-  },
-});
-
-io.on("connection", (socket) => {
-  console.log("User connected, socket.id:", socket.id);
-  socket.emit("connection", null);
-
-  socket.join("room");
-
-  socket.on("send_message", (msg) => {
-    db.createSocketMessage(msg).then((data) => {
-      io.in("room").emit("send_message", data);
-      console.log("received msg", data);
-    });
-  });
-
-  socket.on("disconnect", (socket) => {
-    console.log("user disconnected", socket.id);
-  });
-});
-
-const cors = require("cors");
-app.use(cors());
-
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
@@ -51,6 +23,51 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
   next();
 });
+
+// global.io = require("socket.io")(server, {
+//   cors: {
+//     origin: "*",
+//     methods: ["GET", "POST"],
+//   },
+// });
+
+const io = require('socket.io')(null, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+  },
+});
+
+io.listen(3005);
+
+const connections = [];
+
+io.on("connection", (socket) => {
+  console.log("User connected, socket.id:", socket.id);
+
+  socket.emit("connection", null);
+
+  socket.join("room");
+
+  socket.on("new_room", function (channel) {
+    // io.in("room").emit("new_room", channel);
+    console.log("socket.join(room)", channel);
+  });
+
+  socket.on("send_message", (msg) => {
+    db.createSocketMessage(msg).then((data) => {
+      io.in("room").emit("send_message", data);
+      console.log("received msg", data);
+    });
+  });
+
+  socket.on("disconnect", () => {
+    connections.splice(connections.indexOf(socket), 1);
+    console.log("User disconnected");
+  });
+});
+
+app.use(express.static(__dirname));
 
 app.use(express.json());
 

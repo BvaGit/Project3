@@ -4,7 +4,7 @@
     @include flex(column,_,_);
     padding: $padding_md;
     &__userinfo{
-        @include flex(_,_,_);
+        @include flex(row, center, baseline);
     }
     &__userName{
         align-self: center;
@@ -12,12 +12,13 @@
         cursor: pointer;
     }
     &__avatar{
-        width: 40px;
+        width: 50px;
+        height: 50px;
         border: $border solid 1px;
         border-radius: 50%;
     }
     &__usermenu{
-        @include flex(_,space-between,_);
+        @include flex(row, space-between, baseline);
     }
     &__settingsmenu{
         @include flex(_,_,_);
@@ -51,12 +52,11 @@
         border: none;
         padding: $padding_md;
         background:$input-color;
-        width: 85%;
+        width: 100%;
         outline-color: $link-color;
     }
     &__input::placeholder{
         color: $title-color;
-        font-style: italic;
         font-size: 10px;
 
     }

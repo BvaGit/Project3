@@ -3,16 +3,17 @@
 .message {
   position: absolute;
   display: flex;
-  bottom: 40px;
+  bottom: 20px;
   width: 100%;
   align-items: center;
-  margin-bottom: 10px;
+  left: 33%;
+  color: $background;
 
   &__input {
     width: 700px;
-    border: 2px solid $background;
+    border: 2px solid $title-color;
     border-radius: 5px;
-    height: 60px;
+    height: 40px;
     padding: $padding_sm $padding_md;
     color: $title-color;
 
@@ -57,13 +58,14 @@
   &__btn {
     width: 0;
     height: 0;
-    border-top: 30px solid transparent;
+    border-top: 20px solid transparent;
     border-left: 80px solid $cross;
-    border-bottom: 30px solid transparent;
+    border-bottom: 20px solid transparent;
     margin-left: $margin_xl;
 
     &:hover {
-      border-left: 80px solid #008894;
+      transition: transform 0.5s ease-in;
+      transform: translate(10px);
     }
 
     &:active {

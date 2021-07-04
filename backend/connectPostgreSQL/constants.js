@@ -1,3 +1,11 @@
+const deploy = {
+  user: "postgres",
+  password: "postgres",
+  host: "localhost",
+  port: 5432,
+  database: "blabber-chat",
+};
+
 const marina = {
   user: "postgres",
   password: "FaJ_761FA",
@@ -11,7 +19,7 @@ const slava = {
   password: "1111",
   host: "localhost",
   port: 5432,
-  database: "blabber",
+  database: "blabber-chat",
   ssl: false,
 };
 
@@ -23,4 +31,12 @@ const andrey = {
   database: "blabber-chat",
 };
 
-module.exports = { marina, slava, andrey };
+const MarinaGru = {
+  user: "marinagrushevska",
+  password: "postgres",
+  host: "localhost",
+  port: 5432,
+  database: "blabber-chat",
+};
+
+module.exports = { marina, slava, andrey, MarinaGru, deploy };

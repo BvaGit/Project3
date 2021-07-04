@@ -6,11 +6,11 @@ import Portal from "../Portal";
 import "./custommodal.scss";
 
 function CustomModal({
-  languageValue: langValue,
-  handlecloseModal,
-  header,
-  content,
-}) {
+    languageValue: langValue,
+    handlecloseModal,
+    header,
+    content,
+  }) {
   return (
     <Portal>
       <div className="modal">

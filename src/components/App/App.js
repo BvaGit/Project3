@@ -10,7 +10,6 @@ import message from "../constants/localization";
 import "./App.scss";
 
 const App = ({languageValue: langValue}) => {
-  
   return (
     <IntlProvider locale={langValue} messages={message[langValue]} >
       <BrowserRouter>

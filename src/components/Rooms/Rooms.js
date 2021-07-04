@@ -1,15 +1,17 @@
 import React, { useEffect } from "react";
-
+import { FormattedMessage } from "react-intl"
 import SingleRoom from "../SingleRoom";
 
 import "./rooms.scss";
 
-const Rooms = ({ getUserChats, userId, rooms, setActiveRoom }) => {
+const Rooms = ({ getUserChats, userId, rooms, setActiveRoom, languageValue: langValue }) => {
+ 
   useEffect(() => {
     if (userId) {
       getUserChats(userId);
     }
   }, [userId]);
+
   return (
     <div className="rooms">
       {rooms.length ? (
@@ -21,7 +23,14 @@ const Rooms = ({ getUserChats, userId, rooms, setActiveRoom }) => {
           />
         ))
       ) : (
-        <div>No chats</div>
+        <div className="rooms__message">
+          <FormattedMessage
+              id="No chats"
+              defaultMessage="No chats"
+              value={{ langValue }}
+          >
+          </FormattedMessage>
+        </div>
       )}
     </div>
   );

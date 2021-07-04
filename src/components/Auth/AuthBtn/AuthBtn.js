@@ -6,7 +6,7 @@ const AuthBtn = ({handleAuth, isError}) => {
     return (
         <Button
             type="button"
-            text="SIGN IN"
+            textId="SIGN IN"
             disabled={!isError}
             onClick={handleAuth}
         />
