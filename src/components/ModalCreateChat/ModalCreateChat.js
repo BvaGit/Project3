@@ -45,7 +45,7 @@ function ModalCreateChat({
       <div className="new-chat__avatar">
         <img
           className="rooms-header__avatar"
-          src="../../../public/assets/images/1-36-1024x1024.jpg"
+          src="/assets/images/1-36-1024x1024.jpg"
         />
       </div>
       <Input
