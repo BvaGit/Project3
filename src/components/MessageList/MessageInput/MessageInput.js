@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { FormattedMessage } from "react-intl";
 
 import { getTime } from "../../../helpers/message";
 
@@ -41,14 +42,19 @@ const MessageInput = ({ socket, getUsersFromApi, userId, chatId, rooms, messages
     <>
       <div className="message">
         <label>
-          <input
-            key={rooms.chat_id}
-            value={content}
-            className="message__input"
-            onChange={handleChangeInput}
-            placeholder="Write a message"
-            onKeyDown={handleKeyDown}
-          />
+        <FormattedMessage
+          id='Write a message'
+          defaultMessage='Write a message'>{placeholder => (
+            <input
+              key={rooms.chat_id}
+              value={content}
+              className="message__input"
+              onChange={handleChangeInput}
+              placeholder={placeholder}
+              onKeyDown={handleKeyDown}
+            />
+          )}
+          </FormattedMessage>
         </label>
         <button
           className="message__btn"

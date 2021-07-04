@@ -13,19 +13,23 @@ const Auth = () => {
     <div className="gen__holder">
       <div className="gen">
         <div className="gen__info">
-          <Logo src="../../public/assets/images/logo.png" alt="logo" />
+          <Logo src="/assets/images/logo.png" alt="logo" />
           <Title textBig="SIGN IN" textSmall="YOUR ACCOUNT" />
         </div>
         <div className="gen__main">
           <div className="gen__container">
             <AuthInput
               id="login"
+              type="text"
               label="Login"
+              title="Enter your login"
               placeholder="Enter your login"
             />
             <AuthInput
               id="password"
+              type="password"
               label="Password"
+              title="Enter your password"
               placeholder="Enter your password"
             />
             <div className="gen__buttons">

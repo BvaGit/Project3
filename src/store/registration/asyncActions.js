@@ -1,6 +1,7 @@
 import history from "../../helpers/history";
 import { getRegFieldByIdStore } from "./selectors";
 import { errorNotification, successNotification } from "../../helpers/notification";
+import config from "../../constants/config";
 
 export const regAuthRequest = () => async (dispatch, getState) => {
   const state = getState();
@@ -8,7 +9,7 @@ export const regAuthRequest = () => async (dispatch, getState) => {
     login: getRegFieldByIdStore(state, {id: 'login'}),
     password: getRegFieldByIdStore(state, {id: 'password'}),
   };
-  const response = await fetch("http://localhost:3000/api/user/reg",{
+  const response = await fetch(`${config.prod_url}/api/user/reg`,{
     method: "POST",
     headers: {
       "Content-type": "application/json; charset=utf-8",

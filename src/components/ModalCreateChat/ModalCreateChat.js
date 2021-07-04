@@ -45,7 +45,7 @@ function ModalCreateChat({
       <div className="new-chat__avatar">
         <img
           className="rooms-header__avatar"
-          src="../../../public/assets/images/1-36-1024x1024.jpg"
+          src="/assets/images/1-36-1024x1024.jpg"
         />
       </div>
       <Input
@@ -54,6 +54,7 @@ function ModalCreateChat({
         label="Room name"
         type="text"
         placeholderId="roomNamePlaceholder"
+        titleId="roomNamePlaceholder"
       />
       <div className="new-chat__users">
         <div className="new-chat__usersLabel">
@@ -88,7 +89,7 @@ function ModalCreateChat({
         </button>
         <button className="button" onClick={handlecloseModal}>
           <FormattedMessage
-            id="cancelBTN"
+            id="Cancel"
             defaultMessage="Cancel"
             value={{ langValue }}
           ></FormattedMessage>

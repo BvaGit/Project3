@@ -16,19 +16,16 @@ const MainPage = () => {
   const dispatch = useDispatch();
 
   const chatId = useSelector(getActiveRoom);
-    
-    useEffect(() => {
-        dispatch(addToken());
-        dispatch(myAccountGET());
-    }, []);
-    
+
+  useEffect(() => {
+    dispatch(addToken());
+    dispatch(myAccountGET());
+  }, []);
+
   return (
     <div className="inner">
       <header className="header">
-        <img
-          className="header__logo"
-          src="../../../public/assets/images/logo.png"
-        />
+        <img className="header__logo" src="/assets/images/logo.png" />
         <h1 className="header__appName">Blabber</h1>
       </header>
       <div className="rooms__box">

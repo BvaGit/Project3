@@ -6,7 +6,7 @@ import "./messageItem.scss";
 
 const MessageItem = ({ messages = [], userId, name, messagesBlock }) => {
   return (
-    <div className='message-box__container' ref={messagesBlock}>
+    <div className="message-box__container" ref={messagesBlock}>
       {messages.map((message) => (
         <div
           key={message.message_id}
@@ -24,7 +24,7 @@ const MessageItem = ({ messages = [], userId, name, messagesBlock }) => {
                 src={
                   message.avatar
                     ? message.avatar
-                    : "../../../../public/assets/images/1-36-1024x1024.jpg"
+                    : "/assets/images/1-36-1024x1024.jpg"
                 }
               />
             </span>
