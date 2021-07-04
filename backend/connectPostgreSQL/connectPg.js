@@ -1,5 +1,5 @@
 const Pool = require("pg").Pool;
-const { marina } = require("./constants");
-const connectPg = new Pool(marina);
+const { deploy } = require("./constants");
+const connectPg = new Pool(deploy);
 
 module.exports = connectPg;
