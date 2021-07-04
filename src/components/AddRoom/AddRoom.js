@@ -18,7 +18,7 @@ function AddRoom() {
             </div>
             {isOpen && <CustomModal header="Create Chat" content={<ModalCreateChat handlecloseModal={handleClick}/>} handlecloseModal={handleClick}/>}
         </div>
-    )
+    ) 
 }
 
 export default AddRoom;
