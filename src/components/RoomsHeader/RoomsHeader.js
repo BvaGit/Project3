@@ -4,12 +4,23 @@ import CustomModal from '../CustomModal';
 import ModalMyAccount from '../ModalMyAccount';
 import Settings from '../Settings';
 import Input from '../Input';
+import history from '../../helpers/history';
+import cookie from "js-cookie";
 
 import './roomsHeader.scss';
 
-const RoomsHeader = ({ userLogin, userName, avatar, isOpen, modalMyAccount }) => {
+const RoomsHeader = ({ userLogin, userName, avatar, isOpen, modalMyAccount, logout, searchRoom }) => {
 
     const handleClick = () => modalMyAccount();
+    const handleLogout = () => {
+        logout();
+        cookie.remove('token')
+        history.push("/");
+    }
+
+    const handleSearchRoom = (e) => {
+        searchRoom(e.target.value)
+    }
     
     return(
         <div className="rooms-header">
@@ -21,15 +32,16 @@ const RoomsHeader = ({ userLogin, userName, avatar, isOpen, modalMyAccount }) =>
                 </div>
                 <div className="rooms-header__settingsmenu">
                     <Settings className="rooms-header__settings"/>
-                    <img className="rooms-header__logout" src="../../../public/assets/images/logout_2.png"/>
+                    <img className="rooms-header__logout" src="../../../public/assets/images/logout_2.png" onClick={handleLogout}/>
                 </div>
             </div>
             <div className="rooms-header__search">
                 <Input 
-                labelId="search"
-                className="rooms-header__input" 
-                placeholderId="searchPlaceholder"
-                titleId="Enter room name"
+                    labelId="search"
+                    className="rooms-header__input"
+                    placeholderId="searchPlaceholder"
+                    titleId="Enter room name"
+                    onChange={handleSearchRoom}
                 />
             </div>
         </div>
