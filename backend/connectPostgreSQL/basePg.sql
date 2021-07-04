@@ -3,7 +3,7 @@ CREATE DATABASE "blabber-chat";
 ALTER DATABASE "blabber-chat" SET timezone TO 'Europe/Kiev';
 
 -- обязательно в таблице поле 'GLOBAL CHAT'
-INSERT INTO chat (name) VALUES ('GLOBAL CHAT') RETURNING *
+INSERT INTO chat (name) VALUES ('GLOBAL CHAT')
 
 CREATE TABLE users (
     id BIGSERIAL PRIMARY KEY,
