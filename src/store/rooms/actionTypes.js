@@ -1,5 +1,8 @@
-export const LOGIN = "LOGIN";
-export const ADD_MESSAGE = "ADD_MESSAGE";
-export const MESSAGE_RECEIVED = "MESSAGE_RECEIVED";
-export const ADD_USER = "ADD_USER";
-export const USERS_LIST = "USERS_LIST";
+export const SET_SOCKET_EMIT = "SET_SOCKET_EMIT";
+export const SET_NEW_ROOM = "SET_NEW_ROOM";
+export const SET_NEW_MESSAGE = "SET_NEW_MESSAGE";
+export const SEND_MESSAGE = "SEND_MESSAGE";
+export const DATE_LAST_READ = "DATE_LAST_READ";
+export const SET_USER_CHATS = "SET_USER_CHATS";
+export const SET_ACTIVE_ROOM = "SET_ACTIVE_ROOM";
+export const SET_CHAT_MESSAGES = "SET_CHAT_MESSAGES";

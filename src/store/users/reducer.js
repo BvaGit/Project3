@@ -1,4 +1,4 @@
-import { SET_USERS } from "/src/store/users/actionTypes.js";
+import * as AT from "/src/store/users/actionTypes.js";
 
 const initialState = {
   users: [],
@@ -6,7 +6,7 @@ const initialState = {
 
 export const usersReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_USERS:
+    case AT.SET_USERS:
       return {
         ...state,
         users: action.payload,

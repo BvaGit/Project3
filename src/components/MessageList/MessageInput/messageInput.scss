@@ -1,0 +1,86 @@
+@import "../../../utils/variables.scss";
+
+.message {
+  position: absolute;
+  display: flex;
+  bottom: 20px;
+  width: 100%;
+  align-items: center;
+  left: 33%;
+  color: $background;
+
+  &__input {
+    width: 700px;
+    border: 2px solid $title-color;
+    border-radius: 5px;
+    height: 40px;
+    padding: $padding_sm $padding_md;
+    color: $title-color;
+
+    &::placeholder {
+      color: $title-color;
+    }
+
+    &::-webkit-input-placeholder {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+    &::-moz-placeholder {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+    &:-moz-placeholder {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+    &:-ms-input-placeholder {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+    &:focus::-webkit-input-placeholder {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    &:focus::-moz-placeholder {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    &:focus:-moz-placeholder {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    &:focus:-ms-input-placeholder {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+  }
+
+  &__btn {
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-left: 80px solid $cross;
+    border-bottom: 20px solid transparent;
+    margin-left: $margin_xl;
+
+    &:hover {
+      transition: transform 0.5s ease-in;
+      transform: translate(10px);
+    }
+
+    &:active {
+      border-left: 80px solid #7d8c8d;
+    }
+  }
+}
+
+.theme-dark {
+  .message__input {
+    background-color: $l-body-background;
+    color: $background;
+
+    &::placeholder {
+      color: $background;
+    }
+  }
+}

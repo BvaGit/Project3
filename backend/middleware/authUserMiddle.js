@@ -15,7 +15,6 @@ module.exports = function (req, res, next) {
     req.user = decodedToken;
     next();
   } catch (e) {
-    console.log(e);
     return res.status(403).json("user is not authorized");
   }
 };

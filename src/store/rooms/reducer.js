@@ -1,41 +1,81 @@
-import {
-  LOGIN,
-  ADD_MESSAGE,
-  MESSAGE_RECEIVED,
-  ADD_USER,
-  USERS_LIST,
-} from "./actionTypes";
+import * as AT from "./actionTypes.js";
 
 const initialState = {
-  users: [],
+  sendingMessage: false,
+  messages: {
+    0: [
+      {
+        text: "Welcome!",
+      },
+    ],
+  },
+  socket: null,
+  rooms: {},
+  activeRoom: "",
 };
 
 export const roomsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOGIN:
+    case AT.SET_SOCKET_EMIT:
       return {
         ...state,
-        login: action.payload,
+        socket: action.payload,
       };
-    case ADD_MESSAGE:
+    case AT.SET_NEW_ROOM:
       return {
         ...state,
-        login: action.payload,
+        rooms: { [action.payload.id]: action.payload, ...state.rooms },
       };
-    case MESSAGE_RECEIVED:
+    case AT.SET_NEW_MESSAGE:
       return {
-        message: action.payload,
-        author: action.payload,
-        id: action.payload,
-        time: action.payload
+        ...state,
+        rooms: {
+          ...state.rooms,
+          [action.payload.chat_id]: {
+            ...state.rooms[action.payload.chat_id],
+            messages: [
+              ...state.rooms[action.payload.chat_id].messages,
+              action.payload,
+            ],
+          },
+        },
       };
-    case ADD_USER:
+    case AT.SET_USER_CHATS:
       return {
-        name: action.payload,
-        id: action.payload
+        ...state,
+        rooms: action.payload.reduce((acc, chat) => {
+          acc[chat.chat_id] = { ...chat, messages: [] };
+          return acc;
+        }, {}),
       };
-    case USERS_LIST:
-      return state;
+    case AT.SET_ACTIVE_ROOM:
+      return {
+        ...state,
+        activeRoom: action.payload,
+      };
+    case AT.SEND_MESSAGE:
+      return {
+        ...state,
+        id: action.payload.id,
+        chat_id: action.payload.chat_id,
+        content: action.payload.content,
+        date_create: action.payload.date_create,
+      };
+    case AT.SET_CHAT_MESSAGES:
+      return {
+        ...state,
+        rooms: {
+          ...state.rooms,
+          [action.payload.chatId]: {
+            ...state.rooms[action.payload.chatId],
+            messages: action.payload.messages,
+          },
+        },
+      };
+    case AT.DATE_LAST_READ:
+      return {
+        ...state,
+      };
     default:
       return state;
   }

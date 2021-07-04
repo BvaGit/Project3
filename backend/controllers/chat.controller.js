@@ -13,8 +13,9 @@ class ChatController {
 
   async getChatById(req, res) {
     try {
+      const user = req.params.user_id;
       const get = await connectPg.query(
-        `SELECT * FROM chat WHERE (chat_id = ${req.params.chat_id})`
+        `SELECT * FROM chat WHERE ${user} = any(id)`
       );
       res.status(200).json(get.rows);
     } catch (e) {
@@ -24,12 +25,12 @@ class ChatController {
 
   async createChat(req, res) {
     try {
-      const { name } = req.body;
-      const id = req.params.id;
+      const { ids, name } = req.body;
       const create = await connectPg.query(
-        `INSERT INTO chat (id, name) VALUES (${id}, '${name}') RETURNING *`
+        `INSERT INTO chat (id, name) VALUES ('{${ids}}', '${name}') RETURNING *`
       );
       res.status(200).json(create.rows);
+      io.emit("new_room", create.rows);
     } catch (e) {
       res.status(400).json(message.abstractErr);
     }

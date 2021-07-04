@@ -1,23 +1,45 @@
-import React from 'react';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import RoomsHeader from '../RoomsHeader'
-import Rooms from '../Rooms'
-import AddRoom from '../AddRoom';
+import RoomsHeader from "../RoomsHeader";
+import Rooms from "../Rooms";
+import AddRoom from "../AddRoom";
+import MessagesContainer from "../MessagesContainer";
+import { addToken, myAccountGET } from "../../store/user/asyncActions";
+import { getActiveRoom } from "../../store/rooms/selectors";
 
-import './mainPaige.scss'
+import ConnectSocket from "../Socket";
 
-const MainPage = () => (
-    <div>
-        <header className="header">
-            <img className="header__logo" src="/assets/images/hate.png"/>
-            <h1 className="header__appName">Blabber</h1>
-        </header>
-        <div className="rooms__box">
-            <RoomsHeader />
-            <Rooms />
-            <AddRoom />
-        </div>
-    </div> 
-)
+import "./mainPaige.scss";
 
-export default MainPage
+const MainPage = () => {
+  const dispatch = useDispatch();
+
+  const chatId = useSelector(getActiveRoom);
+    
+    useEffect(() => {
+        dispatch(addToken());
+        dispatch(myAccountGET());
+    }, []);
+    
+  return (
+    <div className="inner">
+      <header className="header">
+        <img
+          className="header__logo"
+          src="../../../public/assets/images/logo.png"
+        />
+        <h1 className="header__appName">Blabber</h1>
+      </header>
+      <div className="rooms__box">
+        <RoomsHeader />
+        <Rooms />
+        <AddRoom />
+        <ConnectSocket />
+      </div>
+      <MessagesContainer chatId={chatId} />
+    </div>
+  );
+};
+
+export default MainPage;

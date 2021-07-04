@@ -3,9 +3,16 @@
 .inputs {
     &__label {
         @include flex(column, center, flex-start);
-        width: 100%;
+        width: auto;
         height: 30%;
         font-size: 18px;
+        margin: 0 $margin_sm;
+        cursor: pointer;
+
+        &.is-selected {
+            text-decoration: underline;
+            color: $button-hover;
+        }
     }
     &__input {
         width: 100%;
@@ -15,10 +22,35 @@
         border: none;
         font-size: 16px;
         background: $input-color;
-        cursor: pointer;
         &:focus {
             outline: none;
             border: 1.5px solid $border;
+        }
+        &::placeholder{
+            color: $title-color;
+            font-size: $margin_md;
+        }
+    }
+}
+.opacity {
+    opacity: 0;
+}
+.theme-dark {
+    .inputs {
+        &__label {
+            color: $l-body-text-color;
+
+            &.is-selected {
+                text-decoration: underline;
+                color: $button-hover;
+            }
+        }
+        &__input {
+            color: $l-body-text-color;
+            background: $l-input;
+            &::placeholder {
+                color: $l-body-text-color;
+            }
         }
     }
 }

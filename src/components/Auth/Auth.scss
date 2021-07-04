@@ -19,12 +19,13 @@ $width: 600px;
     &__main {
         width: $width;
         height: fit-content;
-        background: $background;
+        background: $l-body-background;
         border-radius: 12px;
     }
     &__buttons {
-        @include flex(row, space-around, center);
+        @include flex(row, flex-end, center);
         height: 20%;
+        margin-top: $margin_lg;
     }
     &__link {
         display: block;

@@ -14,7 +14,7 @@ routerParticipants.get(
   participantsController.getParticipantsById
 );
 routerParticipants.post(
-  "/:chat_id/:id",
+  "/",
   authUserMiddle,
   participantsController.addParticipant
 );
