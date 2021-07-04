@@ -24,12 +24,21 @@ app.use((req, res, next) => {
   next();
 });
 
-global.io = require("socket.io")(server, {
+// global.io = require("socket.io")(server, {
+//   cors: {
+//     origin: "*",
+//     methods: ["GET", "POST"],
+//   },
+// });
+
+const io = require('socket.io')(null, {
   cors: {
     origin: "*",
     methods: ["GET", "POST"],
   },
 });
+
+io.listen(3005);
 
 const connections = [];
 
