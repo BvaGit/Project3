@@ -1,5 +1,7 @@
 const connectPg = require("../connectPostgreSQL/connectPg");
 const { message } = require("../support/constants");
+const { io } = require('../server');
+
 class MessageController {
   async getMessages(req, res) {
     try {

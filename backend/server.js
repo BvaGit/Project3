@@ -73,3 +73,7 @@ app.use("/api/participants", participantsRouter);
 server.listen(PORT, () => {
   console.log(`listening on :${PORT}`);
 });
+
+module.exports = {
+  io,
+}
