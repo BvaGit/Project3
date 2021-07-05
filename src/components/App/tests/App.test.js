@@ -55,6 +55,18 @@ describe('App', () => {
         const component = shallowSmart(<App /> , store)
         expect(component.html()).toMatchSnapshot()
     })
+    it("Should have MainPage", () => {
+      const component = mountSmart(<App />, store)
+      expect(component.find('Route')).toHaveLength(1)
+    })
+    it("Should have MainPage", () => {
+      const component = mountSmart(<App />, store)
+      expect(component.find('Switch')).toHaveLength(1)
+    })
+    it("Should have MainPage", () => {
+      const component = mountSmart(<App />, store)
+      expect(component.find('BrowserRouter')).toHaveLength(1)
+    })
 })
 
 export const shallowSmart = (component, store) => {
@@ -63,3 +75,10 @@ export const shallowSmart = (component, store) => {
         : component;
     return shallow(core);
 }; 
+
+const mountSmart = (component, store) => {
+  const core = store
+      ? <Provider store={store}>{component}</Provider>
+      : component;
+  return mount(core);
+};

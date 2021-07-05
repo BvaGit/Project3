@@ -19,7 +19,7 @@ const App = ({languageValue: langValue}) => {
           <Route exact path='/' component={Auth}/>
         </Switch>
       </BrowserRouter>
-    </IntlProvider>
+    </IntlProvider> 
   )
 }
 

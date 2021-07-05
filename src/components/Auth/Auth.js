@@ -43,7 +43,7 @@ const Auth = () => {
         </div>
       </div>
     </div>
-  );
+  ); 
 };
 
 export default Auth;

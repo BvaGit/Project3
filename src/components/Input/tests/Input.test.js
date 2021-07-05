@@ -28,7 +28,7 @@ describe('Input', () => {
     })
     it('Should have Movies', () => {
         const onBlur = jest.fn()
-        const onChange = jest.fn()
+        const onChange = jest.fn() 
         const component = mountSmart(<input
             labelId={"text"} 
             id={2} 
