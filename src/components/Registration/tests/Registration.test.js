@@ -4,6 +4,7 @@ import Registration from '../Registration';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import { IntlProvider } from "react-intl";
+import { Router } from 'react-router-dom'
 
 const mockStore = configureStore();
 const store = mockStore({
@@ -47,7 +48,8 @@ const store = mockStore({
           password:"",
           confirm_password:""
         }
-      }
+      },
+      location: {value: 'en'}
     });
 
 
@@ -67,7 +69,7 @@ export const shallowSmart = (component, store) => {
 
 export const shallowBiggerSmart = (component, store) => {
     const core = store
-        ? <Provider store={store}>{component}</Provider>
+        ? <Provider store={store}><Router>{component}</Router></Provider>
         : component;
     return shallow(<IntlProvider>core</IntlProvider>);
 };

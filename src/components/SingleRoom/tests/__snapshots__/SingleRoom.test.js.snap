@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SingleRoom Should match snapshot 1`] = `"<div class=\\"singleroom\\"><div class=\\"singleroom__info\\"><img class=\\"singleroom__avatar\\" src=\\"../../../public/assets/images/1-36-1024x1024.jpg\\"/><div class=\\"singleroom__roomName\\">global</div></div><div class=\\"singleroom__messages\\"><div class=\\"mention-pin\\">@</div><div class=\\"message-counter mention-pin\\">99..</div></div></div>"`;
+exports[`SingleRoom Should match snapshot 1`] = `"<div class=\\"singleroom\\"><div class=\\"singleroom__info\\"><img class=\\"singleroom__avatar\\" src=\\"/assets/images/1-36-1024x1024.jpg\\"/><div class=\\"singleroom__roomName\\">global</div></div><div class=\\"singleroom__messages\\"></div></div>"`;

@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>0/37</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>0/37</span>
             </div>
         
             
@@ -94,80 +94,80 @@
 <a name='L35'></a><a href='#L35'>35</a>
 <a name='L36'></a><a href='#L36'>36</a>
 <a name='L37'></a><a href='#L37'>37</a>
-<a name='L38'></a><a href='#L38'>38</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L38'></a><a href='#L38'>38</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from "react";
-import ReactDOM from "react-dom";
-import { createStore, applyMiddleware, compose } from "redux";
-import { Provider } from "react-redux";
-import thunk from "redux-thunk";
-import { ToastContainer } from 'react-toastify';
-import { BrowserRouter } from 'react-router-dom';
-import {ConnectedRouter} from "connected-react-router";
-&nbsp;
-import rootReducer from "/src/store/rootReducer.js";
-import App from "/src/components/App";
-import history from "./helpers/history";
-&nbsp;
-import 'react-toastify/dist/ReactToastify.css';
-&nbsp;
-let devTools = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(f</span>) =&gt; <span class="cstat-no" title="statement not covered" >f;</span></span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >import React from "react";</span></span></span>
+<span class="cstat-no" title="statement not covered" >import ReactDOM from "react-dom";</span>
+<span class="cstat-no" title="statement not covered" >import { createStore, applyMiddleware, compose } from "redux";</span>
+<span class="cstat-no" title="statement not covered" >import { Provider } from "react-redux";</span>
+<span class="cstat-no" title="statement not covered" >import thunk from "redux-thunk";</span>
+<span class="cstat-no" title="statement not covered" >import { ToastContainer } from 'react-toastify';</span>
+<span class="cstat-no" title="statement not covered" >import { BrowserRouter } from 'react-router-dom';</span>
+<span class="cstat-no" title="statement not covered" >import {ConnectedRouter} from "connected-react-router";</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >import rootReducer from "/src/store/rootReducer.js";</span>
+<span class="cstat-no" title="statement not covered" >import App from "/src/components/App";</span>
+<span class="cstat-no" title="statement not covered" >import history from "./helpers/history";</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >import 'react-toastify/dist/ReactToastify.css';</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >let devTools = (f) =&gt; f;</span>
 <span class="cstat-no" title="statement not covered" >if (window.__REDUX_DEVTOOLS_EXTENSION__) {</span>
 <span class="cstat-no" title="statement not covered" >  devTools = window.__REDUX_DEVTOOLS_EXTENSION__();</span>
-}
-&nbsp;
-const store = <span class="cstat-no" title="statement not covered" >createStore(</span>
-  rootReducer(history),
-  {},
-  compose(applyMiddleware(thunk), devTools)
-);
-&nbsp;
+<span class="cstat-no" title="statement not covered" >}</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >const store = createStore(</span>
+<span class="cstat-no" title="statement not covered" >  rootReducer(history),</span>
+<span class="cstat-no" title="statement not covered" >  {},</span>
+<span class="cstat-no" title="statement not covered" >  compose(applyMiddleware(thunk), devTools)</span>
+<span class="cstat-no" title="statement not covered" >);</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >ReactDOM.render(</span>
-  &lt;Provider store={store}&gt;
-    &lt;ToastContainer /&gt;
-      &lt;BrowserRouter&gt;
-          &lt;ConnectedRouter history={history}&gt;
-              &lt;App /&gt;
-          &lt;/ConnectedRouter&gt;
-      &lt;/BrowserRouter&gt;
-  &lt;/Provider&gt;,
-  document.getElementById("root")
-);
+<span class="cstat-no" title="statement not covered" >  &lt;Provider store={store}&gt;</span>
+<span class="cstat-no" title="statement not covered" >    &lt;ToastContainer /&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;BrowserRouter&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;ConnectedRouter history={history}&gt;</span>
+<span class="cstat-no" title="statement not covered" >              &lt;App /&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;/ConnectedRouter&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;/BrowserRouter&gt;</span>
+<span class="cstat-no" title="statement not covered" >  &lt;/Provider&gt;,</span>
+<span class="cstat-no" title="statement not covered" >  document.getElementById("root")</span>
+<span class="cstat-no" title="statement not covered" >);</span>
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -175,7 +175,7 @@ const store = <span class="cstat-no" title="statement not covered" >createStore(
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Jul 05 2021 02:25:41 GMT+0300 (Восточная Европа, летнее время)
+                at Mon Jul 05 2021 04:35:18 GMT+0300 (Восточная Европа, летнее время)
             </div>
         </div>
         <script src="../prettify.js"></script>

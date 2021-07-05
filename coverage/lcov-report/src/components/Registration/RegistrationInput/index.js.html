@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/6</span>
+                <span class='fraction'>16/16</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/4</span>
+                <span class='fraction'>16/16</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -72,34 +72,34 @@
 <a name='L13'></a><a href='#L13'>13</a>
 <a name='L14'></a><a href='#L14'>14</a>
 <a name='L15'></a><a href='#L15'>15</a>
-<a name='L16'></a><a href='#L16'>16</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import RegistrationInput from './RegistrationInput';
+<a name='L16'></a><a href='#L16'>16</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import RegistrationInput from './RegistrationInput';
 import { connect } from 'react-redux';
 import { getRegErrorByIdStore,getRegFieldByIdStore } from '../../../store/registration/selectors';
 import { changeRegistrationField, changeRegistrationFieldError } from '../../../store/registration/actions';
 &nbsp;
-const mapStateToProps = <span class="fstat-no" title="function not covered" >(s</span>tate, props) =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
+const mapStateToProps = <span class="fstat-no" title="function not covered" >(state, props) =&gt; ({</span>
     value: getRegFieldByIdStore(state, props),
     error: getRegErrorByIdStore(state, props)
 })
 &nbsp;
-const mapDispatchToProps = <span class="fstat-no" title="function not covered" >(d</span>ispatch) =&gt;(<span class="cstat-no" title="statement not covered" >{</span>
-    changeField:<span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; <span class="cstat-no" title="statement not covered" >dispatch(changeRegistrationField(data)),</span>
-    setError:<span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; <span class="cstat-no" title="statement not covered" >dispatch(changeRegistrationFieldError(data)),</span>
+const mapDispatchToProps = <span class="fstat-no" title="function not covered" >(dispatch) =&gt;({</span>
+    changeField:(data) =&gt; dispatch(changeRegistrationField(data)),
+    setError:(data) =&gt; dispatch(changeRegistrationFieldError(data)),
 })
 &nbsp;
 export default connect(mapStateToProps,mapDispatchToProps)(RegistrationInput)</pre></td></tr></table></pre>
@@ -109,7 +109,7 @@ export default connect(mapStateToProps,mapDispatchToProps)(RegistrationInput)</p
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Jul 05 2021 02:25:41 GMT+0300 (Восточная Европа, летнее время)
+                at Mon Jul 05 2021 04:35:18 GMT+0300 (Восточная Европа, летнее время)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

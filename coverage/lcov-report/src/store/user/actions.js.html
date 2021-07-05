@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>3/6</span>
+                <span class='fraction'>15/15</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>0/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>15/15</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -67,26 +67,41 @@
 <a name='L8'></a><a href='#L8'>8</a>
 <a name='L9'></a><a href='#L9'>9</a>
 <a name='L10'></a><a href='#L10'>10</a>
-<a name='L11'></a><a href='#L11'>11</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import * as AT from "./actionTypes";
 &nbsp;
-export const setUsers = <span class="fstat-no" title="function not covered" >(p</span>ayload) =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
-  type: AT.SET_USERS,
-  payload,
-});
+export const authUser = <span class="fstat-no" title="function not covered" >(payload) =&gt; ({ type: AT.AUTH_USER, payload });</span>
 &nbsp;
-export const authUser = <span class="fstat-no" title="function not covered" >(p</span>ayload) =&gt; (<span class="cstat-no" title="statement not covered" >{ type: AT.AUTH_USER, payload })</span>;
+export const logoutUser = <span class="fstat-no" title="function not covered" >() =&gt; ({ type: AT.LOGOUT_USER });</span>
 &nbsp;
-export const logoutUser = <span class="fstat-no" title="function not covered" >()</span> =&gt; (<span class="cstat-no" title="statement not covered" >{ type: AT.LOGOUT_USER })</span>;
+export const changeMyAccountField = <span class="fstat-no" title="function not covered" >(payload) =&gt; ({type: AT.CHANGE_MYACCOUNT_FIELD, payload});</span>
+&nbsp;
+export const getMyAccount = <span class="fstat-no" title="function not covered" >(payload) =&gt; ({type: AT.GET_MYACCOUNT, payload});</span>
+&nbsp;
+export const updateAvatar = <span class="fstat-no" title="function not covered" >(payload) =&gt; ({type: AT.CHANGE_MY_ACCOUNT_AVATAR, payload});</span>
+&nbsp;
+export const isOpen = <span class="fstat-no" title="function not covered" >() =&gt; ({type: AT.IS_OPEN});</span>
+&nbsp;
+export const userName = <span class="fstat-no" title="function not covered" >(payload) =&gt; ({type: AT.USER_NAME, payload});</span>
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -94,7 +109,7 @@ export const logoutUser = <span class="fstat-no" title="function not covered" >(
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Jul 05 2021 02:25:41 GMT+0300 (Восточная Европа, летнее время)
+                at Mon Jul 05 2021 04:35:18 GMT+0300 (Восточная Европа, летнее время)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

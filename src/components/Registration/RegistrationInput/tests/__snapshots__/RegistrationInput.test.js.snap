@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RegistrationInput Should match snapshot 1`] = `"core"`;
+exports[`RegistrationInput Should match snapshot 1`] = `"<label class=\\"inputs__label \\">undefined<input title=\\"undefined\\" placeholder=\\"undefined\\" class=\\"inputs__input undefined\\" minLength=\\"1\\" maxLength=\\"30\\"/></label>"`;

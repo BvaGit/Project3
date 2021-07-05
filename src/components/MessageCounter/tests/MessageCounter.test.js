@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import MessageCounter from '../MessageCounter';
+import MessageCounter from '../index';
 
 
 describe('MessageCounter', () => {

@@ -2,6 +2,8 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import AuthInput from '../AuthInput';
 import mapStateToProps from '../index'
+import { Provider } from 'react-redux';
+import { IntlProvider } from "react-intl";
 
 
 describe('AuthInput', () => {
@@ -9,17 +11,12 @@ describe('AuthInput', () => {
         const component = shallow(<AuthInput />)
         expect(component).toMatchSnapshot()
     })
-    // it('Should containe Input', () => {
-    //     const onBlur = jest.fn()
-    //     const onChange = jest.fn()
-    //     const component = mount(<Input />);
-    //     component.find('Input').toHaveLength(1)
-    // });
-
-    // it("Should have Input", () => {
-    //     const component = mount(<AuthInput />)
-    //     expect(component.find('Input')).toHaveLength(1)
-    // })
+    it("Should change input", () => {
+        let props={rooms:{chat_id:1},socket:{emit:jest.fn()}, userId:1,changeField:jest.fn(), messages:{length:2}}
+        const component = mountBiggerSmart(<AuthInput {...props}/>)
+        component.find('input').simulate("change", {target:{value:"value"}})
+        expect(component.find('input').value).toBe()
+    })
 })
 
 describe('mapStateToProps', () =>{
@@ -27,3 +24,10 @@ describe('mapStateToProps', () =>{
         expect(mapStateToProps).toBeDefined()
     })
 })
+
+const mountBiggerSmart = (component, store) => {
+    const core = store
+        ? <Provider store={store}>{component}</Provider>
+        : component;
+    return mount(<IntlProvider >{core}</IntlProvider>);
+};

@@ -35,6 +35,7 @@ const store = mockStore({
       },
       user:{
         user: { id: null, token: null },
+        myAccount : {  avatar: ''}
       },
       users: {
         users: [],
@@ -74,7 +75,7 @@ export const shallowBiggerSmart = (component, store) => {
     const core = store
         ? <Provider store={store}>{component}</Provider>
         : component;
-    return shallow(<IntlProvider >core</IntlProvider>);
+    return shallow(<IntlProvider >{core}</IntlProvider>);
 };
 
 export const mountBiggerSmart = (component, store) => {

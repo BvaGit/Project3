@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import MentionPin from '../MentionPin';
+import MentionPin from '../index';
 
 
 describe('MentionPin', () => {

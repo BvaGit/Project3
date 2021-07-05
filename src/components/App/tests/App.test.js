@@ -62,4 +62,4 @@ export const shallowSmart = (component, store) => {
         ? <Provider store={store}>{component}</Provider>
         : component;
     return shallow(core);
-};
+}; 

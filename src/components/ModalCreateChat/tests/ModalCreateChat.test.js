@@ -18,5 +18,5 @@ export const shallowBiggerSmart = (component, store) => {
     const core = store
         ? <Provider store={store}>{component}</Provider>
         : component;
-    return shallow(<IntlProvider>core</IntlProvider>);
+    return shallow(<IntlProvider>{core}</IntlProvider>);
 };
