@@ -1,4 +1,4 @@
-const config = require('../config');
+const config = require("../config");
 
 const connectPg = require("../connectPostgreSQL/connectPg");
 const { generateAcccessToken } = require("../support/support");

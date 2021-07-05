@@ -1,5 +1,6 @@
 const connectPg = require("../connectPostgreSQL/connectPg");
 const { message } = require("../support/constants");
+const { io } = require('../server');
 
 class ChatController {
   async getChats(req, res) {
