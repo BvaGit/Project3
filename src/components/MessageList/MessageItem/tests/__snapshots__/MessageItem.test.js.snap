@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageItem Should match snapshot 1`] = `"<div class=\\"message-box__container\\"><div class=\\"message-item message-item--user\\"><div class=\\"message-item__block\\">content<p class=\\"message-item__name\\"> </p><span class=\\"avatar\\"><img src=\\"/assets/images/1-36-1024x1024.jpg\\"/></span></div><span class=\\"message-item__date\\">Invalid date</span></div></div>"`;

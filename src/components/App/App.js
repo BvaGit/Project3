@@ -13,10 +13,10 @@ const App = ({languageValue: langValue}) => {
   return (
     <IntlProvider locale={langValue} messages={message[langValue]} >
       <Switch>
-         <Route path='/main' component={MainPage}/>
-         <Route path='/registration' component={Registration}/>
-         <Route exact path='/' component={Auth}/>
-     </Switch>
+        <Route path='/main' component={MainPage}/>
+        <Route path='/registration' component={Registration}/>
+        <Route exact path='/' component={Auth}/>
+      </Switch>
     </IntlProvider>
   )
 }

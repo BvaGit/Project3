@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rooms Should match snapshot 1`] = `"<label class=\\"inputs__label \\">undefined<input title=\\"undefined\\" placeholder=\\"undefined\\" class=\\"inputs__input undefined\\"/></label>"`;

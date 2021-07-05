@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageInput Should match snapshot 1`] = `"<div class=\\"message\\"><label><input value=\\"\\" class=\\"message__input\\" placeholder=\\"Write a message\\"/></label><button class=\\"message__btn\\" type=\\"submit\\"></button></div>"`;
