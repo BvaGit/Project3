@@ -2,7 +2,7 @@ const config = require("../config");
 
 const connectPg = require("../connectPostgreSQL/connectPg");
 const { generateAcccessToken } = require("../support/support");
-const url = `${config.prod_url}/backend/avatar`;
+const url = `${config.prod_url}/avatar/`;
 class UserController {
   async createUser(req, res) {
     const { login, password } = req.body;
